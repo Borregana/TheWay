@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Drawing tools</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
+
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- GOOGLE FONT -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+</head>
+<body>
+<header id="header">
+    <div id="logo-group">
+        <span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
+    </div>
+</header>
+<div>
+    <!-- NEW WIDGET START -->
+    <article class="col-md-3">
+
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div class="jarviswidget" id="wid-id-1" data-widget-fullscreenbutton="true">
+            <header>
+                <h2 class="txt-color-red login-header-big"><strong><?= $info['Ruta']['nombre']?></strong></h2>
+            </header>
+            <!-- widget div-->
+            <div>
+                <!-- widget content -->
+                <div class="widget-body">
+
+                    <?= $info['Ruta']['usuario_id']?>
+                    <?= $info['Ruta']['ciudad']?>
+                    <?= $info['Ruta']['tiempo']?>
+                    <?= $info['Ruta']['vehiculo']?>
+                    <?= $info['Ruta']['fecha_publicacion']?>
+                    <?= $info['Ruta']['puntuacion_media']?>
+
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+    </article>
+</div>
+<div>
+    <!-- NEW WIDGET START -->
+    <article class="col-md-4 col-lg-9">
+
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div class="jarviswidget" id="wid-id-2" data-widget-fullscreenbutton="true">
+
+            <header>
+                <h2 class="txt-color-green login-header-big"><strong>RUTA</strong></h2>
+            </header>
+
+            <!-- widget div-->
+            <div>
+                <!-- widget content -->
+                <div class="widget-body">
+
+                    MAPA DE LA RUTA SELECCIONADA
+
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+    </article>
+    <!-- NEW WIDGET START -->
+    <article class="col-md-3">
+
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div class="jarviswidget" id="wid-id-0" data-widget-fullscreenbutton="true">
+            <header>
+                <h2 class="txt-color-blue login-header-big"><strong>Comentarios</strong></h2>
+            </header>
+            <!-- widget div-->
+            <div>
+                <!-- widget content -->
+                <div class="widget-body">
+
+                    COMENTARIOS Y PUNTUACION
+
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+    </article>
+</div>
+
+</body>
+</html>
