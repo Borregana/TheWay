@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Rutas.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usuarios.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/markers.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/route.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/drawing.js" afterPath="$PROJECT_DIR$/js/drawing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheWay.iws" />
@@ -41,18 +41,18 @@
       <file leaf-file-name="drawing.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/drawing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="28" selection-start="5989" selection-end="5989" vertical-scroll-proportion="4.728889" vertical-offset="0" max-vertical-offset="2368">
+            <state line="62" column="56" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.74832964" vertical-offset="656" max-vertical-offset="2368">
               <folding>
-                <marker date="1405953438000" expanded="true" signature="2978:3006" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="3034:3644" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="3683:3705" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="3719:3783" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="3797:3937" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="4043:4071" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="4098:4708" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="4736:4758" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="4772:4836" placeholder="..." />
-                <marker date="1405953438000" expanded="true" signature="4850:4990" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="2977:3005" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="3033:3643" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="3682:3704" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="3718:3782" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="3796:3936" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="4042:4070" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="4097:4707" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="4735:4757" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="4771:4835" placeholder="..." />
+                <marker date="1405953706000" expanded="true" signature="4849:4989" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -163,6 +163,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="true" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -204,13 +205,19 @@
       <created>1405612822920</created>
       <updated>1405612822920</updated>
     </task>
+    <task id="LOCAL-00001" summary="segon commit desde phpstorm">
+      <created>1405953594296</created>
+      <updated>1405953594296</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329235" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -242,6 +249,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="segon commit desde phpstorm" />
+    <option name="LAST_COMMIT_MESSAGE" value="segon commit desde phpstorm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -333,18 +342,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="28" selection-start="5989" selection-end="5989" vertical-scroll-proportion="4.728889" vertical-offset="0" max-vertical-offset="2368">
+        <state line="62" column="56" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.74832964" vertical-offset="656" max-vertical-offset="2368">
           <folding>
-            <marker date="1405953438000" expanded="true" signature="2978:3006" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="3034:3644" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="3683:3705" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="3719:3783" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="3797:3937" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="4043:4071" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="4098:4708" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="4736:4758" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="4772:4836" placeholder="..." />
-            <marker date="1405953438000" expanded="true" signature="4850:4990" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="2977:3005" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="3033:3643" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="3682:3704" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="3718:3782" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="3796:3936" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="4042:4070" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="4097:4707" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="4735:4757" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="4771:4835" placeholder="..." />
+            <marker date="1405953706000" expanded="true" signature="4849:4989" placeholder="..." />
           </folding>
         </state>
       </provider>
