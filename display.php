@@ -61,9 +61,6 @@
 </head>
 
 <body>
-<?php
-if($_SESSION['Auth']){
-    ?>
     <!-- HEADER -->
     <header id="header">
         <div id="logo-group">
@@ -139,12 +136,7 @@ if($_SESSION['Auth']){
         <!-- end widget -->
 
     </article>
-<?php
-}
-else{
-    header('Location: index.html');
-}
-?>
+
 
 </body>
 
