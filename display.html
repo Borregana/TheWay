@@ -12,13 +12,24 @@
             margin: 0px;
             padding: 0px
         }
+        #panel {
+            position: absolute;
+            top: 54px;
+            left: 50.05%;
+            margin-left: -180px;
+            z-index: 5;
+            background-color: #fff;
+            padding: 1px;
+            border: 1px solid #999;
+        }
+
     </style>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9IemfslK-z4Wyuht0lka_Z2AqVbNfVXQ&sensor=false&libraries=drawing">
     </script>
 
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-
+    <script type="text/javascript" src="js/jquery.gomap-1.3.2.min.js"></script>
     <script type="text/javascript" src="js/drawing.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -42,6 +53,7 @@
 </head>
 
 <body>
+
 <!-- HEADER -->
 <header id="header">
     <div id="logo-group">
@@ -56,9 +68,13 @@
     <div id="edit" class="col-md-3">
         <span> Perfil de usuario <a href="edit.html" title="Perfil"><i class="btn btn-warning">Configuración</i></a> </span>
     </div>
-
+    <div id="logout" class="bottom-right">
+        <span> Mis Rutas <a href="logout.php" title="logout"><i class="btn btn-info">Salir</i></a> </span>
+    </div>
 </header>
-
+<div id="panel">
+    <input onclick="deleteMarkers();" type=button value="Delete Markers">
+</div>
 <div class="col-md-9" id="map-canvas"></div>
 
 <!-- NEW WIDGET START -->
@@ -73,7 +89,7 @@
         <div>
             <!-- widget content -->
             <div class="widget-body">
-                <form  id="smart-form-register" action="usuarios.php" class="smart-form client-form" method="post">
+                <form  id="smart-form-register" action="inforuta.php" class="smart-form client-form" method="post">
                     <header>
                     </header>
                     <fieldset>
@@ -115,7 +131,6 @@
     <!-- end widget -->
 
 </article>
-
 
 </body>
 

@@ -8,13 +8,13 @@ function submitRoute() {
         p += routeArray[i].getPosition().toString() + "\n";
     }
     var parametros = {
-        "puntos" : p,
+        "lines" : p,
         "nocache" : Math.random() // no cache
     };
 
     $.ajax({
         data:  parametros,
-        url:   'route.php',
+        url:   'saveRoute.php',
         type:  'post',
         success:  function (response) {
             alert(response);
@@ -34,7 +34,7 @@ function submitMarker(){
 
     $.ajax({
         data:  parametros,
-        url:   'markers.php',
+        url:   'saveMarkers.php',
         type:  'post',
         success:  function (response) {
             alert(response);
@@ -53,6 +53,42 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+    var contentString = '<div>'+
+        '<form  id="punto" action="infoPunto.php" class="smart-form client-form" method="post">'+
+        '<header>'+
+        'Punto de Interes'+
+        '</header>'+
+        '<fieldset>'+
+        '<section>'+
+        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+        '<input type="text" name="nombre" placeholder="Nombre">'+
+        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+        '</section>'+
+        '</fieldset>'+
+        '<footer>'+
+        '<button type="submit" class="btn btn-primary" onclick="submitPoint()">'+
+        'Guardar'+
+        '</button>'+
+        '</footer>'+
+        '</form>'+
+        '</div>';
+
+    function submitPoint(){
+        var puntos="";
+
+        $.ajax({
+            data: puntos,
+            url: 'infoPunto.php',
+            type: 'post',
+            success:  function (response) {
+                alert(response);
+            },
+            error: alert(error)
+        });
+    }
+    var infoWindow = new google.maps.InfoWindow({
+        content: contentString
+    });
     var drawingManager = new google.maps.drawing.DrawingManager({
         //drawingMode: google.maps.drawing.OverlayType.MARKER,
         drawingControl: true,
@@ -80,6 +116,21 @@ function initialize() {
     });
 
     drawingManager.setMap(map);
+
+    function setAllMap(map){
+        for(var i = 0; i< markersArray.length; i++){
+            markersArray[i].setMap(map);
+        }
+    }
+
+    function clearMarkers(){
+        setAllMap(null);
+    }
+
+    function deleteMarkers(){
+        clearMarkers();
+        markersArray=[];
+    }
 
     // var bounds = new google.maps.LatLngBounds(
     // 	new google.maps.LatLng(-32, 150),
@@ -130,11 +181,24 @@ function initialize() {
         google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
             markersArray.push(marker);
         });
+        google.maps.event.addListener(marker,'click', function(){
+            infoWindow.open(map,marker);
+        });
         google.maps.event.addListener(drawingManager, 'linecomplete', function(line) {
             routeArray.push(line);
         });
 
     });
+    var myLatlng = new google.maps.LatLng(39.8867882,-0.0867385,15);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+    });
+
+
+    marker.setMap(map);
 
 }
 
