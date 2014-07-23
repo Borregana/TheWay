@@ -1,11 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Borregana
- * Date: 22/07/14
- * Time: 13.37
- */
-?>
 <!DOCTYPE html>
 <html>
 
@@ -19,16 +11,6 @@
             height: 100%;
             margin: 0px;
             padding: 0px
-        }
-        #panel {
-            position: absolute;
-            top: 54px;
-            left: 50.05%;
-            margin-left: -180px;
-            z-index: 5;
-            background-color: #fff;
-            padding: 1px;
-            border: 1px solid #999;
         }
 
     </style>
@@ -60,85 +42,82 @@
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header id="header">
-        <div id="logo-group">
-            <span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
-        </div>
-        <div id="private" class="col-md-3">
-            <span> Mis Rutas <a href="view.html" title="Private"><i class="btn btn-info">Acceder</i></a> </span>
-        </div>
-        <div id="public" class="col-md-3">
-            <span> Vista Publica <a href="publicRuta.html" title="Publica"><i class="btn btn-success">Rutas</i></a> </span>
-        </div>
-        <div id="edit" class="col-md-3">
-            <span> Perfil de usuario <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Configuración</i></a> </span>
-        </div>
-        <div id="logout" class="bottom-right">
-            <span> Logout <a href="logout.php" title="logout"><i class="btn btn-info">Salir</i></a> </span>
-        </div>
 
-    </header>
-    <div id="panel">
-        <input onclick="deleteMarkers();" type=button value="Delete Markers">
+<!-- HEADER -->
+<header id="header">
+    <div id="logo-group">
+        <span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
     </div>
-    <div class="col-md-9" id="map-canvas"></div>
+    <div id="private" class="col-md-2">
+        <span> Mis Rutas <a href="view.html" title="Private"><i class="btn btn-info">Acceder</i></a> </span>
+    </div>
+    <div id="public" class="col-md-2">
+        <span> Vista Publica <a href="publicRuta.html" title="Publica"><i class="btn btn-success">Rutas</i></a> </span>
+    </div>
+    <div id="edit" class="col-md-2">
+        <span> Perfil <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Configuración</i></a> </span>
+    </div>
+    <div id="logout" class="col-md-2">
+        <span> Logout <a href="logout.php" title="logout"><i class="btn btn-info">Salir</i></a> </span>
+    </div>
+</header>
 
-    <!-- NEW WIDGET START -->
-    <article class="col-md-3">
+<div class="col-md-9" id="map-canvas"></div>
 
-        <!-- Widget ID (each widget will need unique ID)-->
-        <div class="jarviswidget" id="wid-id-0" data-widget-fullscreenbutton="true">
-            <header>
-                <h2><strong>Información </strong> <i>Ruta</i></h2>
-            </header>
-            <!-- widget div-->
-            <div>
-                <!-- widget content -->
-                <div class="widget-body">
-                    <form  id="smart-form-register" action="inforuta.php" class="smart-form client-form" method="post">
-                        <header>
-                        </header>
-                        <fieldset>
-                            <section>
-                                <label class="input"> <i class="icon-append fa fa-suitcase"></i>
-                                    <input type="text" name="nombre" placeholder="Nombre">
-                                    <b class="tooltip tooltip-bottom-right">Nombre de la ruta</b> </label>
-                            </section>
+<!-- NEW WIDGET START -->
+<article class="col-md-3">
 
-                            <section>
-                                <label class="input"> <i class="icon-append fa fa-home"></i>
-                                    <input type="text" name="ciudad" placeholder="Ciudad">
-                                    <b class="tooltip tooltip-bottom-right">Ciudad recorrida</b> </label>
-                            </section>
+    <!-- Widget ID (each widget will need unique ID)-->
+    <div class="jarviswidget" id="wid-id-0" data-widget-fullscreenbutton="true">
+        <header>
+            <h2><strong>Información </strong> <i>Ruta</i></h2>
+        </header>
+        <!-- widget div-->
+        <div>
+            <!-- widget content -->
+            <div class="widget-body">
+                <form  id="smart-form-register"  class="smart-form client-form" method="post">
+                    <header>
+                    </header>
+                    <fieldset>
+                        <section>
+                            <label class="input"> <i class="icon-append fa fa-suitcase"></i>
+                                <input type="text" name="nombre" placeholder="Nombre">
+                                <b class="tooltip tooltip-bottom-right">Nombre de la ruta</b> </label>
+                        </section>
 
-                            <section>
-                                <label class="input"> <i class="icon-append fa fa-clock-o"></i>
-                                    <input type="time" name="tiempo" placeholder="Tiempo de recorrido">
-                                    <b class="tooltip tooltip-bottom-right">Cuanto tiempo tardaste?</b> </label>
-                            </section>
+                        <section>
+                            <label class="input"> <i class="icon-append fa fa-home"></i>
+                                <input type="text" name="ciudad" placeholder="Ciudad">
+                                <b class="tooltip tooltip-bottom-right">Ciudad recorrida</b> </label>
+                        </section>
 
-                            <section>
-                                <label class="input"> <i class="icon-append fa fa-truck"></i>
-                                    <input type="text" name="vehiculo" placeholder="Vehiculo">
-                                    <b class="tooltip tooltip-bottom-right">De que modo te moviste por la ciudad?</b> </label>
-                            </section>
-                        </fieldset>
-                        <footer>
-                            <button type="submit" class="btn btn-primary" onclick="submitData()">
-                                Crear
-                            </button>
-                        </footer>
-                    </form>
-                </div>
-                <!-- end widget content -->
+                        <section>
+                            <label class="input"> <i class="icon-append fa fa-clock-o"></i>
+                                <input type="time" name="tiempo" placeholder="Tiempo de recorrido">
+                                <b class="tooltip tooltip-bottom-right">Cuanto tiempo tardaste?</b> </label>
+                        </section>
+
+                        <section>
+                            <label class="input"> <i class="icon-append fa fa-truck"></i>
+                                <input type="text" name="vehiculo" placeholder="Vehiculo">
+                                <b class="tooltip tooltip-bottom-right">De que modo te moviste por la ciudad?</b> </label>
+                        </section>
+                    </fieldset>
+                    <footer>
+                        <button type="submit" class="btn btn-primary" onclick="submitRoute()">
+                            Crear
+                        </button>
+                    </footer>
+                </form>
             </div>
-            <!-- end widget div -->
+            <!-- end widget content -->
         </div>
-        <!-- end widget -->
+        <!-- end widget div -->
+    </div>
+    <!-- end widget -->
 
-    </article>
-
+</article>
 
 </body>
 

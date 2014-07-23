@@ -8,8 +8,8 @@ function submitRoute() {
         p += routeArray[i].getPath().getArray().toString() + "\n";
     }
     var s = "";
-    for (var j=0; i<markersArray.length; j++) {
-        s += markersArray[i].getPosition().toString();
+    for (var j=0; j<markersArray.length; j++) {
+        s += markersArray[j].getPosition().toString();
     }
     var parametros = {
         "lines" : p,
@@ -134,14 +134,14 @@ function initialize() {
             newObj.attr('id', 'btnLine');
         });
 
-        $("#btnBar").append('<div style="float: left; line-height: 0;"><div id="btnRoute" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(51, 51, 51); font-family: Arial,sans-serif; -moz-user-select: none; font-size: 13px; background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 4px; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(113, 123, 135) rgb(113, 123, 135) rgb(113, 123, 135) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); font-weight: normal;" title="Save Route"><span style="display: inline-block;"><div style="width: 16px; height: 16px; overflow: hidden; position: relative;"><img style="position: absolute; left: 0px; top: -195px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 16px; height: 350px;" src="img/goma.png" draggable="false"></div></span></div></div>');
+        $("#btnBar").append('<div style="float: left; line-height: 0;"><div id="btnRoute" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(51, 51, 51); font-family: Arial,sans-serif; -moz-user-select: none; font-size: 13px; background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 4px; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(113, 123, 135) rgb(113, 123, 135) rgb(113, 123, 135) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); font-weight: normal;" title="Delete"><span style="display: inline-block;"><div style="width: 16px; height: 16px; overflow: hidden; position: relative;"><img style="position: absolute; left: 0px; top: -195px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 16px; height: 350px;" src="img/goma.png" draggable="false"></div></span></div></div>');
 
-        $("#btnBar").append('<div style="float: left; line-height: 0;"><div id="btnSave" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(51, 51, 51); font-family: Arial,sans-serif; -moz-user-select: none; font-size: 13px; background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 4px; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(113, 123, 135) rgb(113, 123, 135) rgb(113, 123, 135) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); font-weight: normal;" title="Save"><span style="display: inline-block;"><div style="width: 16px; height: 16px; overflow: hidden; position: relative;"><img style="position: absolute; left: 0px; top: -195px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 16px; height: 350px;" src="img/save.png" draggable="false"></div></span></div></div>');
+        $("#btnBar").append('<div style="float: left; line-height: 0;"><div id="btnSave" style="direction: ltr; overflow: hidden; text-align: left; position: relative; color: rgb(51, 51, 51); font-family: Arial,sans-serif; -moz-user-select: none; font-size: 13px; background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 4px; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgb(113, 123, 135) rgb(113, 123, 135) rgb(113, 123, 135) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); font-weight: normal;" title="Save Route"><span style="display: inline-block;"><div style="width: 16px; height: 16px; overflow: hidden; position: relative;"><img style="position: absolute; left: 0px; top: -195px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 16px; height: 350px;" src="img/save.png" draggable="false"></div></span></div></div>');
 
 
 
-        google.maps.event.addDomListener(document.getElementById('btnSave'), 'click', submitMarker);
-        google.maps.event.addDomListener(document.getElementById('btnRoute'), 'click', submitRoute);
+        google.maps.event.addDomListener(document.getElementById('btnSave'), 'click', submitRoute);
+        //google.maps.event.addDomListener(document.getElementById('btnRoute'), 'click', submitRoute);
 
         google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
             if(event.type == google.maps.drawing.OverlayType.POLYLINE) {
@@ -150,17 +150,18 @@ function initialize() {
                 });
             }
             else if(event.type == google.maps.drawing.OverlayType.MARKER) {
-                    var newMarker = event.overlay;
-                    newMarker.content = contentString + markersArray.length;
-                    google.maps.event.addListener(newMarker, 'click', function() {
+                google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
+                    marker.content = contentString + markersArray.length;
+                    google.maps.event.addListener(marker, 'click', function() {
                         infoWindow.setContent(this.content);
                         infoWindow.open(map, this);
                     });
-                    markersArray.push(newMarker);
-                }
-            });
-           });
-    }
+                    markersArray.push(marker);
+                });
+            }
+        });
+    });
+}
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
 
