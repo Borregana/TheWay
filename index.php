@@ -14,11 +14,14 @@ if (!$_SESSION['auth']) {
 
     if ($usuario=mysql_real_escape_string($alias=$_GET['alias'])) {
         //$password=md5($_GET['password']);
-        $password=$_GET['password'];
+        $password=md5($_GET['password']);
 
+        echo 'hola';
         $us=mysql_fetch_assoc(mysql_query(
             "select * form Usuarios where alias = '$usuario' and password = '$password'"));
 
+        echo 'hola2'.$us;
+        /*
         if ($us) {
             echo "entro en us\n";
             $_SESSION['auth']=true;
@@ -26,11 +29,10 @@ if (!$_SESSION['auth']) {
 
             header('Location: display.php');
             die();
-        }
+        }*/
     }
 }
-if (!$_SESSION['auth']){
-    ?>
+?>
     <!DOCTYPE html>
     <html>
 
@@ -115,5 +117,4 @@ if (!$_SESSION['auth']){
 
     </body>
     </html>
-<?php
-}
+
