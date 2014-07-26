@@ -5,38 +5,22 @@
  * Date: 22/07/14
  * Time: 11.42
  */
-if (!$_SESSION['auth']) {
-    $con=mysqli_connect("localhost", "root", "root", "Rutas");
-
-    if(mysqli_connect_errno()){
-        echo "No se ha podido conectar con la base de datos: ".mysqli_connect_error();
-    }
-
-    if ($usuario=mysql_real_escape_string($alias=$_GET['alias'])) {
-        //$password=md5($_GET['password']);
-        $password=md5($_GET['password']);
-
-        echo 'hola';
-        $us=mysql_fetch_assoc(mysql_query(
-            "select * form Usuarios where alias = '$usuario' and password = '$password'"));
-
-        echo 'hola2'.$us;
-        /*
-        if ($us) {
-            echo "entro en us\n";
-            $_SESSION['auth']=true;
-            $_SESSION['alias']=$us['alias'];
-
-            header('Location: display.php');
-            die();
-        }*/
-    }
+session_start();
+if (isset($_SESSION['alias']))
+{
+    echo '<script>location.href = "display.php";</script>';
 }
-?>
+else
+{
+    ?>
     <!DOCTYPE html>
     <html>
-
     <head>
+        <title>The Way is coming...</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+
+        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -60,55 +44,68 @@ if (!$_SESSION['auth']) {
     <body id="login" class="animated fadeInDown">
 
     <div id="main" role="main">
-
-        <!-- MAIN CONTENT -->
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <!-- register button -->
+        <header id="header">
+            <div id="logo-group">
+                <span id="logo"> <img src="img/logo-enBinari.png" alt="TheWay"> </span>
+            </div>
             <div id="register" class="pull-right">
                 <span> No tienes cuenta? <a href="register.html" title="Registro"><i class="btn btn-danger">Registrarse</i></a> </span>
             </div>
-            <!-- end register button -->
-        </div>
+        </header>
+
         <div id="content" class="container">
             <div class="row">
 
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
                     <div class="well no-padding">
-                        <form id="login-form" action="" class="smart-form" novalidate="novalidate" method="get">
+                        <form id="login-form" action="return false" onsubmit="return false" class="smart-form" novalidate="novalidate" method="post">
                             <header>
                                 Login
                             </header>
-                            <fieldset>
-                                <section>
-                                    <label class="label">Alias</label>
-                                    <label class="input"> <i class="icon-append fa fa-user"></i>
-                                        <input  name="alias">
-                                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Introduce tu alias</b></label>
-                                </section>
-                                <section>
-                                    <label class="label">Password</label>
-                                    <label class="input"> <i class="icon-append fa fa-lock"></i>
-                                        <input type="password" name="password">
-                                        <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Introduce tu password</b> </label>
-                                </section>
-                                <section>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="remember" checked="">
-                                        <i></i>Manten mi cuenta</label>
-                                </section>
-                            </fieldset>
-                            <footer>
-                                <button type="submit" class="btn btn-primary">
-                                    Sign in
-                                </button>
-                            </footer>
-                        </form>
+                            <div id="resultado"></div>
+                                <fieldset>
+                                    <section>
+                                        <label class="label">Alias</label>
+                                        <label class="input"> <i class="icon-append fa fa-user"></i>
+                                            <input  name="user" id="user">
+                                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Introduce tu alias</b></label>
+                                    </section>
+                                    <section>
+                                        <label class="label">Password</label>
+                                        <label class="input"> <i class="icon-append fa fa-lock"></i>
+                                            <input type="password" name="pass" id="pass">
+                                            <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Introduce tu password</b> </label>
+                                    </section>
+                                    <section>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="remember" checked="">
+                                            <i></i>Manten mi cuenta</label>
+                                    </section>
+                                </fieldset>
+                                <footer>
+                                    <button class="btn btn-primary" onclick="Validar(document.getElementById('user').value, document.getElementById('pass').value);">
+                                        Entrar
+                                    </button>
+                                </footer>
+                            </form>
+                        <script>
+                            function Validar(user, pass)
+                            {
+                                $.ajax({
+                                    url: "validar.php",
+                                    type: "POST",
+                                    data: "user="+user+"&pass="+pass,
+                                    success: function(resp){
+                                        $('#resultado').html(resp)
+                                    }
+                                });
+                            }
+                        </script>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-                    <h1 class="txt-color-red login-header-big">Rutes</h1>
-                    <div class="hero">
-                    </div>
+                    <h1 class="txt-color-red login-header-big">El Camino...</h1>
+                    <img src="img/logo-TheWay.png" alt="TheWay" width="900px">
                 </div>
             </div>
         </div>
@@ -117,4 +114,6 @@ if (!$_SESSION['auth']) {
 
     </body>
     </html>
-
+<?php
+}
+?>

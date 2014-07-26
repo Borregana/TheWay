@@ -78,19 +78,7 @@ function initialize() {
         '</form>'+
         '</div>';
 
-    function submitPoint(){
-        var puntos="";
 
-        $.ajax({
-            data: puntos,
-            url: 'infoPunto.php',
-            type: 'post',
-            success:  function (response) {
-                alert(response);
-            },
-            error: alert(error)
-        });
-    }
     var infoWindow = new google.maps.InfoWindow({
         content: contentString
     });

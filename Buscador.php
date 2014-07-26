@@ -1,3 +1,12 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Borregana
+ * Date: 24/07/14
+ * Time: 18.22
+ */
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +40,15 @@
 </head>
 <body>
 <header id="header">
-    <div id="logo-group">
-        <span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
+    <div id="logo-group" class="col-md-2">
+        <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
+    </div>
+    <div class="col-md-10">
+        <div class="btn-group">
+            <a href="view.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
+            <a href="display.php" title="Private"><i class="btn btn-success">Creador</i></a>
+            <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
+        </div>
     </div>
 </header>
 <div>
@@ -51,7 +67,7 @@
                 <!-- widget content -->
                 <div class="widget-body">
 
-                    <form  id="smart-form-search" action="Rutas.php" class="smart-form client-form" method="post">
+                    <form  id="smart-form-search" action="Buscador.php" class="smart-form client-form" method="post">
                         <fieldset>
                             <div class="col-md-12">
                                 <section>
@@ -124,29 +140,32 @@
                 <!-- widget content -->
                 <div class="widget-body">
                     <?php
-                    if($rutas!=''){ ?>
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        foreach( $rutas as $ruta){ ?>
-                        <tr>
-                            <td><?= $ruta['Ruta']['nombre']; ?></td>
-                            <td><?= $ruta['Ruta']['fecha_publicacion']; ?></td>
-                        </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
+                    /*if(isset($rutas)){ ?>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach( $rutas as $ruta){ ?>
+                                <tr>
+                                    <td><?= $ruta['nombre']; ?></td>
+                                    <td><?= $ruta['ciudad']; ?></td>
+                                    <td><?= $ruta['tiempo']; ?></td>
+                                    <td><?= $ruta['vehiculo']; ?></td>
+                                    <td><?= $ruta['fecha_publicacion']; ?></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
                     <?php
                     }
                     else{
                         echo 'Busca las rutas que mejor te vengan...';
-                    }?>
+                    }*/?>
 
                 </div>
                 <!-- end widget content -->

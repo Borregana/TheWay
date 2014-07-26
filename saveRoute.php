@@ -14,11 +14,17 @@ if(isset($_POST)){
     $time= mysqli_real_escape_string($con,$_POST['tiempo']);
     $vehicle= mysqli_real_escape_string($con,$_POST['vehiculo']);
 
+    /*$parametros = "<script type='/text/javascript'>
+    /*document.writeln(parametros);
+    </script>'";*/
+
     $sql="INSERT INTO Rutas (nombre,ciudad,marcadores, recorrido, tiempo, vehiculo)
-     VALUES ('$name','$city','$lines', '$markers','$time','$vehicle')";
+     VALUES ('{$_POST['nombre']}','$city','$lines', '$markers','$time','$vehicle')";
+
 
     if(!mysqli_query($con, $sql)){
         die('Error'. mysqli_error($con));
     }
+    print_r($_POST);
     echo 'La Ruta ha sido guardada';
 }
