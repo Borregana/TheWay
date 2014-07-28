@@ -32,7 +32,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- register button -->
         <div id="edit" class="pull-right">
-            <span><a href="display.html" title="volver"><i class="btn btn-warning">Volver</i></a> </span>
+            <span><a href="display.php" title="volver"><i class="btn btn-warning">Volver</i></a> </span>
         </div>
         <!-- end register button -->
     </div>

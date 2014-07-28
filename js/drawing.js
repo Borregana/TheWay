@@ -34,19 +34,25 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
 function submitPoint(nombre)
 {
     var punto = markersArray[0].getPosition().toString();
-    var parametros = {
-        "punto": punto,
-        "nombre": nombre,
-        "ruta_id": idRuta
-    };
-    $.ajax({
-        url: "savePunto.php",
-        type: "POST",
-        data: parametros,
-        success: function(resp){
-            $('#resultado').html(resp);
-        }
-    });
+    if(idRuta==""){
+        alert("Debes crear la ruta primero");
+    }
+    else
+    {
+        var parametros = {
+            "punto": punto,
+            "nombre": nombre,
+            "ruta_id": idRuta
+        };
+        $.ajax({
+            url: "savePunto.php",
+            type: "POST",
+            data: parametros,
+            success: function(resp){
+                $('#resultado').html(resp);
+            }
+        });
+    }
 }
 
 function initialize() {
