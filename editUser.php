@@ -5,16 +5,17 @@
  * Date: 22/07/14
  * Time: 18.37
  */
-if(isset($_POST)){
+session_start();
+if(isset($_SESSION['alias'])){
 
     $con=mysqli_connect("localhost","root","root","Rutas");
 
     if(mysqli_connect_errno()){
         echo "No se pudo conectar con la base de datos".mysqli_connect_error();
     }
-//$ses_alias= mysqli_real_escape_string($con,$_SESSION['alias']);
 
-    $result= mysqli_query($con, "SELECT * FROM Usuarios");
+    $usuario=mysqli_real_escape_string($con,$_SESSION['usuario_id']);
+    $result= mysqli_query($con, "SELECT * FROM Usuarios WHERE id='$usuario'");
 
     $row = mysqli_fetch_array($result);
 
@@ -29,6 +30,8 @@ if(isset($_POST)){
         <meta charset="utf-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
         <!-- Basic Styles -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
@@ -50,13 +53,18 @@ if(isset($_POST)){
     <body id="login" class="animated fadeInDown">
 
     <div id="main">
+        <!-- HEADER -->
         <header id="header">
-            <div id="logo-group">
+            <div id="logo-group" class="col-md-2">
                 <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
             </div>
-
-            <div id="edit" class="pull-right">
-                <span><a href="display.php" title="volver"><i class="btn btn-warning">Volver</i></a> </span>
+            <div class="col-md-8">
+                <div class="btn-group">
+                    <a href="misRutas.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
+                    <a href="display.php" title="Creador"><i class="btn btn-success">Creador</i></a>
+                    <a href="Buscador.php" title="Buscador"><i class="btn btn-warning">Buscador</i></a>
+                    <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
+                </div>
             </div>
         </header>
 
@@ -66,52 +74,76 @@ if(isset($_POST)){
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                     <div class="well no-padding">
 
-                        <form  id="smart-form-register" action="editUser.php" class="smart-form client-form" method="post">
+                        <form  id="smart-form-register" action="return false" onsubmit="return false" class="smart-form client-form" method="post">
                             <header>
                                 Información de usuario
                             </header>
 
+                            <div id="resultado"></div>
                             <fieldset>
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-user-md"></i>
-                                        <input type="text" name="nombre" placeholder="Nombre" value=<?= $row['nombre']?>>
+                                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" value=<?= $row['nombre']?>>
                                         <b class="tooltip tooltip-bottom-right">Tu nombre real</b> </label>
                                 </section>
 
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-user-md"></i>
-                                        <input type="text" name="apellidos" placeholder="Apellidos" value=<?= $row['apellidos']?>>
+                                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" value=<?= $row['apellidos']?>>
                                         <b class="tooltip tooltip-bottom-right">Tus apellidos reales</b> </label>
                                 </section>
 
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-user"></i>
-                                        <input type="text" name="alias" placeholder="Alias" value=<?= $row['alias']?>>
+                                        <input type="text" id="alias" name="alias" placeholder="Alias" value=<?= $row['alias']?>>
                                         <b class="tooltip tooltip-bottom-right">Tu nombre de usuario para acceder</b> </label>
                                 </section>
 
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                                        <input type="email" name="mail" placeholder="Direccion de Email" value=<?= $row['mail']?>>
+                                        <input type="email" id="mail" name="mail" placeholder="Direccion de Email" value=<?= $row['mail']?>>
                                         <b class="tooltip tooltip-bottom-right">Lo necesitamos para estar en contacto</b> </label>
                                 </section>
 
 
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-home"></i>
-                                        <input type="text" name="direccion" placeholder="Dirección" value=<?= $row['direccion']?>>
+                                        <input type="text" id="direccion" name="direccion" placeholder="Dirección" value=<?= $row['direccion']?>>
                                         <b class="tooltip tooltip-bottom-right">La dirección donde vives</b> </label>
                                 </section>
 
                             </fieldset>
 
                             <footer>
-                                <button type="submit" class="btn btn-primary">
+                                <button class="btn btn-primary" onclick="Editar(document.getElementById('nombre').value,
+                                 document.getElementById('apellidos').value,
+                                 document.getElementById('alias').value,
+                                 document.getElementById('mail').value,
+                                 document.getElementById('direccion').value);">
                                     Guardar cambios
                                 </button>
                             </footer>
-
                         </form>
+                        <script>
+                            function Editar(nombre,apellidos,alias,mail,direccion)
+                            {
+                                var parametros= {
+                                    "nombre": nombre,
+                                    "apellidos": apellidos,
+                                    "alias": alias,
+                                    "mail": mail,
+                                    "direccion": direccion
+                                }
+                                $.ajax({
+                                    url: "edit.php",
+                                    type: "POST",
+                                    data: parametros,
+                                    success: function(resp){
+                                        $('#resultado').html(resp)
+                                    }
+                                });
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
@@ -121,25 +153,7 @@ if(isset($_POST)){
     </html>
 <?php
 }
-else{
-    $con=mysqli_connect("localhost","root","root","Rutas");
-
-    if(mysqli_connect_errno()){
-        echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-    }
-
-    $nombre= mysqli_real_escape_string($con,$_POST['nombre']);
-    $apellidos= mysqli_real_escape_string($con,$_POST['apellidos']);
-    $alias= mysqli_real_escape_string($con,$_POST['alias']);
-    $mail= mysqli_real_escape_string($con,$_POST['mail']);
-    $direccion= mysqli_real_escape_string($con,$_POST['direccion']);
-
-
-    if($result= mysqli_query($con, "UPDATE Usuarios SET $nombre and $apellidos and $alias and $mail and $direccion")){
-        echo "Los datos se han modificado satisfactoriamente";
-    }
-
-
-    mysqli_close($con);
-
+else
+{
+    echo '<script>location.href = "index.php";</script>';
 }

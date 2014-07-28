@@ -33,7 +33,8 @@ else
     else
     {
         echo '<span>El usuario y/o clave son incorrectas, vuelva a intentarlo.</span>';
-    }
+    }mysqli_close($con);
+
 }
 ?>
 

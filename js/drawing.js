@@ -13,6 +13,7 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
         s += markersArray[j].getPosition().toString();
     }
     var parametros = {
+        "ruta_id": idRuta,
         "lines" : p,
         "puntos": s,
         "nombre": nombre,
@@ -31,7 +32,7 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
     });
 }
 
-function submitPoint(nombre)
+function submitPoint(nombre, posicion)
 {
     var punto = markersArray[0].getPosition().toString();
     if(idRuta==""){
@@ -39,8 +40,9 @@ function submitPoint(nombre)
     }
     else
     {
+        alert(posicion);
         var parametros = {
-            "punto": punto,
+            "punto": posicion,
             "nombre": nombre,
             "ruta_id": idRuta
         };
@@ -78,9 +80,12 @@ function initialize() {
         '<input type="text" id="nombre" name="nombre" placeholder="Nombre">'+
         '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
         '</section>'+
+        '<section'+
+        '<input type="hidden" value= marker.getPosition().toString(); id="posicion">'+
+        '</section>'+
         '</fieldset>'+
         '<footer>'+
-        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value);>'+
+        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value,document.getElementById("posicion").value);>'+
         'Entrar'+
         '</button>'+
         '</footer>'+

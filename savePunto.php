@@ -32,5 +32,6 @@ else
 {
     echo '<span class="txt-color-redLight login-header-big">El punto no ha sido guardado correctamente.</span>';
 }
+mysqli_close($con);
 
 ?>

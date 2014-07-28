@@ -60,9 +60,9 @@ if (isset($_SESSION['alias']))
     <div id="logo-group" class="col-md-2">
         <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-8">
         <div class="btn-group">
-            <a href="view.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
+            <a href="misRutas.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
             <a href="Buscador.php" title="Publica"><i class="btn btn-success">Buscador</i></a>
             <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
             <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>

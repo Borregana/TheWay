@@ -45,7 +45,7 @@
     </div>
     <div class="col-md-10">
         <div class="btn-group">
-            <a href="view.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
+            <a href="misRutas.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
             <a href="display.php" title="Private"><i class="btn btn-success">Creador</i></a>
             <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
         </div>
