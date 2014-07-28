@@ -1,3 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Borregana
+ * Date: 26/07/14
+ * Time: 13.32
+ */
+
+session_start();
+if (isset($_SESSION['alias']))
+{
+?>
 <!DOCTYPE html>
 <html>
 
@@ -72,38 +84,43 @@
         <div>
             <!-- widget content -->
             <div class="widget-body">
-                <form  id="smart-form-register"  class="smart-form client-form" method="post">
+                <form  id="registro-ruta"  action="return false" onsubmit="return false" class="smart-form client-form" method="post">
                     <header>
                     </header>
+                    <div id="result"></div>
                     <fieldset>
                         <section>
                             <label class="input"> <i class="icon-append fa fa-suitcase"></i>
-                                <input type="text" name="nombre" placeholder="Nombre">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
                                 <b class="tooltip tooltip-bottom-right">Nombre de la ruta</b> </label>
                         </section>
 
                         <section>
                             <label class="input"> <i class="icon-append fa fa-home"></i>
-                                <input type="text" name="ciudad" placeholder="Ciudad">
+                                <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
                                 <b class="tooltip tooltip-bottom-right">Ciudad recorrida</b> </label>
                         </section>
 
                         <section>
                             <label class="input"> <i class="icon-append fa fa-clock-o"></i>
-                                <input type="time" name="tiempo" placeholder="Tiempo de recorrido">
+                                <input type="time" id="tiempo" name="tiempo" placeholder="Tiempo de recorrido">
                                 <b class="tooltip tooltip-bottom-right">Cuanto tiempo tardaste?</b> </label>
                         </section>
 
                         <section>
                             <label class="input"> <i class="icon-append fa fa-truck"></i>
-                                <input type="text" name="vehiculo" placeholder="Vehiculo">
+                                <input type="text" id="vehiculo" name="vehiculo" placeholder="Vehiculo">
                                 <b class="tooltip tooltip-bottom-right">De que modo te moviste por la ciudad?</b> </label>
                         </section>
                     </fieldset>
                     <footer>
-                        <button type="submit" class="btn btn-primary" onclick="submitRoute()">
+                        <button class="btn btn-primary" onclick="submitRoute(
+                        document.getElementById('nombre').value,
+                        document.getElementById('ciudad').value,
+                        document.getElementById('tiempo').value,
+                        document.getElementById('vehiculo').value)">
 
-                            Crear
+                            Guardar
                         </button>
                     </footer>
                 </form>
@@ -120,3 +137,10 @@
 </body>
 
 </html>
+<?php
+}
+else
+{
+    echo '<script>location.href = "index.php";</script>';
+}
+?>
