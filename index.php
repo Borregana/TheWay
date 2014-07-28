@@ -49,7 +49,7 @@ else
                 <span id="logo"> <img src="img/logo-enBinari.png" alt="TheWay"> </span>
             </div>
             <div id="register" class="pull-right">
-                <span> No tienes cuenta? <a href="register.html" title="Registro"><i class="btn btn-danger">Registrarse</i></a> </span>
+                <span> No tienes cuenta? <a href="vistaRegister.php" title="Registro"><i class="btn btn-danger">Registrarse</i></a> </span>
             </div>
         </header>
 

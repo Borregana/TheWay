@@ -1,8 +1,9 @@
 
 var markersArray = [];
 var routeArray = [];
+var idRuta="";
 
-function submitRoute() {
+function submitRoute(nombre,ciudad,tiempo,vehiculo) {
     var p = "";
     for (var i=0; i<routeArray.length; i++) {
         p += routeArray[i].getPath().getArray().toString() + "\n";
@@ -14,37 +15,37 @@ function submitRoute() {
     var parametros = {
         "lines" : p,
         "puntos": s,
+        "nombre": nombre,
+        "ciudad": ciudad,
+        "tiempo": tiempo,
+        "vehiculo": vehiculo,
         "nocache" : Math.random() // no cache
     };
-
     $.ajax({
-        data:  parametros,
         url:   'saveRoute.php',
         type:  'post',
+        data:  parametros,
         success:  function (response) {
-            alert(response);
+            $('#result').html(response);
         }
     });
 }
 
-function submitMarker(){
-    var s = "";
-    for (var i=0; i<markersArray.length; i++) {
-        s += markersArray[i].getPosition().toString();
-    }
+function submitPoint(nombre)
+{
+    var punto = markersArray[0].getPosition().toString();
     var parametros = {
-        "puntos" : s,
-        "nocache" : Math.random() // no cache
+        "punto": punto,
+        "nombre": nombre,
+        "ruta_id": idRuta
     };
-
     $.ajax({
-        data:  parametros,
-        url:   'saveMarkers.php',
-        type:  'post',
-        success:  function (response) {
-            alert(response);
+        url: "savePunto.php",
+        type: "POST",
+        data: parametros,
+        success: function(resp){
+            $('#resultado').html(resp);
         }
-
     });
 }
 
@@ -58,21 +59,23 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+
     var contentString = '<div>'+
-        '<form  id="punto" action="infoPunto.php" class="smart-form client-form" method="post">'+
+        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
         '<header>'+
         'Punto de Interes'+
         '</header>'+
+        '<div id="resultado"></div>'+
         '<fieldset>'+
         '<section>'+
         '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-        '<input type="text" name="nombre" placeholder="Nombre">'+
+        '<input type="text" id="nombre" name="nombre" placeholder="Nombre">'+
         '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
         '</section>'+
         '</fieldset>'+
         '<footer>'+
-        '<button type="submit" class="btn btn-primary" onclick="submitPoint()">'+
-        'Guardar'+
+        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value);>'+
+        'Entrar'+
         '</button>'+
         '</footer>'+
         '</form>'+

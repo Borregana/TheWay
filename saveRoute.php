@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST)){
 
     $con=mysqli_connect("localhost","root","root","Rutas");
@@ -13,18 +14,28 @@ if(isset($_POST)){
     $city= mysqli_real_escape_string($con,$_POST['ciudad']);
     $time= mysqli_real_escape_string($con,$_POST['tiempo']);
     $vehicle= mysqli_real_escape_string($con,$_POST['vehiculo']);
+    $usuario= mysqli_real_escape_string($con,$_SESSION['usuario_id']);
 
-    /*$parametros = "<script type='/text/javascript'>
-    /*document.writeln(parametros);
-    </script>'";*/
 
-    $sql="INSERT INTO Rutas (nombre,ciudad,marcadores, recorrido, tiempo, vehiculo)
-     VALUES ('{$_POST['nombre']}','$city','$lines', '$markers','$time','$vehicle')";
+    $sql="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,usuario_id)
+     VALUES ('$name','$city','$lines', '$markers','$time','$vehicle','$usuario')";
 
 
     if(!mysqli_query($con, $sql)){
         die('Error'. mysqli_error($con));
     }
-    print_r($_POST);
-    echo 'La Ruta ha sido guardada';
+    else{
+        $consulta=mysqli_query($con, "SELECT * FROM Rutas WHERE nombre='$name'");
+
+        if($consulta)
+        {
+            $ruta_id=mysqli_fetch_array($consulta)['id'];
+            ?>
+
+            <script> idRuta = <?= $ruta_id ?></script>
+
+            <?php
+            echo '<span class="txt-color-green login-header-big">La Ruta ha sido guardada</span>';
+        }
+    }
 }

@@ -23,11 +23,12 @@ else
 {
     $user = mysqli_real_escape_string($con, $_POST['user']);
     $pass = md5(mysqli_real_escape_string($con, $_POST['pass']));
-    $consulta = mysqli_query($con, "SELECT alias, password FROM Usuarios WHERE alias = '$user' AND password = '$pass'");
+    $consulta = mysqli_query($con, "SELECT * FROM Usuarios WHERE alias = '$user' AND password = '$pass'");
     if (mysqli_num_rows($consulta) > 0)
     {
         $_SESSION["alias"] = $user;
-        echo '<script>location.href = "welcome.php"</script>';
+        $_SESSION["usuario_id"]=mysqli_fetch_array($consulta)['id'];
+        echo '<script>location.href = "display.php"</script>';
     }
     else
     {
