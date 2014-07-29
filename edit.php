@@ -20,7 +20,7 @@ alias='$alias', mail='$mail', direccion='$direccion' WHERE id='$usuario'");
 if($result)
 {
     $_SESSION['alias']=$alias;
-    echo "<spanclass='txt-color-green login-header-big'> Los datos se han modificado satisfactoriamente</span>";
+    echo "<span class='txt-color-green login-header-big'> Los datos se han modificado satisfactoriamente</span>";
 }
 
 mysqli_close($con);
