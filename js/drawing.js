@@ -2,6 +2,8 @@ var markersArray = [];
 var routeArray = [];
 var idRuta="";
 var marcador="";
+var posicion=0;
+var arrayMarkerId=[];
 
 function submitRoute(nombre,ciudad,tiempo,vehiculo) {
     var p = "";
@@ -32,7 +34,7 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
     });
 }
 
-function submitPoint(nombre,texto)
+function submitPoint(nombre,texto,posicion)
 {
 
     if(idRuta==""){
@@ -43,6 +45,7 @@ function submitPoint(nombre,texto)
         var parametros = {
             "nombre": nombre,
             "texto": texto,
+            "posicion": posicion,
             "punto": marcador,
             "ruta_id": idRuta
         };
@@ -58,12 +61,33 @@ function submitPoint(nombre,texto)
 }
 
 function removeMarker(marker){
+    var longitud=marker.content.length-1;
+    var bien="";
 
-    marker.setMap(null);
+    if(arrayMarkerId[marker.content[longitud]]!=""){
+        $.ajax({
+            url: "deletePoint.php",
+            type: "POST",
+            data: "id="+arrayMarkerId[marker.content[longitud]],
+            success: function(responce){
+                bien=responce;
+            }
+        });
+        if(bien=1){
+            marker.setMap(null);
+        }
+        else{
+            alert('El punto no ha podido ser eliminado');
+        }
+    }
+    else{
+        marker.setMap(null);
+    }
 }
 
 function removePolyline(polyline){
     polyline.setMap(null);
+    routeArray=[];
 }
 
 function initialize() {
@@ -76,33 +100,45 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
-
-    var contentString = '<div>'+
-        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
-        '<header>'+
-        'Punto de Interes'+
-        '</header>'+
-        '<div id="resultado"></div>'+
-        '<fieldset>'+
-        '<section>'+
-        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-        '<input type="text" id="nombre" name="nombre" placeholder="Nombre">'+
-        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
-        '</section>'+
-        '<section>' +
-        '<textarea id="texto" rows="2" placeholder="Cuenta..."></textarea> '+
-        '</section>'+
-        '</fieldset>'+
-        '<footer>'+
-        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value,document.getElementById("texto").value);>'+
-        'Guardar'+
-        '</form>'+
-        '</div>';
+    function contentwindow() {
 
 
+        var contentString = '<div>'+
+            '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+            '<header>'+
+            'Punto de Interes'+
+            '</header>'+
+            '<div id="resultado"></div>'+
+            '<fieldset>'+
+            '<section>'+
+            '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+            '<input type="text" id="nombre" name="nombre" placeholder="Nombre">'+
+            '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+            '</section>'+
+            '<section>' +
+            '<label class="label"></label>'+
+            '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+            '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos..."></textarea> '+
+            '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+            '</section>'+
+            '<section>' +
+            '<input id="posicion" type="hidden" value='+posicion+'>'+
+            '</section>'+
+            '</fieldset>'+
+            '<footer>'+
+            '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
+            'Guardar'+
+            '</form>'+
+            '</div>';
+
+        result= contentString+posicion;
+        posicion++;
+        return result;
+    }
     var infoWindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentwindow()
     });
+
     var drawingManager = new google.maps.drawing.DrawingManager({
         drawingControl: true,
         drawingControlOptions: {
@@ -163,7 +199,7 @@ function initialize() {
             }
             else if(event.type == google.maps.drawing.OverlayType.MARKER) {
                 google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
-                    marker.content = contentString;
+                    marker.content = contentwindow();
                     google.maps.event.addListener(marker, 'click', function() {
                         marcador=marker.getPosition().toUrlValue();
                         infoWindow.setContent(this.content);
