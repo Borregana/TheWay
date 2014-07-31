@@ -4,36 +4,59 @@
  * User: Borregana
  * Date: 24/07/14
  * Time: 18.23
- */
+ */?>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9IemfslK-z4Wyuht0lka_Z2AqVbNfVXQ&sensor=false&libraries=drawing">
+    </script>
+
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
+<?php
 
 $con=mysqli_connect('localhost','root','root','Rutas');
 $idruta=mysqli_real_escape_string($con,'107');
 
 $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
 $resultado=mysqli_query($con,$consulta);
+
 if($resultado){
+
+    //Recogemos los datos del recorrido
     $lines=mysqli_fetch_array($resultado)['recorrido'];
     $line=explode("),",$lines);
     $tam=count($line);
     for($i=0;$i<$tam-1;$i++){
         $line[$i]=$line[$i].')';
     }
-    $cont=0;
+
+    //Recogemos los datos de los marcadores
+    $marcadores=array(array(
+        'nombre'=>"",
+        'texto'=>"",
+        'punto_exacto'=>""
+    ));
+    $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
+    $res_puntos=mysqli_query($con,$cons_puntos);
+    if($res_puntos){
+        $i=0;
+        while($row=mysqli_fetch_array($res_puntos)){
+            $marcadores[$i]['nombre']=$row['nombre'];
+            $marcadores[$i]['texto']=$row['texto'];
+            $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
+            $i++;
+        }
+    }
     ?>
     <script>
         var route=[];
-        var markers= [];
-        for(var i= 0;i<=<?= $tam ?>;i++){
-            route[i]=new google.maps.LatLng(<?= $line[$cont] ?>);
-            <?php $cont++; ?>
-        }
-        var polylineOptions={
-            path: route,
-            strokeColor: "#ff0000";
-        }
-
+        <?php
+        //Rellenamos route con las coordenadas de los punto que delimitan las lineas
+        for( $j= 0;$j<=$tam;$j++){
+        ?>
+            route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
+        <?php }
+ ?>
         function initialize() {
-
             var mapOptions = {
                 center: new google.maps.LatLng(39.8867882,-0.0867385,15),
                 zoom: 14
@@ -42,26 +65,33 @@ if($resultado){
             var map = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions);
 
-            var contentString = '<div>';
+            var contentString = '<div>'+
+                '</div>';
 
             var infoWindow = new google.maps.InfoWindow({
                 content: contentString
             });
 
-            alert(route);
+            var polylineOptions= {
+                path: route,
+                strokeColor: "#8000FF"
+            };
+
             var polyline= new google.maps.Polyline(polylineOptions);
-
             polyline.setMap(map);
-        }
 
-        function addMarker(location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-            markers.push(marker);
+            <?php
+            for($i=0;$i<=count($marcadores);$i++){
+            ?>
+                point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
+                var marker= new google.maps.Marker({
+                    position: point
+                });
+                marker.setMap(map);
+            <?php
+             }
+                ?>
         }
-
         google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
@@ -81,13 +111,6 @@ if($resultado){
             }
 
         </style>
-        <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9IemfslK-z4Wyuht0lka_Z2AqVbNfVXQ&sensor=false&libraries=drawing">
-        </script>
-
-        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-        <script type="text/javascript" src="js/rutaPublica.js"></script>
-
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 

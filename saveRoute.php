@@ -35,7 +35,7 @@ if(isset($_POST)){
                     $ruta_id=mysqli_fetch_array($consulta)['id'];
                     ?>
 
-                    <script> idRuta = <?= $ruta_id ?></script>
+                    <script> idRuta = <?= $ruta_id ?>;</script>
 
                     <?php
                     echo '<span class="txt-color-green login-header-big">'.$idruta.'La Ruta ha sido creada con exito</span>';
