@@ -15,7 +15,7 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
         s += markersArray[j].getPosition().toString();
     }
     var parametros = {
-        "ruta_id": idRuta,
+        "ruta_id":idRuta,
         "lines" : p,
         "puntos": s,
         "nombre": nombre,
@@ -34,16 +34,15 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
     });
 }
 
-function submitPoint(nombre,texto,posicion)
+function submitPoint(nombre_punto,texto,posicion)
 {
-
     if(idRuta==""){
         alert("Debes crear la ruta primero");
     }
     else
     {
         var parametros = {
-            "nombre": nombre,
+            "nombre": nombre_punto,
             "texto": texto,
             "posicion": posicion,
             "punto": marcador,
@@ -112,7 +111,7 @@ function initialize() {
             '<fieldset>'+
             '<section>'+
             '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-            '<input type="text" id="nombre" name="nombre" placeholder="Nombre">'+
+            '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" required="required">'+
             '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
             '</section>'+
             '<section>' +
@@ -126,7 +125,7 @@ function initialize() {
             '</section>'+
             '</fieldset>'+
             '<footer>'+
-            '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
+            '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
             'Guardar'+
             '</form>'+
             '</div>';

@@ -20,7 +20,7 @@ if (isset($_SESSION['alias']))
     <meta charset="utf-8">
     <style>
         html, body, #map-canvas {
-            height: 100%;
+            height: 90%;
             margin: 0px;
             padding: 0px
         }
@@ -91,7 +91,7 @@ if (isset($_SESSION['alias']))
                     <fieldset>
                         <section>
                             <label class="input"> <i class="icon-append fa fa-suitcase"></i>
-                                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required="required">
                                 <b class="tooltip tooltip-bottom-right">Nombre de la ruta</b> </label>
                         </section>
 
