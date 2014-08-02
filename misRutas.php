@@ -72,6 +72,17 @@ if(isset($_SESSION['usuario_id']))
         echo "No se pudo conectar con la base de datos".mysqli_connect_error();
     }
 
+    function buscaId($nombre,$conex){
+        $consulta=mysqli_query($conex,"SELECT * FROM Rutas WHERE nombre='$nombre'");
+        if(mysqli_query($conex,$consulta)){
+            $_SESSION["idruta"]=mysqli_fetch_array($consulta)['id'];
+            print_r($_SESSION);
+        }
+        else{
+            echo 'no va';
+        }
+    }
+
     $usuario=mysqli_real_escape_string($con, $_SESSION['usuario_id']);
 
     $consulta=mysqli_query($con,"SELECT * FROM Rutas WHERE usuario_id='$usuario'");
@@ -97,7 +108,7 @@ if(isset($_SESSION['usuario_id']))
                                     <th>Vehiculo</th>
                                     <th>Fecha de publicación</th>
                                     <th>Publica</th>
-                                    <th>Ver y editar</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <?php
@@ -127,9 +138,14 @@ if(isset($_SESSION['usuario_id']))
                                                 echo 'SI';
                                             }?>
                                         </td>
-                                        <td>
-                                            <button class="btn btn-success" onclick=""><i class="icon-append fa fa-globe"></i></button>
-                                        </td>
+                                        <form id="miruta" method="post" action="vistaPublica.php">
+                                            <td>
+                                                <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                            </td>
+                                            <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                        </form>
+                                        <button class="btn btn-info" ><i class="icon-append glyphicon glyphicon-edit"></i></button>
+                                        <button class="btn btn-danger"><i class="icon-append glyphicon glyphicon-trash"></i></button>
                                     </tr>
                                 <?php } ?>
                             </table>
@@ -139,6 +155,7 @@ if(isset($_SESSION['usuario_id']))
             </div>
 
         </div>
+
     <?php
     }
     else

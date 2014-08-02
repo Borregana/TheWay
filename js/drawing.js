@@ -93,7 +93,7 @@ function initialize() {
 
     var mapOptions = {
         center: new google.maps.LatLng(39.8867882,-0.0867385,15),
-        zoom: 14
+        zoom: 17
     };
 
     var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -154,7 +154,7 @@ function initialize() {
 
         polylineOptions: {
             editable: true,
-            draggable: true
+            draggable: true,
         }
     });
 
