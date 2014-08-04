@@ -23,6 +23,7 @@ $insert="INSERT INTO Comentarios (ruta_id,usuario_id,comentario,puntuacion)
 
 $resultado=mysqli_query($con,$insert);
 if($resultado){
+    $_SESSION['idruta']=$idruta;
     echo "<span>El comentario ha sido registrado</span>";
 }
 else{
