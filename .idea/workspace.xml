@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Buscador.php" afterPath="$PROJECT_DIR$/Buscador.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/drawing.js" afterPath="$PROJECT_DIR$/js/drawing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveRoute.php" afterPath="$PROJECT_DIR$/saveRoute.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistaPublica.php" afterPath="$PROJECT_DIR$/vistaPublica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveComentario.php" afterPath="$PROJECT_DIR$/saveComentario.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheWay.iws" />
@@ -30,34 +27,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="drawing.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/drawing.js">
+      <file leaf-file-name="saveComentario.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saveComentario.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="5" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.92256635" vertical-offset="271" max-vertical-offset="3616">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saveRoute.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saveRoute.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="163" selection-start="2386" selection-end="2386" vertical-scroll-proportion="-22.08" vertical-offset="344" max-vertical-offset="1248">
+            <state line="38" column="0" selection-start="1190" selection-end="1190" vertical-scroll-proportion="1.3818182" vertical-offset="0" max-vertical-offset="784">
               <folding>
-                <marker date="1407173088000" expanded="true" signature="409:457" placeholder="SELECT nombr..Usuarios..." />
-                <marker date="1407173088000" expanded="true" signature="1324:1505" placeholder="INSERT INTO ..." />
-                <marker date="1407173088000" expanded="true" signature="1701:1741" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407173088000" expanded="true" signature="2245:2420" placeholder="UPDATE Rutas..." />
+                <marker date="1407175373000" expanded="true" signature="542:674" placeholder="INSERT INTO ..." />
+                <marker date="1407175373000" expanded="true" signature="748:806" placeholder="SELECT puntu..Comentarios..." />
+                <marker date="1407175373000" expanded="true" signature="1045:1112" placeholder="UPDATE Rutas..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display.php">
+      <file leaf-file-name="vistaPublica.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistaPublica.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="56" selection-start="5246" selection-end="5246" vertical-scroll-proportion="-18.24" vertical-offset="1448" max-vertical-offset="2400">
-              <folding />
+            <state line="172" column="0" selection-start="6567" selection-end="6567" vertical-scroll-proportion="-9.6" vertical-offset="2512" max-vertical-offset="6112">
+              <folding>
+                <marker date="1407175372000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1407175372000" expanded="true" signature="1457:1502" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1407175372000" expanded="true" signature="2130:2174" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1407175372000" expanded="true" signature="2773:2822" placeholder="SELECT * FRO..Comentarios..." />
+                <marker date="1407175372000" expanded="true" signature="3335:3383" placeholder="SELECT alias..Usuarios..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,13 +104,13 @@
         <option value="$PROJECT_DIR$/validaruta.php" />
         <option value="$PROJECT_DIR$/validar.php" />
         <option value="$PROJECT_DIR$/misRutas.php" />
-        <option value="$PROJECT_DIR$/saveComentario.php" />
         <option value="$PROJECT_DIR$/buscaRutas.php" />
-        <option value="$PROJECT_DIR$/vistaPublica.php" />
-        <option value="$PROJECT_DIR$/Buscador.php" />
         <option value="$PROJECT_DIR$/saveRoute.php" />
         <option value="$PROJECT_DIR$/display.php" />
         <option value="$PROJECT_DIR$/js/drawing.js" />
+        <option value="$PROJECT_DIR$/Buscador.php" />
+        <option value="$PROJECT_DIR$/saveComentario.php" />
+        <option value="$PROJECT_DIR$/vistaPublica.php" />
       </list>
     </option>
   </component>
@@ -321,7 +314,11 @@
       <created>1407161347072</created>
       <updated>1407161347072</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="el buscador funciona correctamente&#10;">
+      <created>1407173781289</created>
+      <updated>1407173781289</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -400,7 +397,8 @@
     <MESSAGE value="ya se muestra la ruta y los marcadores en la vista publica de las rutas" />
     <MESSAGE value="la vista publica funciona con comentarios y misRutas ya tiene operativo el boton de vista publica" />
     <MESSAGE value="corregido error de colision del idruta entre el ajax del comentario y el post de misrutas" />
-    <option name="LAST_COMMIT_MESSAGE" value="corregido error de colision del idruta entre el ajax del comentario y el post de misrutas" />
+    <MESSAGE value="el buscador funciona correctamente&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="el buscador funciona correctamente&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -417,11 +415,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="24" selection-start="3271" selection-end="3429" vertical-scroll-proportion="0.0" vertical-offset="1568" max-vertical-offset="2992">
           <folding>
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407175372000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407175372000" expanded="true" signature="1457:1502" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407175372000" expanded="true" signature="2130:2174" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407175372000" expanded="true" signature="2773:2822" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1407175372000" expanded="true" signature="3335:3383" placeholder="SELECT alias..Usuarios..." />
           </folding>
         </state>
       </provider>
@@ -625,15 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saveComentario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="32" selection-start="765" selection-end="765" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="576">
-          <folding>
-            <marker date="1407160697000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/misRutas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="157" column="0" selection-start="6490" selection-end="6490" vertical-scroll-proportion="1.2409638" vertical-offset="1608" max-vertical-offset="3072">
@@ -662,79 +651,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+    <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="44" selection-start="11588" selection-end="12197" vertical-scroll-proportion="-9.6" vertical-offset="3776" max-vertical-offset="6112">
-          <folding>
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407171902000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-          </folding>
+        <state line="43" column="5" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.9985486" vertical-offset="0" max-vertical-offset="3616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="56" selection-start="5246" selection-end="5246" vertical-scroll-proportion="0.686747" vertical-offset="1448" max-vertical-offset="2400">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Buscador.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="34" selection-start="8017" selection-end="8017" vertical-scroll-proportion="0.3253012" vertical-offset="2568" max-vertical-offset="4448">
+        <state line="184" column="0" selection-start="8665" selection-end="8665" vertical-scroll-proportion="0.56626505" vertical-offset="2568" max-vertical-offset="4432">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#article#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="SELECT id FR..Usuarios..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1407172738000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1407174690000" expanded="true" signature="-1:-1" placeholder="SELECT id FR..Usuarios..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saveRoute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="163" selection-start="2386" selection-end="2386" vertical-scroll-proportion="-22.08" vertical-offset="344" max-vertical-offset="1248">
+        <state line="56" column="163" selection-start="2386" selection-end="2386" vertical-scroll-proportion="-13.48" vertical-offset="559" max-vertical-offset="1248">
           <folding>
-            <marker date="1407173088000" expanded="true" signature="409:457" placeholder="SELECT nombr..Usuarios..." />
-            <marker date="1407173088000" expanded="true" signature="1324:1505" placeholder="INSERT INTO ..." />
-            <marker date="1407173088000" expanded="true" signature="1701:1741" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407173088000" expanded="true" signature="2245:2420" placeholder="UPDATE Rutas..." />
+            <marker date="1407173088000" expanded="true" signature="-1:-1" placeholder="SELECT nombr..Usuarios..." />
+            <marker date="1407173088000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1407173088000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407173088000" expanded="true" signature="-1:-1" placeholder="UPDATE Rutas..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display.php">
+    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="56" selection-start="5246" selection-end="5246" vertical-scroll-proportion="-18.24" vertical-offset="1448" max-vertical-offset="2400">
-          <folding />
+        <state line="172" column="0" selection-start="6567" selection-end="6567" vertical-scroll-proportion="-9.6" vertical-offset="2512" max-vertical-offset="6112">
+          <folding>
+            <marker date="1407175372000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407175372000" expanded="true" signature="1457:1502" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407175372000" expanded="true" signature="2130:2174" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407175372000" expanded="true" signature="2773:2822" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1407175372000" expanded="true" signature="3335:3383" placeholder="SELECT alias..Usuarios..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/drawing.js">
+    <entry file="file://$PROJECT_DIR$/saveComentario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="5" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.92256635" vertical-offset="271" max-vertical-offset="3616">
-          <folding />
+        <state line="38" column="0" selection-start="1190" selection-end="1190" vertical-scroll-proportion="1.3818182" vertical-offset="0" max-vertical-offset="784">
+          <folding>
+            <marker date="1407175373000" expanded="true" signature="542:674" placeholder="INSERT INTO ..." />
+            <marker date="1407175373000" expanded="true" signature="748:806" placeholder="SELECT puntu..Comentarios..." />
+            <marker date="1407175373000" expanded="true" signature="1045:1112" placeholder="UPDATE Rutas..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -23,7 +23,20 @@ $insert="INSERT INTO Comentarios (ruta_id,usuario_id,comentario,puntuacion)
 
 $resultado=mysqli_query($con,$insert);
 if($resultado){
+    $consulta="SELECT puntuacion FROM Comentarios WHERE ruta_id='$idruta'";
+    $rescoment=mysqli_query($con,$consulta);
+    $media=0;
+    $cont=0;
+    while($row=mysqli_fetch_array($rescoment)){
+        $media=$media+$row['puntuacion'];
+        $cont++;
+    }
+    $media_final=round($media/$cont);
+    $update="UPDATE Rutas SET puntuacion_media='$media_final' WHERE id='$idruta'";
+    $respunt=mysqli_query($con,$update);
+
     $_SESSION['idruta']=$idruta;
+
     echo "<span>El comentario ha sido registrado</span>";
 }
 else{

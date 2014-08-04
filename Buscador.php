@@ -182,7 +182,6 @@
 
                     $consulta='SELECT * FROM Rutas WHERE publica="1" and '.implode(' and ', $options);
                     $resultado=mysqli_query($con,$consulta);
-                    print_r($consulta);
                     if(mysqli_num_rows($resultado)>0){
                         ?>
                             <div id="content" class="container">
