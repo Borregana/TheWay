@@ -5,7 +5,7 @@ var marcador="";
 var posicion=0;
 var arrayMarkerId=[];
 
-function submitRoute(nombre,ciudad,tiempo,vehiculo) {
+function submitRoute(nombre,ciudad,tiempo,vehiculo,publica) {
     var p = "";
     for (var i=0; i<routeArray.length; i++) {
         p += routeArray[i].getPath().getArray().toString() + "\n";
@@ -22,6 +22,7 @@ function submitRoute(nombre,ciudad,tiempo,vehiculo) {
         "ciudad": ciudad,
         "tiempo": tiempo,
         "vehiculo": vehiculo,
+        "publica": publica,
         "nocache" : Math.random() // no cache
     };
     $.ajax({

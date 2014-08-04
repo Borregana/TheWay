@@ -46,7 +46,11 @@ if(isset($_SESSION['alias']))
             $infor['tiempo']=$col['tiempo'];
             $infor['vehiculo']=$col['vehiculo'];
             $infor['puntuacion']=$col['puntuacion_media'];
-            $infor['usuario']=$col['usuario_id'];
+            $userid=$col['usuario_id'];
+            //Buscamos el alias del usuario creador de la ruta
+            $username="SELECT alias FROM Usuarios WHERE id='$userid'";
+            $resulname=mysqli_query($con,$username);
+            $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
             $infor['fecha']=$col['fecha_publicacion'];
             $infor['recorrido']=$col['recorrido'];
 
@@ -166,12 +170,15 @@ if(isset($_SESSION['alias']))
                             <!-- widget content -->
                             <div class="widget-body">
                                 <ul>
-                                    <li>Usuario: <?=$infor['usuario']?></li>
-                                    <li>Ciudad: <?=$infor['ciudad']?></li>
-                                    <li>Tiempo: <?=$infor['tiempo']?></li>
-                                    <li>Vehiculo: <?=$infor['vehiculo']?></li>
-                                    <li>Puntuacion: <?=$infor['puntuacion']?></li>
-                                    <li>Fecha: <?=$infor['fecha']?></li>
+                                    <li>Usuario: <b><i><?=$infor['usuario']?></i></b></li>
+                                    <li>Ciudad: <b><i><?=$infor['ciudad']?></i></b></li>
+                                    <li>Tiempo: <b><i><?=$infor['tiempo']?></i></b></li>
+                                    <li>Vehiculo: <b><i><?=$infor['vehiculo']?></i></b></li>
+                                    <li>Fecha: <b><i><?=$infor['fecha']?></i></b></li>
+                                    <li>Puntuacion:
+                                                <?for($i=0;$i<$infor['puntuacion'];$i++){?>
+                                                    <i class="icon-append fa fa-star"></i>
+                                                <?php } ?></li>
                                 </ul>
                             </div>
                             <!-- end widget content -->

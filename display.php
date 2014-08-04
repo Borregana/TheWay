@@ -112,13 +112,17 @@ if (isset($_SESSION['alias']))
                                 <input type="text" id="vehiculo" name="vehiculo" placeholder="Vehiculo">
                                 <b class="tooltip tooltip-bottom-right">De que modo te moviste por la ciudad?</b> </label>
                         </section>
+                        <section>
+                                <input type="radio" id="publica" name="publica"> Quieres que la ruta sea publica?
+                        </section>
                     </fieldset>
                     <footer>
                         <button class="btn btn-primary" onclick="submitRoute(
                         document.getElementById('nombre').value,
                         document.getElementById('ciudad').value,
                         document.getElementById('tiempo').value,
-                        document.getElementById('vehiculo').value)">
+                        document.getElementById('vehiculo').value,
+                        document.getElementById('publica').value)">
 
                             Guardar
                         </button>
