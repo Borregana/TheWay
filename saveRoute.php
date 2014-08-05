@@ -27,11 +27,16 @@ if(isset($_POST)){
             $idruta=mysqli_real_escape_string($con,$_POST['ruta_id']);
             $publica=mysqli_real_escape_string($con,$_POST['publica']);
 
+            //nos guardamos la fecha actual
+            $fecha_actual=date('c');
+            $fecha=explode('T',$fecha_actual);
+            $date=$fecha[0];
+
             // si la ruta no existe
             if($idruta==""){
 
-                $sql="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,usuario_id,publica)
-     VALUES ('$name','$city', '$markers','$lines','$time','$vehicle','$usuario','$publica')";
+                $sql="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,usuario_id,publica,fecha_publicacion)
+     VALUES ('$name','$city', '$markers','$lines','$time','$vehicle','$usuario','$publica','$date')";
 
 
                 if(!mysqli_query($con, $sql)){

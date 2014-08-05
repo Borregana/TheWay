@@ -102,7 +102,7 @@
                                 </section>
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-calendar"></i>
-                                        <input type="text" name="fecha_publicacion" placeholder="Fecha de publicacion" value="<?= $_POST['fecha_publicacion']?>">
+                                        <input type="text" name="fecha_publicacion" placeholder="Fecha de publicación 'yyyy-mm-dd'" value="<?= $_POST['fecha_publicacion']?>">
                                         <b class="tooltip tooltip-bottom-right">Que dia publicaron la ruta?</b> </label>
                                 </section>
                                 <section>
@@ -182,6 +182,7 @@
 
                     $consulta='SELECT * FROM Rutas WHERE publica="1" and '.implode(' and ', $options);
                     $resultado=mysqli_query($con,$consulta);
+
                     if(mysqli_num_rows($resultado)>0){
                         ?>
                             <div id="content" class="container">
