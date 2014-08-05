@@ -94,7 +94,7 @@ if(isset($_SESSION['usuario_id']))
                 <div class="row">
                     <div class="col-md-2">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="well no-padding">
                             <header>
                                 <h1 class="txt-color-red login-header-big">MIS RUTAS</h1>
@@ -106,6 +106,7 @@ if(isset($_SESSION['usuario_id']))
                                     <th>Ciudad</th>
                                     <th>tiempo</th>
                                     <th>Vehiculo</th>
+                                    <th>puntuación</th>
                                     <th>Fecha de publicación</th>
                                     <th>Publica</th>
                                     <th></th>
@@ -126,6 +127,11 @@ if(isset($_SESSION['usuario_id']))
                                         </td>
                                         <td>
                                             <?= $row['vehiculo']; ?>
+                                        </td>
+                                        <td>
+                                            <?for($i=0;$i<$row['puntuacion_media'];$i++){?>
+                                                <i class="icon-append fa fa-star"></i>
+                                            <?php } ?>
                                         </td>
                                         <td>
                                             <?= $row['fecha_publicacion']; ?>

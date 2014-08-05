@@ -43,7 +43,7 @@
     <div id="logo-group" class="col-md-2">
         <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-8">
         <div class="btn-group">
             <a href="misRutas.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
             <a href="display.php" title="Private"><i class="btn btn-success">Creador</i></a>
@@ -53,7 +53,7 @@
 </header>
 <div>
     <!-- NEW WIDGET START -->
-    <article class="col-md-3">
+    <article class="col-md-4">
 
         <!-- Widget ID (each widget will need unique ID)-->
         <div class="jarviswidget" id="wid-id-0" data-widget-fullscreenbutton="true">
@@ -135,7 +135,7 @@
     </article>
 
     <!-- NEW WIDGET START -->
-    <article class="col-md-4 col-lg-9">
+    <article class="col-md-4 col-lg-8">
 
         <!-- Widget ID (each widget will need unique ID)-->
         <div class="jarviswidget" id="wid-id-1" data-widget-fullscreenbutton="true">
@@ -254,7 +254,7 @@
                     {
                         ?>
                                 <div class="col-md-12">
-                                      <h2>Encuentra tu </h2><h1 class="txt-color-red login-header-big">camino...</h1>
+                                      <h2>Encuentra tu </h2><h1 class="txt-color-red">camino...</h1>
                                 </div>
                     <?php
                     }?>
