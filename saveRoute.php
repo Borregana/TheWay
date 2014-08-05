@@ -21,7 +21,15 @@ if(isset($_POST)){
             $lines= mysqli_real_escape_string($con,$_POST['lines']);
             $markers= mysqli_real_escape_string($con,$_POST['puntos']);
             $city= mysqli_real_escape_string($con,$_POST['ciudad']);
+            //El usuario introduce minutos, pero la BD lo recoge como segundos
+            //antes de guardarlo convertiremos los segundos en minutos
             $time= mysqli_real_escape_string($con,$_POST['tiempo']);
+            $seconds=$time*60;
+            /*$horas = floor($seconds/3600);
+            $minutos = floor(($seconds-($horas*3600))/60);
+            $segundos = $seconds-($horas*3600)-($minutos*60);*/
+            $real_time= $time;
+
             $vehicle= mysqli_real_escape_string($con,$_POST['vehiculo']);
             $usuario= mysqli_real_escape_string($con,$_SESSION['usuario_id']);
             $idruta=mysqli_real_escape_string($con,$_POST['ruta_id']);
@@ -36,7 +44,7 @@ if(isset($_POST)){
             if($idruta==""){
 
                 $sql="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,usuario_id,publica,fecha_publicacion)
-     VALUES ('$name','$city', '$markers','$lines','$time','$vehicle','$usuario','$publica','$date')";
+     VALUES ('$name','$city', '$markers','$lines','$real_time','$vehicle','$usuario','$publica','$date')";
 
 
                 if(!mysqli_query($con, $sql)){
@@ -59,7 +67,7 @@ if(isset($_POST)){
             }
             // Si al ruta existe
             else{
-                $sql="UPDATE Rutas SET nombre='$name',ciudad='$city',marcadores='$markers',recorrido='$lines', tiempo='$time',vehiculo='$vehicle',publica='$publica'
+                $sql="UPDATE Rutas SET nombre='$name',ciudad='$city',marcadores='$markers',recorrido='$lines', tiempo='$real_time',vehiculo='$vehicle',publica='$publica'
               WHERE id='$idruta'";
 
                 if(!mysqli_query($con, $sql)){

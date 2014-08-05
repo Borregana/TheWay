@@ -103,7 +103,7 @@ if (isset($_SESSION['alias']))
 
                         <section>
                             <label class="input"> <i class="icon-append fa fa-clock-o"></i>
-                                <input type="time" id="tiempo" name="tiempo" placeholder="Tiempo de recorrido">
+                                <input type="time" id="tiempo" name="tiempo" placeholder="Tiempo de recorrido 'hh:mm'">
                                 <b class="tooltip tooltip-bottom-right">Cuanto tiempo tardaste?</b> </label>
                         </section>
 

@@ -74,13 +74,13 @@ if(isset($_SESSION['alias'])){
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                     <div class="well no-padding">
 
-                        <form  id="smart-form-register" action="return false" onsubmit="return false" class="smart-form client-form" method="post">
+                        <form  id="smart-form-register" action="return false" onsubmit="return false" class="smart-form client-form" method="post" enctype="multipart/form-data">
                             <header>
                                 Información de usuario
                             </header>
 
-                            <div id="resultado"></div>
                             <fieldset>
+                            <div id="resultado"></div>
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-user-md"></i>
                                         <input type="text" id="nombre" name="nombre" placeholder="Nombre" value=<?= $row['nombre']?>>
@@ -111,6 +111,11 @@ if(isset($_SESSION['alias'])){
                                         <input type="text" id="direccion" name="direccion" placeholder="Dirección" value=<?= $row['direccion']?>>
                                         <b class="tooltip tooltip-bottom-right">La dirección donde vives</b> </label>
                                 </section>
+                                <section>
+                                    <label class="input"> <i class="icon-append fa fa-picture-o"></i>
+                                        <input type="file" id="imagen" name="imagen" placeholder="Tu avatar">
+                                        <b class="tooltip tooltip-bottom-right">Tu imagen de usuario favorita</b> </label>
+                                </section>
 
                             </fieldset>
 
@@ -119,20 +124,22 @@ if(isset($_SESSION['alias'])){
                                  document.getElementById('apellidos').value,
                                  document.getElementById('alias').value,
                                  document.getElementById('mail').value,
-                                 document.getElementById('direccion').value);">
+                                 document.getElementById('direccion').value),
+                                 document.getElementById('imagen').value);" >
                                     Guardar cambios
                                 </button>
                             </footer>
                         </form>
                         <script>
-                            function Editar(nombre,apellidos,alias,mail,direccion)
+                            function Editar(nombre,apellidos,alias,mail,direccion,imagen)
                             {
                                 var parametros= {
                                     "nombre": nombre,
                                     "apellidos": apellidos,
                                     "alias": alias,
                                     "mail": mail,
-                                    "direccion": direccion
+                                    "direccion": direccion,
+                                    "imagen": imagen
                                 }
                                 $.ajax({
                                     url: "edit.php",

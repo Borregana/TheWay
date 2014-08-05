@@ -176,10 +176,30 @@ if(isset($_SESSION['alias']))
                                     <li>Vehiculo: <b><i><?=$infor['vehiculo']?></i></b></li>
                                     <li>Fecha: <b><i><?=$infor['fecha']?></i></b></li>
                                     <li>Puntuacion:
-                                                <?for($i=0;$i<$infor['puntuacion'];$i++){?>
-                                                    <i class="icon-append fa fa-star"></i>
-                                                <?php } ?></li>
+                                        <?for($i=0;$i<$infor['puntuacion'];$i++){?>
+                                            <i class="icon-append fa fa-star"></i>
+                                        <?php } ?></li>
                                 </ul>
+                                <div id="res"></div>
+                                <div class="pull-right">
+                                    <a  class="btn btn-success" onclick="copiar();">Copiar Ruta</a>
+                                </div>
+                                <script>
+                                    function copiar()
+                                    {
+                                        var parametros={
+                                            "idruta":<?= $idruta ?>
+                                        };
+                                        $.ajax({
+                                            url: "copiaRoute.php",
+                                            type: "POST",
+                                            data: parametros,
+                                            success: function(resp){
+                                                $('#res').html(resp)
+                                            }
+                                        });
+                                    }
+                                </script>
                             </div>
                             <!-- end widget content -->
                         </div>
