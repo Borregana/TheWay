@@ -373,7 +373,10 @@ if(isset($_SESSION['alias']))
                             '<section>' +
                             '<label class="label"></label>'+
                             '<label class="textarea"><i class="icon-append fa fa-picture"></i>'+
+                            <?php
+                            if($marcadores[$i]['imagen']!=""){?>
                             '<img width="200" src="<?= $marcadores[$i]['imagen']?>"></div>'+
+                            <?php } ?>
                             '</section>'+
                             '</fieldset>'+
                             '</div>';
