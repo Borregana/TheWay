@@ -72,16 +72,6 @@ if(isset($_SESSION['usuario_id']))
         echo "No se pudo conectar con la base de datos".mysqli_connect_error();
     }
 
-    function buscaId($nombre,$conex){
-        $consulta=mysqli_query($conex,"SELECT * FROM Rutas WHERE nombre='$nombre'");
-        if(mysqli_query($conex,$consulta)){
-            $_SESSION["idruta"]=mysqli_fetch_array($consulta)['id'];
-            print_r($_SESSION);
-        }
-        else{
-            echo 'no va';
-        }
-    }
 
     $usuario=mysqli_real_escape_string($con, $_SESSION['usuario_id']);
 
@@ -92,69 +82,79 @@ if(isset($_SESSION['usuario_id']))
         <div>
             <div id="content" class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                    </div>
                     <div class="col-md-10">
                         <div class="well no-padding">
                             <header>
                                 <h1 class="txt-color-red login-header-big">MIS RUTAS</h1>
                             </header>
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Ciudad</th>
-                                    <th>tiempo</th>
-                                    <th>Vehiculo</th>
-                                    <th>puntuación</th>
-                                    <th>Fecha de publicación</th>
-                                    <th>Publica</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <?php
-                                while($row=mysqli_fetch_array($consulta)){
-                                    ?>
+                            <div style="overflow: auto;height:700px;">
+                                <table class="table table-hover">
+                                    <thead>
                                     <tr>
-                                        <td>
-                                            <?= $row['nombre']; ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['ciudad']; ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['tiempo']; ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['vehiculo']; ?>
-                                        </td>
-                                        <td>
-                                            <?for($i=0;$i<$row['puntuacion_media'];$i++){?>
-                                                <i class="icon-append fa fa-star"></i>
-                                            <?php } ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['fecha_publicacion']; ?>
-                                        </td>
-                                        <td>
-                                            <?php if($row['publica']==0){
-                                                echo 'NO';
-                                            }
-                                            else{
-                                                echo 'SI';
-                                            }?>
-                                        </td>
-                                        <form id="miruta" method="post" action="vistaPublica.php">
-                                            <td>
-                                                <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
-                                            </td>
-                                            <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
-                                        </form>
-                                        <button class="btn btn-info" ><i class="icon-append glyphicon glyphicon-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="icon-append glyphicon glyphicon-trash"></i></button>
+                                        <th>Nombre</th>
+                                        <th>Ciudad</th>
+                                        <th>tiempo</th>
+                                        <th>Vehiculo</th>
+                                        <th>puntuación</th>
+                                        <th>Fecha de publicación</th>
+                                        <th>Publica</th>
+                                        <th></th>
                                     </tr>
-                                <?php } ?>
-                            </table>
+                                    </thead>
+                                    <?php
+                                    while($row=mysqli_fetch_array($consulta)){
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?= $row['nombre']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['ciudad']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['tiempo']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['vehiculo']; ?>
+                                            </td>
+                                            <td>
+                                                <?for($i=0;$i<$row['puntuacion_media'];$i++){?>
+                                                    <i class="icon-append fa fa-star"></i>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['fecha_publicacion']; ?>
+                                            </td>
+                                            <td>
+                                                <?php if($row['publica']==0){
+                                                    echo 'NO';
+                                                }
+                                                else{
+                                                    echo 'SI';
+                                                }?>
+                                            </td>
+                                            <form id="miruta" method="post" action="vistaPublica.php">
+                                                <td>
+                                                    <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                </td>
+                                                <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                            </form>
+                                            <form id="miruta" method="post" action="display2.php">
+                                                <td>
+                                                    <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                </td>
+                                                <button class="btn btn-info" ><i class="icon-append glyphicon glyphicon-edit"></i></button>
+                                            </form>
+                                            <form id="miruta" method="post" action="deleteRoute.php">
+                                                <td>
+                                                    <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                </td>
+                                                <button class="btn btn-danger"><i class="icon-append glyphicon glyphicon-trash"></i></button>
+                                            </form>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

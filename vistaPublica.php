@@ -66,7 +66,8 @@ if(isset($_SESSION['alias']))
         $marcadores=array(array(
             'nombre'=>"",
             'texto'=>"",
-            'punto_exacto'=>""
+            'punto_exacto'=>"",
+            'imagen'=>""
         ));
         $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
         $res_puntos=mysqli_query($con,$cons_puntos);
@@ -76,6 +77,7 @@ if(isset($_SESSION['alias']))
                 $marcadores[$i]['nombre']=$row['nombre'];
                 $marcadores[$i]['texto']=$row['texto'];
                 $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
+                $marcadores[$i]['imagen']=$row['imagen'];
                 $i++;
             }
         }
@@ -154,6 +156,14 @@ if(isset($_SESSION['alias']))
                     <a href="Buscador.php" title="Publica"><i class="btn btn-success">Buscador</i></a>
                     <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
                 </div>
+            </div>
+            <div class="pull-right">
+                <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
+                <?php
+                if($_SESSION['imagen']!=null){
+                    ?>
+                    <img width="50" src="<?= $_SESSION['imagen']?>">
+                <?php } ?>
             </div>
         </header>
         <div class="col-md-3">
@@ -358,9 +368,12 @@ if(isset($_SESSION['alias']))
                             '<div><?= $marcadores[$i]['nombre']?></div>'+
                             '</section>'+
                             '<section>' +
-                            '<label class="label"></label>'+
-                            '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
                             '<div><?= $marcadores[$i]['texto']?></div>'+
+                            '</section>'+
+                            '<section>' +
+                            '<label class="label"></label>'+
+                            '<label class="textarea"><i class="icon-append fa fa-picture"></i>'+
+                            '<img width="200" src="<?= $marcadores[$i]['imagen']?>"></div>'+
                             '</section>'+
                             '</fieldset>'+
                             '</div>';
