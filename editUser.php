@@ -32,6 +32,7 @@ if(isset($_SESSION['alias'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="js/jquery.form.js"></script>
 
         <!-- Basic Styles -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
@@ -71,16 +72,15 @@ if(isset($_SESSION['alias'])){
         <div id="content" class="container">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <div class="col-md-8">
                     <div class="well no-padding">
 
-                        <form  id="smart-form-register" action="return false" onsubmit="return false" class="smart-form client-form" method="post" enctype="multipart/form-data">
+                        <form  id="smart-form-register" action="edit.php"  class="smart-form client-form" method="post" enctype="multipart/form-data">
                             <header>
                                 Información de usuario
                             </header>
 
                             <fieldset>
-                            <div id="resultado"></div>
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-user-md"></i>
                                         <input type="text" id="nombre" name="nombre" placeholder="Nombre" value=<?= $row['nombre']?>>
@@ -114,43 +114,20 @@ if(isset($_SESSION['alias'])){
                                 <section>
                                     <label class="input"> <i class="icon-append fa fa-picture-o"></i>
                                         <input type="file" id="imagen" name="imagen" placeholder="Tu avatar">
-                                        <b class="tooltip tooltip-bottom-right">Tu imagen de usuario favorita</b> </label>
+                                        <br>
+                                        <?php
+                                        if($row['imagen']!=null){
+                                            ?>
+                                            <img width="100" src="<?= $row['imagen']?>">
+                                        <?php } ?>
                                 </section>
-
                             </fieldset>
-
                             <footer>
-                                <button class="btn btn-primary" onclick="Editar(document.getElementById('nombre').value,
-                                 document.getElementById('apellidos').value,
-                                 document.getElementById('alias').value,
-                                 document.getElementById('mail').value,
-                                 document.getElementById('direccion').value),
-                                 document.getElementById('imagen').value);" >
+                                <button class="btn btn-primary">
                                     Guardar cambios
                                 </button>
                             </footer>
                         </form>
-                        <script>
-                            function Editar(nombre,apellidos,alias,mail,direccion,imagen)
-                            {
-                                var parametros= {
-                                    "nombre": nombre,
-                                    "apellidos": apellidos,
-                                    "alias": alias,
-                                    "mail": mail,
-                                    "direccion": direccion,
-                                    "imagen": imagen
-                                }
-                                $.ajax({
-                                    url: "edit.php",
-                                    type: "POST",
-                                    data: parametros,
-                                    success: function(resp){
-                                        $('#resultado').html(resp)
-                                    }
-                                });
-                            }
-                        </script>
                     </div>
                 </div>
             </div>

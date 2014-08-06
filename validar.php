@@ -26,8 +26,10 @@ else
     $consulta = mysqli_query($con, "SELECT * FROM Usuarios WHERE alias = '$user' AND password = '$pass'");
     if (mysqli_num_rows($consulta) > 0)
     {
+        $row=mysqli_fetch_array($consulta);
         $_SESSION["alias"] = $user;
-        $_SESSION["usuario_id"]=mysqli_fetch_array($consulta)['id'];
+        $_SESSION["usuario_id"]=$row['id'];
+        $_SESSION["imagen"]=$row['imagen'];
         echo '<script>location.href = "display.php"</script>';
     }
     else

@@ -68,6 +68,14 @@ if (isset($_SESSION['alias']))
             <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
         </div>
     </div>
+    <div class="pull-right">
+        <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
+        <?php
+        if($row['imagen']!=null){
+            ?>
+        <img width="50" src="<?= $_SESSION['imagen']?>">
+        <?php } ?>
+    </div>
 </header>
 
 <div class="col-md-9" id="map-canvas"></div>
