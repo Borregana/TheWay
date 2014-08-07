@@ -82,7 +82,7 @@ if(isset($_SESSION['usuario_id']))
         <div>
             <div id="content" class="container">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-11">
                         <div class="well no-padding">
                             <header>
                                 <h1 class="txt-color-red login-header-big">MIS RUTAS</h1>
@@ -97,6 +97,7 @@ if(isset($_SESSION['usuario_id']))
                                         <th>Vehiculo</th>
                                         <th>puntuación</th>
                                         <th>Fecha de publicación</th>
+                                        <th>Copias</th>
                                         <th>Publica</th>
                                         <th></th>
                                     </tr>
@@ -126,6 +127,9 @@ if(isset($_SESSION['usuario_id']))
                                                 <?= $row['fecha_publicacion']; ?>
                                             </td>
                                             <td>
+                                                <?= $row['num_copias']; ?>
+                                            </td>
+                                            <td>
                                                 <?php if($row['publica']==0){
                                                     echo 'NO';
                                                 }
@@ -139,11 +143,27 @@ if(isset($_SESSION['usuario_id']))
                                                 </td>
                                                 <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
                                             </form>
-                                            <form id="miruta" method="post" action="display2.php">
+                                            <?php if($row['publica']==0){ ?>
+                                            <form id="miruta" method="post" action="publicar.php">
                                                 <td>
                                                     <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                 </td>
-                                                <button class="btn btn-info" ><i class="icon-append glyphicon glyphicon-edit"></i></button>
+                                                <button class="btn btn-info"><i class="icon-append glyphicon glyphicon-eye-open"></i></button>
+                                            </form>
+                                            <?php }
+                                            else { ?>
+                                                <form id="miruta" method="post" action="despublicar.php">
+                                                    <td>
+                                                        <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                    </td>
+                                                    <button class="btn btn-danger"><i class="icon-append glyphicon glyphicon-eye-close"></i></button>
+                                                </form>
+                                                <?php } ?>
+                                            <form id="miruta" method="post" action="display.php">
+                                                <td>
+                                                    <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                </td>
+                                                <button class="btn btn-link" ><i class="icon-append glyphicon glyphicon-pencil"></i></button>
                                             </form>
                                             <form id="miruta" method="post" action="deleteRoute.php">
                                                 <td>

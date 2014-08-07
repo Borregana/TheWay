@@ -43,14 +43,14 @@ if(isset($_POST))
 
         $img=$Destination.'/'.$NewImageName;
 
-        $id=mysqli_real_escape_string($con,'106');
+        $id=mysqli_real_escape_string($con,$_POST['idpunto']);
         $imagen=mysqli_real_escape_string($con,$img);
 
         $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE id='$id'");
 
         if($result)
         {
-            echo '<script>location.href = "display2.php";</script>';
+            echo '<script>location.href = "display.php";</script>';
         }
     }
 }

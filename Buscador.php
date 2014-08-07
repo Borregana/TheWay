@@ -192,6 +192,7 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                 <tr>
+                                                    <th>Vista</th>
                                                     <th>Nombre</th>
                                                     <th>Ciudad</th>
                                                     <th>tiempo</th>
@@ -205,6 +206,12 @@
                                                 while($row=mysqli_fetch_array($resultado)){
                                                     ?>
                                                     <tr>
+                                                        <form id="miruta" method="post" action="vistaPublica.php">
+                                                            <td>
+                                                                <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                            </td>
+                                                            <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                                        </form>
                                                         <td>
                                                             <?= $row['nombre']; ?>
                                                         </td>
@@ -225,13 +232,6 @@
                                                         <td>
                                                             <?= $row['fecha_publicacion']; ?>
                                                         </td>
-
-                                                        <form id="miruta" method="post" action="vistaPublica.php">
-                                                            <td>
-                                                                <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
-                                                            </td>
-                                                            <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
-                                                        </form>
                                                         </tr>
                                                 <?php } ?>
                                             </table>
