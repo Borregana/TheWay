@@ -17,4 +17,6 @@ if(isset($_POST)){
     if($resultado){
         echo '<script>location.href="misrutas.php";</script>';
     }
+    mysql_close($con);
+
 }

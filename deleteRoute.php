@@ -5,4 +5,27 @@
  * Date: 06/08/14
  * Time: 16.28
  */
-echo "en construccion";
+    session_start();
+if(isset($_POST)){
+    $con=mysqli_connect("localhost","root","root","Rutas");
+
+    if(mysqli_connect_errno()){
+        echo "No se pudo conectar con la base de datos".mysqli_connect_error();
+    }
+
+    $idruta=mysqli_real_escape_string($con,$_POST['idruta']);
+
+    $puntos=mysqli_query($con,"DELETE FROM Puntos WHERE ruta_id='$idruta' ");
+    $comentarios=mysqli_query($con,"DELETE FROM Comentarios WHERE ruta_id='$idruta' ");
+    $ruta=mysqli_query($con,"DELETE FROM Rutas WHERE id='$idruta' ");
+
+    if($ruta){
+
+        echo '<span>La ruta ha sido borrada con exito</span>';
+        echo '<script>location.href="misRutas.php";</script>';
+    }
+    else{
+        echo '<span>La ruta no ha podido ser eliminada</span>';
+    }
+    mysql_close($con);
+}

@@ -100,6 +100,9 @@ if(isset($_SESSION['usuario_id']))
                                         <th>Copias</th>
                                         <th>Publica</th>
                                         <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <?php
