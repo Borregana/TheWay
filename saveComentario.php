@@ -35,9 +35,10 @@ if($resultado){
     $update="UPDATE Rutas SET puntuacion_media='$media_final' WHERE id='$idruta'";
     $respunt=mysqli_query($con,$update);
 
-    $_SESSION['idruta']=$idruta;
 
     echo "<span>El comentario ha sido registrado</span>";
+    echo '<script>location.href="vistaPublica.php"</script>';
+
 }
 else{
     echo"<span>No se ha podido registrar el comentario</span>";

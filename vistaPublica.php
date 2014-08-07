@@ -85,7 +85,8 @@ if(isset($_SESSION['alias']))
         $comentarios=array(array(
             'comentario'=>"",
             'puntuacion'=>"",
-            'usuario'=>""
+            'usuario'=>"",
+            'id'=>""
         ));
         $nocomment=false;
         $cons_comentarios="SELECT * FROM Comentarios WHERE ruta_id='$idruta'";
@@ -100,6 +101,7 @@ if(isset($_SESSION['alias']))
                 $alias_cons="SELECT alias FROM Usuarios WHERE id='$alias_com'";
                 $res_alias_com=mysqli_query($con,$alias_cons);
                 $comentarios[$cont]['usuario']=mysqli_fetch_array($res_alias_com)['alias'];
+                $comentarios[$cont]['id']=$rcom['id'];;
                 $cont++;
             }
         }
@@ -223,53 +225,57 @@ if(isset($_SESSION['alias']))
                         <div>
 
                             <!-- widget content -->
-                            <div class="widget-body no-padding">
-                                <div id="resultado"></div>
-                                <form id="review-form" class="smart-form">
-                                    <header>
-                                        <h3 class="txt-color-green header-big"><strong>Opiniones</strong></h3>
-                                    </header>
-                                    <div style="overflow: auto;height:180px;">
+                            <div class="smart-form">
+                                <header>
+                                    <h3 class="txt-color-green header-big"><strong>COMENTARIOS</strong></h3>
+                                </header>
+                                <div style="overflow: auto;height:180px;">
+                                    <?php
+                                    for($com=0;$com<count($comentarios);$com++){
+                                        if(!$nocomment){
+                                            ?>
+                                            <fieldset>
+                                                <section class="widget-body">
+                                                    <ul>
+                                                        <li class="fa fa-user">
+                                                            <?= $comentarios[$com]['usuario'];?>
+                                                        </li>
+                                                        <br>
+                                                        <li class="fa fa-comment">
+                                                            <?= $comentarios[$com]['comentario'];?>
+                                                        </li>
+                                                    </ul>
+                                                </section>
+                                                <section>
+                                                    <div class="rating">
+                                                        Puntuacion:
+                                                        <?php
+                                                        for($s=0;$s<$comentarios[$com]['puntuacion'];$s++){
+                                                            ?>
+                                                            <i class="fa fa-star"></i>
+                                                        <? }?>
+                                                        <section class="pull-right">
+                                                            <form id="delete_comment" action="deleteComment.php" method="post">
+                                                                <input type="hidden" id="idcom" name="idcom" value="<?= $comentarios[$com]['id'];?>">
+                                                                <button class="btn btn-link">Borrar</button>
+                                                            </form>
+                                                        </section>
+                                                    </div>
+                                                </section>
+                                            </fieldset>
+
                                         <?php
-                                        for($com=0;$com<count($comentarios);$com++){
-                                            if(!$nocomment){
-                                                ?>
-                                                <fieldset>
-                                                    <section class="widget-body">
-                                                        <ul>
-                                                            <li class="fa fa-user">
-                                                                <?= $comentarios[$com]['usuario'];?>
-                                                            </li>
-                                                            <br>
-                                                            <li class="fa fa-comment">
-                                                                <?= $comentarios[$com]['comentario'];?>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-
-                                                    <section>
-                                                        <div class="rating">
-                                                            Puntuacion:
-                                                            <?php
-                                                            for($s=0;$s<$comentarios[$com]['puntuacion'];$s++){
-                                                                ?>
-                                                                <i class="fa fa-star"></i>
-                                                            <? }?>
-                                                        </div>
-                                                    </section>
-                                                </fieldset>
-
-                                            <?php
-                                            }
-                                            else{?>
-                                                <fieldset>
-                                                    <section class="col-md-12">
-                                                        <h2>No hay comentarios...</h2>
-                                                    </section>
-                                                </fieldset>
-                                            <?php }?>
-                                        <? } ?>
-                                    </div>
+                                        }
+                                        else{?>
+                                            <fieldset>
+                                                <section class="col-md-12">
+                                                    <h2>No hay comentarios...</h2>
+                                                </section>
+                                            </fieldset>
+                                        <?php }?>
+                                    <? } ?>
+                                </div>
+                                <form id="review-form" class="smart-form" action="saveComentario.php" method="post">
                                     <fieldset>
                                         <header>
                                             <H2>TU OPINION</H2>
@@ -287,14 +293,16 @@ if(isset($_SESSION['alias']))
                                                         <i class="fa fa-star"></i>
                                                     </label>
                                                 </div>
-
                                             </section>
+                                            <section>
+                                                <input type="hidden" id="idruta" name="idruta" value="<?= $idruta?>">
+                                            </section>
+                                            <footer>
+                                                <button class="btn btn-primary">
+                                                    Guardar
+                                                </button>
+                                            </footer>
                                     </fieldset>
-                                    <footer>
-                                        <button class="btn btn-primary" onclick="comentar(document.getElementById('comentario').value, document.getElementById('puntuacion').value)">
-                                            Guardar
-                                        </button>
-                                    </footer>
                                 </form>
                                 <script>
                                     function comentar(comentario,puntuacion)
