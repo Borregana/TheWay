@@ -5,7 +5,10 @@
  * Date: 28/07/14
  * Time: 16.11
  */
-?>
+session_start();
+if (isset($_SESSION['alias']))
+{
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -61,9 +64,16 @@
             <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
         </div>
     </div>
+    <div class="pull-right">
+        <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
+        <?php
+        if($_SESSION['imagen']!=""){
+            ?>
+            <img width="50" src="<?= $_SESSION['imagen']?>">
+        <?php } ?>
+    </div>
 </header>
 <?php
-session_start();
 if(isset($_SESSION['usuario_id']))
 {
     $con=mysqli_connect("localhost","root","root","Rutas");
@@ -218,3 +228,10 @@ else
 ?>
 </body>
 </html>
+<?php
+}
+else
+{
+    echo '<script>location.href = "index.php";</script>';
+}
+?>

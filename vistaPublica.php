@@ -38,7 +38,8 @@ if(isset($_SESSION['alias']))
             'puntuacion'=>"",
             'usuario'=>"",
             'fecha'=>"",
-            'recorrido'=>""
+            'recorrido'=>"",
+            'url_kml'=>""
         );
         while($col=mysqli_fetch_array($resultado)){
             $infor['nombre']=$col['nombre'];
@@ -53,6 +54,7 @@ if(isset($_SESSION['alias']))
             $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
             $infor['fecha']=$col['fecha_publicacion'];
             $infor['recorrido']=$col['recorrido'];
+            $infor['url_kml']=$col['url_kml'];
 
         };
 //Recogemos los datos del recorrido
@@ -187,6 +189,12 @@ if(isset($_SESSION['alias']))
                                     <li>Tiempo: <b><i><?=$infor['tiempo']?></i></b></li>
                                     <li>Vehiculo: <b><i><?=$infor['vehiculo']?></i></b></li>
                                     <li>Fecha: <b><i><?=$infor['fecha']?></i></b></li>
+                                    <?php if($infor['url_kml']!=""){?>
+                                    <li>Kml: <b><i>SI</i></b></li>
+                                    <?php
+                                    }
+                                    else{ ?><li>Kml: <b><i>NO</i></b></li><?php } ?>
+
                                     <li>Puntuacion:
                                         <?for($i=0;$i<$infor['puntuacion'];$i++){?>
                                             <i class="icon-append fa fa-star"></i>
@@ -355,6 +363,10 @@ if(isset($_SESSION['alias']))
                 var map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
 
+                var ctaLayer= new google.maps.KmlLayer({
+                    url:"<?= $infor['url_kml']?>"
+                });
+                ctaLayer.setMap(map);
                 var polylineOptions= {
                     path: route,
                     strokeColor: "#8000FF"

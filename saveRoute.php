@@ -24,12 +24,7 @@ if(isset($_POST)){
             //El usuario introduce minutos, pero la BD lo recoge como segundos
             //antes de guardarlo convertiremos los segundos en minutos
             $time= mysqli_real_escape_string($con,$_POST['tiempo']);
-            $seconds=$time*60;
-            /*$horas = floor($seconds/3600);
-            $minutos = floor(($seconds-($horas*3600))/60);
-            $segundos = $seconds-($horas*3600)-($minutos*60);*/
             $real_time= $time;
-
             $vehicle= mysqli_real_escape_string($con,$_POST['vehiculo']);
             $usuario= mysqli_real_escape_string($con,$_SESSION['usuario_id']);
             $idruta=mysqli_real_escape_string($con,$_POST['ruta_id']);

@@ -30,6 +30,7 @@ if(isset($_SESSION['alias'])){
         $inforuta6=mysqli_real_escape_string($con,$row['puntuacion_media']);
         $inforuta7=mysqli_real_escape_string($con,$_SESSION['usuario_id']);
         $num_copias=mysqli_real_escape_string($con,$row['num_copias']);
+        $url_kml=mysqli_real_escape_string($con,$row['url_kml']);
         //Ampliamos el numero de copias en la BD
         $num_copias++;
         $suma_copia="UPDATE Rutas SET num_copias='$num_copias' WHERE id='$idruta'";
@@ -37,8 +38,8 @@ if(isset($_SESSION['alias'])){
         //construimos el nombre de la copia
         $nombre_copia=$inforuta0.'_copia_'.$num_copias;
 
-        $insert="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,puntuacion_media,usuario_id)
-            VALUES ('$nombre_copia','$inforuta1','$inforuta2','$inforuta3','$inforuta4','$inforuta5','$inforuta6','$inforuta7')";
+        $insert="INSERT INTO Rutas (nombre,ciudad,marcadores,recorrido,tiempo,vehiculo,puntuacion_media,usuario_id,url_kml)
+            VALUES ('$nombre_copia','$inforuta1','$inforuta2','$inforuta3','$inforuta4','$inforuta5','$inforuta6','$inforuta7','$url_kml')";
 
         $res_insert=mysqli_query($con,$insert);
 

@@ -76,7 +76,8 @@ if (isset($_SESSION['alias']))
                 'puntuacion'=>"",
                 'usuario'=>"",
                 'fecha'=>"",
-                'recorrido'=>""
+                'recorrido'=>"",
+                'url_kml'=>""
             );
             while($col=mysqli_fetch_array($resultado)){
                 $infor['nombre']=$col['nombre'];
@@ -91,16 +92,16 @@ if (isset($_SESSION['alias']))
                 $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
                 $infor['fecha']=$col['fecha_publicacion'];
                 $infor['recorrido']=$col['recorrido'];
-
+                $infor['url_kml']=$col['url_kml'];
             };
-//Recogemos los datos del recorrido
+            //Recogemos los datos del recorrido
             $line=explode("),",$infor['recorrido']);
             $tam=count($line);
             for($i=0;$i<$tam-1;$i++){
                 $line[$i]=$line[$i].')';
             }
 
-//Recogemos los datos de los marcadores
+            //Recogemos los datos de los marcadores
             $marcadores=array(array(
                 'nombre'=>"",
                 'texto'=>"",
@@ -233,229 +234,230 @@ if (isset($_SESSION['alias']))
                 <!-- end widget content -->
             </div>
             <!-- end widget div -->
-
         </div>
         <!-- end widget -->
-
+        <div class="jarviswidget">
+            <header>
+                <h2 class="pull-left"><strong class="txt-color-orangeDark login-header-big">Subir ruta </strong><i><b>Kml</b></i></h2><br>
+            </header>
+            <div class="widget-body">
+                <div id="resultado"></div>
+                <b class="txt-color-orange">Introducir url del archivo.</b>
+                <form class="form-actions" id="kmlform" name="kmlform" action="return false" onsubmit="return false" method="post">
+                    <input type="text" class="pull-left" id="urlKml" name="urlKml">
+                    <button class="btn btn-success" onclick="loadKml(document.getElementById('urlKml').value);">
+                        Cargar Kml
+                    </button>
+                </form>
+            </div>
     </article>
 
     </body>
 
     </html>
     <script>
-        var route=[];
-        <?php
-        //Rellenamos route con las coordenadas de los punto que delimitan las lineas
-        for( $j= 0;$j<=$tam;$j++){
-        ?>
-        route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
-        <?php }
+    var route=[];
+    <?php
+    //Rellenamos route con las coordenadas de los punto que delimitan las lineas
+    for( $j= 0;$j<=$tam;$j++){
     ?>
-        function removeMarker(marker){
-            var longitud=marker.content.length-1;
-            var bien="";
+    route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
+    <?php }
+?>
 
-            if(arrayMarkerId[marker.content[longitud]]!=""){
-                $.ajax({
-                    url: "deletePoint.php",
-                    type: "POST",
-                    data: "id="+arrayMarkerId[marker.content[longitud]],
-                    success: function(responce){
-                        bien=responce;
-                    }
-                });
-                if(bien=1){
-                    marker.setMap(null);
-                }
-                else{
-                    alert('El punto no ha podido ser eliminado');
-                }
-            }
-            else{
-                marker.setMap(null);
-            }
+    var mapOptions = {
+        center: new google.maps.LatLng(39.8867882,-0.0867385,15),
+        zoom: 16
+    };
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+    function loadKml(url){
+        if(idRuta==""){
+            alert('Debes crear la ruta primero')
         }
-        function removePolyline(polyline){
-            polyline.setMap(null);
-            routeArray=[];
+        else{
+            var ctaLayer= new google.maps.KmlLayer({
+                url:url
+            });
+            var parametros={
+                "url":url,
+                "idruta":idRuta
+            };
+            $.ajax({
+                data:parametros,
+                url: "saveKml.php",
+                type: "post",
+                success: function(resp){
+                    $("#resultado").html(resp)
+                }
+            });
+            ctaLayer.setMap(map);
         }
-        function initialize() {
-            var mapOptions = {
-                center: new google.maps.LatLng(39.8867882,-0.0867385,15),
-                zoom: 16
-            };
+    }
 
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
+    var ctaLayer= new google.maps.KmlLayer({
+        url:"<?= $infor['url_kml']?>"
+    });
+    ctaLayer.setMap(map);
 
-            var polylineOptions= {
-                path: route
-            };
+    function initialize() {
 
+        var polylineOptions= {
+            path: route
+        };
 
-            google.maps.event.addListenerOnce(map, 'idle', function() {
+        google.maps.event.addListenerOnce(map, 'idle', function() {
 
+            var polyline= new google.maps.Polyline(polylineOptions);
+            google.maps.event.addDomListener(polyline, "rightclick", function() {
+                removePolyline(polyline);
+            });
+            polyline.setMap(map);
 
-                var polyline= new google.maps.Polyline(polylineOptions);
-                google.maps.event.addDomListener(polyline, "rightclick", function() {
-                    removePolyline(polyline);
-                });
-                polyline.setMap(map);
-                <?php
-                for($i=0;$i<=count($marcadores);$i++){
+            <?php
+            for($i=0;$i<=count($marcadores);$i++){
+            ?>
+            point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
+
+            function contentwindow() {
+                var contentString = '<div>'+
+                    '<div class="col-md-7">'+
+                    '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+                    '<header class="txt-color-blueDark">'+
+                    'Punto de Interes'+
+                    '</header>'+
+                    '<div id="resultado"></div>'+
+                    '<fieldset>'+
+                    '<section>'+
+                    '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+                    '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" value="<?= $marcadores[$i]['nombre'];?>" required="required">'+
+                    '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+                    '</section>'+
+                    '<section>' +
+                    '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+                    '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos..."><?= $marcadores[$i]['texto'];?></textarea> '+
+                    '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+                    '</section>'+
+                    '<section>' +
+                    '<input id="posicion" type="hidden" value='+posicion+'>'+
+                    '</section>'+
+                    '</fieldset>'+
+                    '<footer>'+
+                    '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
+                    'Guardar'+
+                    '</form>'+
+                    '</div>'+
+                    '<div class="col-md-5">'+
+                    '<header class="txt-color-orangeDark">'+
+                    'Imagen'+
+                    '</header>'+
+                    '<fieldset>'+
+                    '<form id="img_punto" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                    '<input type="hidden" value="<?= $marcadores[$i]['idpunto'];?>" '+
+                    '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
+                    ' <i class="icon-append fa fa-picture-o"></i></label>'+
+                    '<footer>'+
+                    '<button class="btn btn-success">'+
+                    'Subir Imagen'+
+                    '</button>'+
+                    '</footer>'+
+                    '</form>'+
+                    '</fieldset>'+
+                    '</div>'+
+                    '</div>';
+
+                result= contentString+posicion;
+                posicion++;
+                return result;
+            }
+
+            var infoWindow = new google.maps.InfoWindow({
+                maxwidth: "60px",
+                content: contentwindow()
+            });
+
+            var marker= new google.maps.Marker({
+                position: point,
+                content: contentwindow()
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infoWindow.setContent(this.content);
+                infoWindow.open(map, this);
+            });
+            google.maps.event.addDomListener(marker, "rightclick", function() {
+                removeMarker(marker);
+            });
+            marker.setMap(map);
+            <?php
+                 }
                 ?>
-                point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
+            var drawingManager = new google.maps.drawing.DrawingManager({
+                drawingControl: true,
+                drawingControlOptions: {
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    drawingModes: [
+                        google.maps.drawing.OverlayType.MARKER,
+                        google.maps.drawing.OverlayType.POLYLINE
+                    ]
+                },
+                markerOptions: {
+                    editable: true,
+                    draggable: true
+                },
 
-                function contentwindow() {
-                    var contentString = '<div>'+
-                        '<div class="col-md-7">'+
-                        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
-                        '<header class="txt-color-blueDark">'+
-                        'Punto de Interes'+
-                        '</header>'+
-                        '<div id="resultado"></div>'+
-                        '<fieldset>'+
-                        '<section>'+
-                        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                        '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" value="<?= $marcadores[$i]['nombre'];?>" required="required">'+
-                        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                        '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos..."><?= $marcadores[$i]['texto'];?></textarea> '+
-                        '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<input id="posicion" type="hidden" value='+posicion+'>'+
-                        '</section>'+
-                        '</fieldset>'+
-                        '<footer>'+
-                        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
-                        'Guardar'+
-                        '</form>'+
-                        '</div>'+
-                        '<div class="col-md-5">'+
-                        '<header class="txt-color-orangeDark">'+
-                        'Imagen'+
-                        '</header>'+
-                        '<fieldset>'+
-                        '<form id="img_punto" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
-                        '<input type="hidden" value="<?= $marcadores[$i]['idpunto'];?>" '+
-                        '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                        ' <i class="icon-append fa fa-picture-o"></i></label>'+
-                        '<footer>'+
-                        '<button class="btn btn-success">'+
-                        'Subir Imagen'+
-                        '</button>'+
-                        '</footer>'+
-                        '</form>'+
-                        '</fieldset>'+
-                            '</div>'+
-                        '</div>';
-
-                    result= contentString+posicion;
-                    posicion++;
-                    return result;
+                polylineOptions: {
+                    editable: true,
+                    draggable: true
                 }
-                var contentString =
-                    '<div>'+
-                        '<fieldset>'+
-                        '<section>'+
-                        '<div><?= $marcadores[$i]['nombre']?></div>'+
-                        '</section>'+
-                        '<section>' +
-                        '<label class="label"></label>'+
-                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                        '<div><?= $marcadores[$i]['texto']?></div>'+
-                        '</section>'+
-                        '</fieldset>'+
-                        '</div>';
+            });
 
+            drawingManager.setMap(map);
 
-                var infoWindow = new google.maps.InfoWindow({
-                    maxwidth: "60px",
-                    content: contentwindow()
-                });
+            $(".gmnoprint").each(function() {
+                var newObj = $(this).find("[title='Stop drawing']");
+                newObj.attr('id', 'btnStop');
 
-                var marker= new google.maps.Marker({
-                    position: point,
-                    content: contentwindow()
-                });
-                google.maps.event.addListener(marker, 'click', function() {
-                    infoWindow.setContent(this.content);
-                    infoWindow.open(map, this);
-                });
-                google.maps.event.addDomListener(marker, "rightclick", function() {
-                    removeMarker(marker);
-                });
-                marker.setMap(map);
-                <?php
-                     }
-                    ?>
-                var drawingManager = new google.maps.drawing.DrawingManager({
-                    drawingControl: true,
-                    drawingControlOptions: {
-                        position: google.maps.ControlPosition.TOP_CENTER,
-                        drawingModes: [
-                            google.maps.drawing.OverlayType.MARKER,
-                            google.maps.drawing.OverlayType.POLYLINE
-                        ]
-                    },
-                    markerOptions: {
-                        editable: true,
-                        draggable: true
-                    },
+                // ID the toolbar
+                newObj.parent().parent().attr("id", "btnBar");
 
-                    polylineOptions: {
-                        editable: true,
-                        draggable: true
-                    }
-                });
+                // ID the Marker button
+                newObj = $(this).find("[title='Add a marker']");
+                newObj.attr('id', 'btnMarker');
 
-                drawingManager.setMap(map);
-
-                $(".gmnoprint").each(function() {
-                    var newObj = $(this).find("[title='Stop drawing']");
-                    newObj.attr('id', 'btnStop');
-
-                    // ID the toolbar
-                    newObj.parent().parent().attr("id", "btnBar");
-
-                    // ID the Marker button
-                    newObj = $(this).find("[title='Add a marker']");
-                    newObj.attr('id', 'btnMarker');
-
-                    // ID the line button
-                    newObj = $(this).find("[title='Draw a line']");
-                    newObj.attr('id', 'btnLine');
-                });
-                google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
-                    if(event.type == google.maps.drawing.OverlayType.POLYLINE) {
-                        google.maps.event.addListener(drawingManager, 'polylinecomplete', function(polyline) {
-                            google.maps.event.addDomListener(polyline, "rightclick", function() {
-                                removePolyline(polyline);
-                            });
-                            routeArray.push(polyline);
+                // ID the line button
+                newObj = $(this).find("[title='Draw a line']");
+                newObj.attr('id', 'btnLine');
+            });
+            google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+                if(event.type == google.maps.drawing.OverlayType.POLYLINE) {
+                    google.maps.event.addListener(drawingManager, 'polylinecomplete', function(polyline) {
+                        google.maps.event.addDomListener(polyline, "rightclick", function() {
+                            removePolyline(polyline);
                         });
-                    }
-                    else if(event.type == google.maps.drawing.OverlayType.MARKER) {
-                        google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
-                            marker.content = contentwindow();
-                            google.maps.event.addListener(marker, 'click', function() {
-                                marcador=marker.getPosition().toUrlValue();
-                                infoWindow.setContent(this.content);
-                                infoWindow.open(map, this);
-                            });
-                            google.maps.event.addDomListener(marker, "rightclick", function() {
-                                removeMarker(marker);
-                            });
-                            markersArray.push(marker);
+                        routeArray.push(polyline);
+                    });
+                }
+                else if(event.type == google.maps.drawing.OverlayType.MARKER) {
+                    google.maps.event.addListener(drawingManager, 'markercomplete', function(marker) {
+                        marker.content = contentwindow();
+                        google.maps.event.addListener(marker, 'click', function() {
+                            marcador=marker.getPosition().toUrlValue();
+                            infoWindow.setContent(this.content);
+                            infoWindow.open(map, this);
                         });
-                    }
-                });
-            })
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
+                        google.maps.event.addDomListener(marker, "rightclick", function() {
+                            removeMarker(marker);
+                        });
+                        markersArray.push(marker);
+                    });
+                }
+            });
+        })
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 <?php
