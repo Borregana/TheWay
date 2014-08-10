@@ -61,9 +61,9 @@ if(isset($_SESSION['alias'])){
             </div>
             <div class="col-md-8">
                 <div class="btn-group">
-                    <a href="misRutas.php" title="Private"><i class="btn btn-info">Mis Rutas</i></a>
-                    <a href="display.php" title="Creador"><i class="btn btn-success">Creador</i></a>
-                    <a href="Buscador.php" title="Buscador"><i class="btn btn-warning">Buscador</i></a>
+                    <a href="display.php" title="Creador"><i class="btn btn-primary">Creador</i></a>
+                    <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
+                    <a href="Buscador.php" title="Buscador"><i class="btn btn-info">Buscador</i></a>
                     <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
                 </div>
             </div>

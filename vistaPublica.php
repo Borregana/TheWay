@@ -160,9 +160,10 @@ if(isset($_SESSION['alias']))
             </div>
             <div class="col-md-8">
                 <div class="btn-group">
-                    <a href="display.php" title="Private"><i class="btn btn-info">Creador</i></a>
-                    <a href="misRutas.php" title="Private"><i class="btn btn-warning">Mis Rutas</i></a>
-                    <a href="Buscador.php" title="Publica"><i class="btn btn-success">Buscador</i></a>
+                    <a href="display.php" title="Private"><i class="btn btn-primary">Creador</i></a>
+                    <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
+                    <a href="Buscador.php" title="Publica"><i class="btn btn-info">Buscador</i></a>
+                    <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
                     <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
                 </div>
             </div>

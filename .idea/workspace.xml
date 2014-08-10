@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deleteKml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Buscador.php" afterPath="$PROJECT_DIR$/Buscador.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/drawing.js" afterPath="$PROJECT_DIR$/js/drawing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editUser.php" afterPath="$PROJECT_DIR$/editUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misRutas.php" afterPath="$PROJECT_DIR$/misRutas.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistaPublica.php" afterPath="$PROJECT_DIR$/vistaPublica.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,17 +30,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vistaPublica.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+      <file leaf-file-name="display.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="57" selection-start="12810" selection-end="12810" vertical-scroll-proportion="1.1906977" vertical-offset="3936" max-vertical-offset="7392">
+            <state line="150" column="77" selection-start="4871" selection-end="4871" vertical-scroll-proportion="0.66976744" vertical-offset="2112" max-vertical-offset="9376">
               <folding>
-                <element signature="e#10213#10249#0" expanded="true" />
-                <marker date="1407687783000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407687783000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1407687783000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1407687783000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
-                <marker date="1407687783000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
+                <element signature="e#6#89#0" expanded="true" />
+                <marker date="1407688624000" expanded="true" signature="2335:2373" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1407688624000" expanded="true" signature="3103:3148" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1407688624000" expanded="true" signature="3807:3851" placeholder="SELECT * FRO..Puntos..." />
               </folding>
             </state>
           </provider>
@@ -89,7 +88,6 @@
         <option value="$PROJECT_DIR$/editUser3.php" />
         <option value="$PROJECT_DIR$/editUser2.php" />
         <option value="$PROJECT_DIR$/validar.php" />
-        <option value="$PROJECT_DIR$/editUser.php" />
         <option value="$PROJECT_DIR$/edit.php" />
         <option value="$PROJECT_DIR$/display2.php" />
         <option value="$PROJECT_DIR$/saveImgPoint.php" />
@@ -98,17 +96,18 @@
         <option value="$PROJECT_DIR$/deleteRoute.php" />
         <option value="$PROJECT_DIR$/deleteComment.php" />
         <option value="$PROJECT_DIR$/saveComentario.php" />
-        <option value="$PROJECT_DIR$/Buscador.php" />
-        <option value="$PROJECT_DIR$/misRutas.php" />
         <option value="$PROJECT_DIR$/.php" />
         <option value="$PROJECT_DIR$/kml.php" />
         <option value="$PROJECT_DIR$/saveRoute.php" />
         <option value="$PROJECT_DIR$/saveKml.php" />
         <option value="$PROJECT_DIR$/copiaRoute.php" />
         <option value="$PROJECT_DIR$/deleteKml.php" />
-        <option value="$PROJECT_DIR$/display.php" />
         <option value="$PROJECT_DIR$/js/drawing.js" />
         <option value="$PROJECT_DIR$/vistaPublica.php" />
+        <option value="$PROJECT_DIR$/display.php" />
+        <option value="$PROJECT_DIR$/Buscador.php" />
+        <option value="$PROJECT_DIR$/editUser.php" />
+        <option value="$PROJECT_DIR$/misRutas.php" />
       </list>
     </option>
   </component>
@@ -363,7 +362,11 @@
       <created>1407588439897</created>
       <updated>1407588439897</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="se puede eliminar una capa kml cargada anteriormente, el boton borrar comentario ya no aparece en todos, solo en los del usuario en sesion, &#10;ahora el mapa se crea centrado en el primer marcador o el primer punto del recorrido(si existe)">
+      <created>1407687907012</created>
+      <updated>1407687907012</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -424,7 +427,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="guardo lineas, punto y aparecen los infowindows :)" />
     <MESSAGE value="arreglos varios" />
     <MESSAGE value="Ya funciona el login!!!" />
     <MESSAGE value="las rutas y los infowindows se guardan correctamente&#10;" />
@@ -449,7 +451,8 @@
     <MESSAGE value="borrar rutes ok&#10;" />
     <MESSAGE value="los comentarios se pueden borrar i ahora el form para guardar es con php no con js" />
     <MESSAGE value="funcionalidad de subir url con archivo kml y se guarda en la BD" />
-    <option name="LAST_COMMIT_MESSAGE" value="funcionalidad de subir url con archivo kml y se guarda en la BD" />
+    <MESSAGE value="se puede eliminar una capa kml cargada anteriormente, el boton borrar comentario ya no aparece en todos, solo en los del usuario en sesion, &#10;ahora el mapa se crea centrado en el primer marcador o el primer punto del recorrido(si existe)" />
+    <option name="LAST_COMMIT_MESSAGE" value="se puede eliminar una capa kml cargada anteriormente, el boton borrar comentario ya no aparece en todos, solo en los del usuario en sesion, &#10;ahora el mapa se crea centrado en el primer marcador o el primer punto del recorrido(si existe)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -460,9 +463,9 @@
         <state line="308" column="42" selection-start="12100" selection-end="12100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7552">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407688624000" expanded="true" signature="2335:2373" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407688624000" expanded="true" signature="3103:3148" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407688624000" expanded="true" signature="3807:3851" placeholder="SELECT * FRO..Puntos..." />
           </folding>
         </state>
       </provider>
@@ -653,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="32" selection-start="6161" selection-end="6287" vertical-scroll-proportion="0.77259034" vertical-offset="1487" max-vertical-offset="2384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="4" selection-start="0" selection-end="2035" vertical-scroll-proportion="0.29098967" vertical-offset="427" max-vertical-offset="1104" />
@@ -704,22 +700,6 @@
     <entry file="file://$PROJECT_DIR$/saveComentario.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="4" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.9217135" vertical-offset="0" max-vertical-offset="800">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misRutas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="34" selection-start="2625" selection-end="2625" vertical-scroll-proportion="0.16867469" vertical-offset="1024" max-vertical-offset="3808">
-          <folding>
-            <element signature="e#6#89#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Buscador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="4" selection-start="1949" selection-end="2224" vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="4768">
           <folding />
         </state>
       </provider>
@@ -779,18 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="9" selection-start="3959" selection-end="3959" vertical-scroll-proportion="-7.68" vertical-offset="1776" max-vertical-offset="9376">
-          <folding>
-            <element signature="e#6#89#0" expanded="true" />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="195" column="7" selection-start="8048" selection-end="8048" vertical-scroll-proportion="4.088534" vertical-offset="303" max-vertical-offset="3616">
@@ -807,16 +775,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/misRutas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="73" selection-start="2064" selection-end="2064" vertical-scroll-proportion="-12.36" vertical-offset="587" max-vertical-offset="3808">
+          <folding>
+            <element signature="e#6#89#0" expanded="false" />
+            <marker date="1407688756000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="41" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.33885542" vertical-offset="783" max-vertical-offset="2384">
+          <folding>
+            <marker date="1407688756000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vistaPublica.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="57" selection-start="12810" selection-end="12810" vertical-scroll-proportion="1.1906977" vertical-offset="3936" max-vertical-offset="7392">
+        <state line="165" column="56" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.24096386" vertical-offset="2480" max-vertical-offset="7408">
           <folding>
-            <element signature="e#10213#10249#0" expanded="true" />
-            <marker date="1407687783000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407687783000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407687783000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407687783000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407687783000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
+            <element signature="e#10313#10349#0" expanded="true" />
+            <marker date="1407688624000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407688624000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407688624000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407688624000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1407688624000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buscador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="2" selection-start="142" selection-end="142" vertical-scroll-proportion="0.24096386" vertical-offset="0" max-vertical-offset="4752">
+          <folding>
+            <marker date="1407688699000" expanded="true" signature="-1:-1" placeholder="SELECT id FR..Usuarios..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="77" selection-start="4871" selection-end="4871" vertical-scroll-proportion="0.66976744" vertical-offset="2112" max-vertical-offset="9376">
+          <folding>
+            <element signature="e#6#89#0" expanded="true" />
+            <marker date="1407688624000" expanded="true" signature="2335:2373" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407688624000" expanded="true" signature="3103:3148" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407688624000" expanded="true" signature="3807:3851" placeholder="SELECT * FRO..Puntos..." />
           </folding>
         </state>
       </provider>
