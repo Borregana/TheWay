@@ -92,7 +92,7 @@ function removePolyline(polyline){
 
 
 function initialize() {
-/*
+
     var mapOptions = {
         center: new google.maps.LatLng(39.8867882,-0.0867385,15),
         zoom: 17
@@ -213,7 +213,7 @@ function initialize() {
         });
 
     });
-    */
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

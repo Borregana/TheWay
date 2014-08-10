@@ -73,6 +73,9 @@ if(isset($_SESSION['alias']))
         ));
         $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
         $res_puntos=mysqli_query($con,$cons_puntos);
+        ?>
+        <script> var punto = ""</script>
+        <?php
         if($res_puntos){
             $i=0;
             while($row=mysqli_fetch_array($res_puntos)){
@@ -81,7 +84,9 @@ if(isset($_SESSION['alias']))
                 $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
                 $marcadores[$i]['imagen']=$row['imagen'];
                 $i++;
-            }
+            }?>
+            <script>punto = "<?= $marcadores[0]['punto_exacto']?>"</script>
+        <?php
         }
 //Recogemos los comentarios
         $comentarios=array(array(
@@ -190,7 +195,7 @@ if(isset($_SESSION['alias']))
                                     <li>Vehiculo: <b><i><?=$infor['vehiculo']?></i></b></li>
                                     <li>Fecha: <b><i><?=$infor['fecha']?></i></b></li>
                                     <?php if($infor['url_kml']!=""){?>
-                                    <li>Kml: <b><i>SI</i></b></li>
+                                        <li>Kml: <b><i>SI</i></b></li>
                                     <?php
                                     }
                                     else{ ?><li>Kml: <b><i>NO</i></b></li><?php } ?>
@@ -261,13 +266,18 @@ if(isset($_SESSION['alias']))
                                                         for($s=0;$s<$comentarios[$com]['puntuacion'];$s++){
                                                             ?>
                                                             <i class="fa fa-star"></i>
-                                                        <? }?>
+                                                        <? }
+                                                        if($comentarios[$com]['usuario']==$_SESSION['alias']){
+                                                        ?>
                                                         <section class="pull-right">
                                                             <form id="delete_comment" action="deleteComment.php" method="post">
                                                                 <input type="hidden" id="idcom" name="idcom" value="<?= $comentarios[$com]['id'];?>">
                                                                 <button class="btn btn-link">Borrar</button>
                                                             </form>
                                                         </section>
+                                                            <?php
+                                                        }
+                                                            ?>
                                                     </div>
                                                 </section>
                                             </fieldset>
@@ -355,8 +365,22 @@ if(isset($_SESSION['alias']))
             <?php }
         ?>
             function initialize() {
+                var centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
+
+                    if(  punto != ""){
+                        centro= new google.maps.LatLng(<?= $marcadores[0]['punto_exacto']?>);
+                    }
+                    else{
+                        if(route[0] != ""){
+                            centro= route[0];
+                        }
+                        else{
+                            centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
+                        }
+                    }
+
                 var mapOptions = {
-                    center: new google.maps.LatLng(39.8867882,-0.0867385,15),
+                    center: centro,
                     zoom: 16
                 };
 

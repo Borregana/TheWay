@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saveKml.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/display3.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Buscador.php" afterPath="$PROJECT_DIR$/Buscador.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copiaRoute.php" afterPath="$PROJECT_DIR$/copiaRoute.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deleteKml.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/drawing.js" afterPath="$PROJECT_DIR$/js/drawing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/misRutas.php" afterPath="$PROJECT_DIR$/misRutas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveRoute.php" afterPath="$PROJECT_DIR$/saveRoute.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistaPublica.php" afterPath="$PROJECT_DIR$/vistaPublica.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,53 +29,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="240" column="125" selection-start="10261" selection-end="10261" vertical-scroll-proportion="-11.92" vertical-offset="3542" max-vertical-offset="7584">
-              <folding>
-                <element signature="e#6#89#0" expanded="true" />
-                <marker date="1407588018000" expanded="true" signature="2221:2259" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407588018000" expanded="true" signature="3153:3198" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1407588018000" expanded="true" signature="4025:4069" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1407588018000" expanded="true" signature="4857:4906" placeholder="SELECT * FRO..Comentarios..." />
-                <marker date="1407588018000" expanded="true" signature="5455:5503" placeholder="SELECT alias..Usuarios..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="copiaRoute.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/copiaRoute.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="68" selection-start="980" selection-end="980" vertical-scroll-proportion="0.44779584" vertical-offset="175" max-vertical-offset="1408">
-              <folding>
-                <marker date="1407588209000" expanded="true" signature="397:435" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407588209000" expanded="true" signature="1365:1425" placeholder="UPDATE Rutas..." />
-                <marker date="1407588209000" expanded="true" signature="1600:1845" placeholder="INSERT INTO ..." />
-                <marker date="1407588209000" expanded="true" signature="1975:2023" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407588209000" expanded="true" signature="2158:2202" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1407588209000" expanded="true" signature="2983:3190" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vistaPublica.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="vistaPublica.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vistaPublica.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="365" column="16" selection-start="17151" selection-end="17299" vertical-scroll-proportion="-14.08" vertical-offset="5488" max-vertical-offset="7008">
+            <state line="278" column="57" selection-start="12810" selection-end="12810" vertical-scroll-proportion="1.1906977" vertical-offset="3936" max-vertical-offset="7392">
               <folding>
-                <element signature="e#10051#10087#0" expanded="true" />
-                <marker date="1407586396000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1407586396000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1407586396000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1407586396000" expanded="true" signature="2953:3002" placeholder="SELECT * FRO..Comentarios..." />
-                <marker date="1407586396000" expanded="true" signature="3515:3563" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1407586396000" expanded="true" signature="8595:8763" placeholder="{...}" />
-                <marker date="1407586396000" expanded="true" signature="8652:8707" placeholder="{...}" />
-                <marker date="1407586396000" expanded="true" signature="8812:9120" placeholder="{&quot;url&quot;: &quot;copiaRoute.php&quot;...}" />
-                <marker date="1407586396000" expanded="true" signature="9068:9120" placeholder="{...}" />
+                <element signature="e#10213#10249#0" expanded="true" />
+                <marker date="1407687783000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1407687783000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1407687783000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1407687783000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
+                <marker date="1407687783000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
               </folding>
             </state>
           </provider>
@@ -99,7 +58,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/routes.php" />
         <option value="$PROJECT_DIR$/infoPunto.php" />
         <option value="$PROJECT_DIR$/saveMarkers.php" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -144,12 +102,13 @@
         <option value="$PROJECT_DIR$/misRutas.php" />
         <option value="$PROJECT_DIR$/.php" />
         <option value="$PROJECT_DIR$/kml.php" />
-        <option value="$PROJECT_DIR$/js/drawing.js" />
         <option value="$PROJECT_DIR$/saveRoute.php" />
         <option value="$PROJECT_DIR$/saveKml.php" />
-        <option value="$PROJECT_DIR$/vistaPublica.php" />
-        <option value="$PROJECT_DIR$/display.php" />
         <option value="$PROJECT_DIR$/copiaRoute.php" />
+        <option value="$PROJECT_DIR$/deleteKml.php" />
+        <option value="$PROJECT_DIR$/display.php" />
+        <option value="$PROJECT_DIR$/js/drawing.js" />
+        <option value="$PROJECT_DIR$/vistaPublica.php" />
       </list>
     </option>
   </component>
@@ -400,31 +359,35 @@
       <created>1407410363821</created>
       <updated>1407410363821</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="funcionalidad de subir url con archivo kml y se guarda en la BD">
+      <created>1407588439897</created>
+      <updated>1407588439897</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32103825" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32054794" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23344104" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
@@ -461,7 +424,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="edit casi" />
     <MESSAGE value="guardo lineas, punto y aparecen los infowindows :)" />
     <MESSAGE value="arreglos varios" />
     <MESSAGE value="Ya funciona el login!!!" />
@@ -486,7 +448,8 @@
     <MESSAGE value="funcions de publicar i despublicar, detalls de misrutas" />
     <MESSAGE value="borrar rutes ok&#10;" />
     <MESSAGE value="los comentarios se pueden borrar i ahora el form para guardar es con php no con js" />
-    <option name="LAST_COMMIT_MESSAGE" value="los comentarios se pueden borrar i ahora el form para guardar es con php no con js" />
+    <MESSAGE value="funcionalidad de subir url con archivo kml y se guarda en la BD" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcionalidad de subir url con archivo kml y se guarda en la BD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -497,11 +460,9 @@
         <state line="308" column="42" selection-start="12100" selection-end="12100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7552">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <marker date="1407588018000" expanded="true" signature="2221:2259" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407588018000" expanded="true" signature="3153:3198" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407588018000" expanded="true" signature="4025:4069" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407588018000" expanded="true" signature="4857:4906" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407588018000" expanded="true" signature="5455:5503" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
           </folding>
         </state>
       </provider>
@@ -747,11 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deleteComment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="5" selection-start="611" selection-end="611" vertical-scroll-proportion="0.5435746" vertical-offset="0" max-vertical-offset="677" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/misRutas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="34" selection-start="2625" selection-end="2625" vertical-scroll-proportion="0.16867469" vertical-offset="1024" max-vertical-offset="3808">
@@ -764,13 +720,6 @@
     <entry file="file://$PROJECT_DIR$/Buscador.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="4" selection-start="1949" selection-end="2224" vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="4768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/drawing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="2142" selection-end="2142" vertical-scroll-proportion="0.0" vertical-offset="1085" max-vertical-offset="3616">
           <folding />
         </state>
       </provider>
@@ -798,48 +747,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+    <entry file="file://$PROJECT_DIR$/copiaRoute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="365" column="16" selection-start="17151" selection-end="17299" vertical-scroll-proportion="-14.08" vertical-offset="5488" max-vertical-offset="7008">
+        <state line="28" column="68" selection-start="980" selection-end="980" vertical-scroll-proportion="0.29066265" vertical-offset="175" max-vertical-offset="1408">
           <folding>
-            <element signature="e#10051#10087#0" expanded="true" />
-            <marker date="1407586396000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407586396000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407586396000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407586396000" expanded="true" signature="2953:3002" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407586396000" expanded="true" signature="3515:3563" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407586396000" expanded="true" signature="8595:8763" placeholder="{...}" />
-            <marker date="1407586396000" expanded="true" signature="8652:8707" placeholder="{...}" />
-            <marker date="1407586396000" expanded="true" signature="8812:9120" placeholder="{&quot;url&quot;: &quot;copiaRoute.php&quot;...}" />
-            <marker date="1407586396000" expanded="true" signature="9068:9120" placeholder="{...}" />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="UPDATE Rutas..." />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407588209000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deleteComment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="90" selection-end="304" vertical-scroll-proportion="-4.48" vertical-offset="0" max-vertical-offset="544">
+          <folding>
+            <marker date="1407408879000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20528">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="125" selection-start="10261" selection-end="10261" vertical-scroll-proportion="-11.92" vertical-offset="3542" max-vertical-offset="7584">
+        <state line="123" column="9" selection-start="3959" selection-end="3959" vertical-scroll-proportion="-7.68" vertical-offset="1776" max-vertical-offset="9376">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <marker date="1407588018000" expanded="true" signature="2221:2259" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407588018000" expanded="true" signature="3153:3198" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1407588018000" expanded="true" signature="4025:4069" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407588018000" expanded="true" signature="4857:4906" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1407588018000" expanded="true" signature="5455:5503" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407687291000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copiaRoute.php">
+    <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="68" selection-start="980" selection-end="980" vertical-scroll-proportion="0.44779584" vertical-offset="175" max-vertical-offset="1408">
+        <state line="195" column="7" selection-start="8048" selection-end="8048" vertical-scroll-proportion="4.088534" vertical-offset="303" max-vertical-offset="3616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deleteKml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="70" selection-start="642" selection-end="642" vertical-scroll-proportion="0.5435746" vertical-offset="0" max-vertical-offset="677">
           <folding>
-            <marker date="1407588209000" expanded="true" signature="397:435" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407588209000" expanded="true" signature="1365:1425" placeholder="UPDATE Rutas..." />
-            <marker date="1407588209000" expanded="true" signature="1600:1845" placeholder="INSERT INTO ..." />
-            <marker date="1407588209000" expanded="true" signature="1975:2023" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1407588209000" expanded="true" signature="2158:2202" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1407588209000" expanded="true" signature="2983:3190" placeholder="INSERT INTO ..." />
+            <marker date="1407683238000" expanded="true" signature="-1:-1" placeholder="UPDATE Rutas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="57" selection-start="12810" selection-end="12810" vertical-scroll-proportion="1.1906977" vertical-offset="3936" max-vertical-offset="7392">
+          <folding>
+            <element signature="e#10213#10249#0" expanded="true" />
+            <marker date="1407687783000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1407687783000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1407687783000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1407687783000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1407687783000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
           </folding>
         </state>
       </provider>

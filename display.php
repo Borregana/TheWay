@@ -10,6 +10,15 @@ session_start();
 if (isset($_SESSION['alias']))
 {
     ?>
+    <script>
+        var route=[];
+        var markersArray = [];
+        var routeArray = [];
+        var idRuta="";
+        var marcador="";
+        var posicion=0;
+        var arrayMarkerId=[];
+    </script>
     <!DOCTYPE html>
     <html>
 
@@ -31,7 +40,6 @@ if (isset($_SESSION['alias']))
         </script>
 
         <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-        <script type="text/javascript" src="js/drawing.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -55,99 +63,79 @@ if (isset($_SESSION['alias']))
     <?php
     if(isset($_POST['idruta'])){?>
         <script> idRuta = <?= $_POST['idruta'] ?>;</script>
-        <?php
-        $con=mysqli_connect('localhost','root','root','Rutas');
-        if(isset($_POST['idruta'])){
-            $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
-        }
-        $idruta=$_SESSION['idruta'];
+    <?php
+    $con=mysqli_connect('localhost','root','root','Rutas');
+    if(isset($_POST['idruta'])){
+        $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
+    }
+    $idruta=$_SESSION['idruta'];
 
-        $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
-        $resultado=mysqli_query($con,$consulta);
+    $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
+    $resultado=mysqli_query($con,$consulta);
 
-        if($resultado){
+    if($resultado){
 
-//Regcogemos la informacion de la ruta
-            $infor=array(
-                'nombre'=>"",
-                'ciudad'=>"",
-                'tiempo'=>"",
-                'vehiculo'=>"",
-                'puntuacion'=>"",
-                'usuario'=>"",
-                'fecha'=>"",
-                'recorrido'=>"",
-                'url_kml'=>""
-            );
-            while($col=mysqli_fetch_array($resultado)){
-                $infor['nombre']=$col['nombre'];
-                $infor['ciudad']=$col['ciudad'];
-                $infor['tiempo']=$col['tiempo'];
-                $infor['vehiculo']=$col['vehiculo'];
-                $infor['puntuacion']=$col['puntuacion_media'];
-                $userid=$col['usuario_id'];
-                //Buscamos el alias del usuario creador de la ruta
-                $username="SELECT alias FROM Usuarios WHERE id='$userid'";
-                $resulname=mysqli_query($con,$username);
-                $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
-                $infor['fecha']=$col['fecha_publicacion'];
-                $infor['recorrido']=$col['recorrido'];
-                $infor['url_kml']=$col['url_kml'];
-            };
-            //Recogemos los datos del recorrido
-            $line=explode("),",$infor['recorrido']);
-            $tam=count($line);
-            for($i=0;$i<$tam-1;$i++){
-                $line[$i]=$line[$i].')';
-            }
+    //Regcogemos la informacion de la ruta
+    $infor=array(
+        'nombre'=>"",
+        'ciudad'=>"",
+        'tiempo'=>"",
+        'vehiculo'=>"",
+        'puntuacion'=>"",
+        'usuario'=>"",
+        'fecha'=>"",
+        'recorrido'=>"",
+        'url_kml'=>""
+    );
+    while($col=mysqli_fetch_array($resultado)){
+        $infor['nombre']=$col['nombre'];
+        $infor['ciudad']=$col['ciudad'];
+        $infor['tiempo']=$col['tiempo'];
+        $infor['vehiculo']=$col['vehiculo'];
+        $infor['puntuacion']=$col['puntuacion_media'];
+        $userid=$col['usuario_id'];
+        //Buscamos el alias del usuario creador de la ruta
+        $username="SELECT alias FROM Usuarios WHERE id='$userid'";
+        $resulname=mysqli_query($con,$username);
+        $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
+        $infor['fecha']=$col['fecha_publicacion'];
+        $infor['recorrido']=$col['recorrido'];
+        $infor['url_kml']=$col['url_kml'];
+    };
+    //Recogemos los datos del recorrido
+    $line=explode("),",$infor['recorrido']);
+    $tam=count($line);
+    for($i=0;$i<$tam-1;$i++){
+        $line[$i]=$line[$i].')';
+    }
 
-            //Recogemos los datos de los marcadores
-            $marcadores=array(array(
-                'nombre'=>"",
-                'texto'=>"",
-                'punto_exacto'=>"",
-                'idpunto'=>"",
-                'imagen'=>""
-            ));
-            $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
-            $res_puntos=mysqli_query($con,$cons_puntos);
-            if($res_puntos){
-                $i=0;
-                while($row=mysqli_fetch_array($res_puntos)){
-                    $marcadores[$i]['nombre']=$row['nombre'];
-                    $marcadores[$i]['texto']=$row['texto'];
-                    $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
-                    $marcadores[$i]['idpunto']=$row['id'];
-                    $marcadores[$i]['imagen']=$row['imagen'];
-                    $i++;
-                }
-            }
-//Recogemos los comentarios
-            $comentarios=array(array(
-                'comentario'=>"",
-                'puntuacion'=>"",
-                'usuario'=>""
-            ));
-            $nocomment=false;
-            $cons_comentarios="SELECT * FROM Comentarios WHERE ruta_id='$idruta'";
-            $res_coment=mysqli_query($con,$cons_comentarios);
-            if(mysqli_num_rows($res_coment)>0){
-                $cont=0;
-                while($rcom=mysqli_fetch_array($res_coment)){
-                    $comentarios[$cont]['comentario']=$rcom['comentario'];
-                    $comentarios[$cont]['puntuacion']=$rcom['puntuacion'];
-                    //buscamos el nombre del usuario que ha escrito en comentario
-                    $alias_com=mysqli_real_escape_string($con,$rcom['usuario_id']);
-                    $alias_cons="SELECT alias FROM Usuarios WHERE id='$alias_com'";
-                    $res_alias_com=mysqli_query($con,$alias_cons);
-                    $comentarios[$cont]['usuario']=mysqli_fetch_array($res_alias_com)['alias'];
-                    $cont++;
-                }
-            }
-            else{
-                $nocomment=true;
-            }
-        }
+    //Recogemos los datos de los marcadores
+    $marcadores=array(array(
+        'nombre'=>"",
+        'texto'=>"",
+        'punto_exacto'=>"",
+        'idpunto'=>"",
+        'imagen'=>""
+    ));
+    $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
+    $res_puntos=mysqli_query($con,$cons_puntos);
+    ?>
+        <script>var punto = ""</script>
+    <?php
+    if($res_puntos){
+    $i=0;
+    while($row=mysqli_fetch_array($res_puntos)){
+        $marcadores[$i]['nombre']=$row['nombre'];
+        $marcadores[$i]['texto']=$row['texto'];
+        $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
+        $marcadores[$i]['idpunto']=$row['id'];
+        $marcadores[$i]['imagen']=$row['imagen'];
+        $i++;
+    }?>
+        <script>punto = "<?= $marcadores[0]['punto_exacto']?>"</script>
+    <?php
+    }
+    }
     }
     ?>
     <body>
@@ -249,6 +237,14 @@ if (isset($_SESSION['alias']))
                         Cargar Kml
                     </button>
                 </form>
+                <?php
+                if($infor['url_kml']!=""){?>
+                    <div id='deletekml'>
+                        <?='<span><b class="txt-color-blue">Capa: </b>'.$infor['url_kml'].'</span><br><br>'?>
+                        <button  class="btn btn-danger" onclick="deleteKml();">Eliminar capa existente</button>
+                    </div>
+                <?php }
+                ?>
             </div>
     </article>
 
@@ -256,7 +252,6 @@ if (isset($_SESSION['alias']))
 
     </html>
     <script>
-    var route=[];
     <?php
     //Rellenamos route con las coordenadas de los punto que delimitan las lineas
     for( $j= 0;$j<=$tam;$j++){
@@ -265,13 +260,7 @@ if (isset($_SESSION['alias']))
     <?php }
 ?>
 
-    var mapOptions = {
-        center: new google.maps.LatLng(39.8867882,-0.0867385,15),
-        zoom: 16
-    };
 
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
 
     function loadKml(url){
         if(idRuta==""){
@@ -294,15 +283,138 @@ if (isset($_SESSION['alias']))
                 }
             });
             ctaLayer.setMap(map);
+            $("#deleteKml").show();
+        }
+    }
+    function deleteKml(){
+        var parametros={
+            "idruta":idRuta
+        };
+        $.ajax({
+            data:parametros,
+            url: "deleteKml.php",
+            type: "post",
+            success: function(resp){
+                $("#resultado").html(resp)
+            }
+        });
+        ctaLayer.setMap(null);
+        $("#deleteKml").hide();
+    }
+
+
+    function submitRoute(nombre,ciudad,tiempo,vehiculo,publica) {
+        var p = "";
+        for (var i=0; i<routeArray.length; i++) {
+            p += routeArray[i].getPath().getArray().toString() + "\n";
+        }
+        var s = "";
+        for (var j=0; j<markersArray.length; j++) {
+            s += markersArray[j].getPosition().toString();
+        }
+        var parametros = {
+            "ruta_id":idRuta,
+            "lines" : p,
+            "puntos": s,
+            "nombre": nombre,
+            "ciudad": ciudad,
+            "tiempo": tiempo,
+            "vehiculo": vehiculo,
+            "publica": publica,
+            "nocache" : Math.random() // no cache
+        };
+        $.ajax({
+            url:   'saveRoute.php',
+            type:  'post',
+            data:  parametros,
+            success:  function (response) {
+                $('#result').html(response);
+            }
+        });
+    }
+
+    function submitPoint(nombre_punto,texto,posicion)
+    {
+        if(idRuta==""){
+            alert("Debes crear la ruta primero");
+        }
+        else
+        {
+            var parametros = {
+                "nombre": nombre_punto,
+                "texto": texto,
+                "posicion": posicion,
+                "punto": marcador,
+                "ruta_id": idRuta
+            };
+            $.ajax({
+                url: "savePunto.php",
+                type: "POST",
+                data: parametros,
+                success: function(resp){
+                    $('#resultado').html(resp);
+                }
+            });
         }
     }
 
-    var ctaLayer= new google.maps.KmlLayer({
-        url:"<?= $infor['url_kml']?>"
-    });
-    ctaLayer.setMap(map);
+    function removeMarker(marker){
+        var longitud=marker.content.length-1;
+        var bien="";
 
+        if(arrayMarkerId[marker.content[longitud]]!=""){
+            $.ajax({
+                url: "deletePoint.php",
+                type: "POST",
+                data: "id="+arrayMarkerId[marker.content[longitud]],
+                success: function(responce){
+                    bien=responce;
+                }
+            });
+            if(bien=1){
+                marker.setMap(null);
+            }
+            else{
+                alert('El punto no ha podido ser eliminado');
+            }
+        }
+        else{
+            marker.setMap(null);
+        }
+    }
+
+    function removePolyline(polyline){
+        polyline.setMap(null);
+        routeArray=[];
+    }
     function initialize() {
+        var centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
+
+        if(idRuta != ""){
+            if(  punto != ""){
+                centro= new google.maps.LatLng(<?= $marcadores[0]['punto_exacto']?>);
+            }
+            else{
+                if(route[0] != ""){
+                    centro= route[0];
+                }
+                else{
+                    centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
+                }
+            }
+        }
+        var mapOptions = {
+            center: centro,
+            zoom: 16
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        var ctaLayer= new google.maps.KmlLayer({
+            url:"<?= $infor['url_kml']?>"
+        });
+        ctaLayer.setMap(map);
 
         var polylineOptions= {
             path: route
@@ -454,7 +566,7 @@ if (isset($_SESSION['alias']))
                     });
                 }
             });
-        })
+        });
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
