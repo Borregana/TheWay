@@ -158,7 +158,7 @@ if (isset($_SESSION['alias']))
             <?php
             if($_SESSION['imagen']!=""){
                 ?>
-                <img width="50" src="<?= $_SESSION['imagen']?>">
+                <img width="50" height="50" src="<?= $_SESSION['imagen']?>">
             <?php } ?>
         </div>
     </header>
