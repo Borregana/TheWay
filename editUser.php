@@ -176,6 +176,11 @@ if(isset($_SESSION['alias'])){
                                                         <i class="icon-append glyphicon glyphicon-trash"></i>
                                                     </button>
                                                 </div>
+                                                <div class="pull-right">
+                                                    <button class="btn-info" onclick="susRutas(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                        <i class="icon-append glyphicon glyphicon-road"></i>
+                                                    </button>
+                                                </div>
                                             </form>
                                         </tr>
                                     <?php } ?>
@@ -185,10 +190,7 @@ if(isset($_SESSION['alias'])){
                         </section>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <header class="txt-color-red">
-                        Datos de tu amigo
-                    </header>
+                <div class="col-md-4">
                     <div id="datos" class="well no-padding"></div>
                 </div>
             </div>
@@ -216,6 +218,17 @@ if(isset($_SESSION['alias'])){
                 data: "iduser="+iduser,
                 success: function(resp){
                     $('#datos').html(resp)
+                }
+            });
+        }
+        function susRutas(iduser)
+        {
+            $.ajax({
+                url: "rutasAmigo.php",
+                type: "POST",
+                data: "iduser="+iduser,
+                success: function(resp){
+                    $('#datos').html(resp);
                 }
             });
         }

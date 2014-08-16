@@ -26,6 +26,7 @@ if($consulta){
     $imagen= $row['imagen'];
     $fecha= $row['fecha_alta'];
 
+    echo '<font size="3">';
     echo'<b>Alias: </b> '.$alias;
     echo'<br>';
     echo'<b>Nombre: </b>'.$nombre;
@@ -34,16 +35,18 @@ if($consulta){
     echo'<br>';
     echo'<b>Dirección: </b>'.$dir;
     echo'<br>';
-    echo'<b>Imagen: </b>';
+    echo '<b>Fecha de alta: </b>'.$fecha;
+    echo '</font>';
+    echo'<br>';
+    echo'<br>';
     if($imagen!=""){
-    echo '<img width="50px" src="'.$imagen.'">';
+    echo '<img width="350" src="'.$imagen.'">';
     }
     else{
         echo '-No hay imagen-';
     }
-    echo'<br>';
-    echo '<b>Fecha de alta: </b>'.$fecha;
 }
 else{
     echo'el usuario ya no existe';
 }
+mysql_close($con);

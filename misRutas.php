@@ -92,12 +92,12 @@ if(isset($_SESSION['usuario_id']))
         <div>
             <div id="content" class="container">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-12">
                         <div class="well no-padding">
                             <header>
                                 <h1 class="txt-color-red login-header-big">MIS RUTAS</h1>
                             </header>
-                            <div style="overflow: auto;height:700px;">
+                            <div style="overflow: auto;height:600px;">
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
