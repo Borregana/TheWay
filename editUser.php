@@ -19,6 +19,18 @@ if(isset($_SESSION['alias'])){
 
     $row = mysqli_fetch_array($result);
 
+    $list_amigos=array(
+        'nombre'=>"",
+        'iduser'=>""
+    );
+    $busca_amigos=mysqli_query($con,"SELECT * FROM Grupos WHERE usuario_id='$usuario'");
+    $i=0;
+    while($col=mysqli_fetch_array($busca_amigos)){
+        $list_amigos[$i]['nombre']=$col['amigo_nombre'];
+        $list_amigos[$i]['iduser']=$col['amigo_id'];
+        $i++;
+    }
+
     mysqli_close($con);
 
     ?>
@@ -71,8 +83,95 @@ if(isset($_SESSION['alias'])){
 
         <div id="content" class="container">
             <div class="row">
+                <div class="col-md-3">
+                    <header class="txt-color-red">
+                        Datos de tu amigo
+                    </header>
+                    <div id="datos" class="well no-padding"></div>
+                </div>
 
-                <div class="col-md-8">
+                    <div class="col-md-3">
+                        <div class="well no-padding">
+                            <section>
+                                <div id="resultado"></div>
+                                <form class="smart-form" action="return false" onsubmit="return false" method="post">
+                                    <input  size="32px" id="amigo" name="amigo" placeholder="introduce el nombre de usuario">
+                                    <footer>
+                                        <button class="btn btn-success" onclick="Agregar(document.getElementById('amigo').value);">Agregar</button>
+                                    </footer>
+                                </form>
+                                <script>
+                                    function Agregar(amigo)
+                                    {
+                                        $.ajax({
+                                            url: "saveAmigo.php",
+                                            type: "POST",
+                                            data: "amigo="+amigo,
+                                            success: function(resp){
+                                                $('#resultado').html(resp)
+                                            }
+                                        });
+                                    }
+                                </script>
+                            </section>
+                            <section>
+                                <div style="overflow: auto;height:700px;">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Mis amigos</th>
+                                        </tr>
+                                        </thead>
+                                        <?php
+                                        for($i=0;$i<count($list_amigos)-2;$i++){
+                                            ?>
+                                            <tr>
+                                                <form id="datoamigo" action="return false" onsubmit="return false" method="post">
+                                                    <td>
+                                                        <input type="hidden" id="<?='iduser'.$i ?>" name="iduser" value="<?= $list_amigos[$i]['iduser'];?>"
+                                                    </td>
+                                                    <button class="btn-link" onclick="datos(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                        <?= $list_amigos[$i]['nombre'];?>
+                                                    </button>
+                                                    <div class="pull-right">
+                                                        <button class="btn-danger" onclick="eliminar(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                            <i class="icon-append glyphicon glyphicon-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </tr>
+                                        <?php } ?>
+                                    </table>
+                                    <script>
+                                        function datos(iduser)
+                                        {
+                                            $.ajax({
+                                                url: "datosAmigo.php",
+                                                type: "POST",
+                                                data: "iduser="+iduser,
+                                                success: function(resp){
+                                                    $('#datos').html(resp)
+                                                }
+                                            });
+                                        }
+                                        function eliminar(iduser)
+                                        {
+                                            $.ajax({
+                                                url: "deleteAmigo.php",
+                                                type: "POST",
+                                                data: "iduser="+iduser,
+                                                success: function(resp){
+                                                    $('#datos').html(resp);
+                                                }
+                                            });
+                                        }
+                                    </script>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                <div class="col-md-5">
                     <div class="well no-padding">
 
                         <form  id="smart-form-register" action="edit.php"  class="smart-form client-form" method="post" enctype="multipart/form-data">
@@ -130,6 +229,7 @@ if(isset($_SESSION['alias'])){
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

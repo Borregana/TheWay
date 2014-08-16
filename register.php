@@ -16,6 +16,10 @@ if(mysqli_connect_errno()){
 $alias= mysqli_real_escape_string($con,$_POST['alias']);
 $mail= mysqli_real_escape_string($con,$_POST['mail']);
 $password= md5(mysqli_real_escape_string($con,$_POST['password']));
+//nos guardamos la fecha actual
+$fecha_actual=date('c');
+$fecha=explode('T',$fecha_actual);
+$date=$fecha[0];
 
 $consulta=mysqli_query($con,"SELECT * FROM Usuarios WHERE alias='$alias'");
 
@@ -23,7 +27,7 @@ if(mysqli_num_rows($consulta)>0){
     echo '<span class="txt-color-redLight login-header-big">El alias ya esta en uso</span>';
 }
 else{
-    $sql="INSERT INTO Usuarios (alias, mail, password) VALUES ('$alias','$mail','$password')";
+    $sql="INSERT INTO Usuarios (alias, mail, password,fecha_alta) VALUES ('$alias','$mail','$password','$date')";
 
     if(!mysqli_query($con, $sql)){
         die('Error'. mysqli_error($con));

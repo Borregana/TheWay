@@ -8,62 +8,62 @@
 session_start();
 if (isset($_SESSION['alias']))
 {
-?>
+    ?>
 
-<!DOCTYPE html>
-<html>
-<head>
+    <!DOCTYPE html>
+    <html>
+    <head>
 
-    <title>Drawing tools</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-
-
-    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+        <title>Drawing tools</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- Basic Styles -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
-
-    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
+        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
 
-    <!-- FAVICONS -->
-    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- GOOGLE FONT -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+        <!-- Basic Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 
-</head>
-<body>
-<header id="header">
-    <div id="logo-group" class="col-md-2">
-        <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
-    </div>
-    <div class="col-md-8">
-        <div class="btn-group">
-            <a href="display.php" title="Creador"><i class="btn btn-primary">Creador</i></a>
-            <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
-            <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
-            <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
+        <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
+
+
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+        <!-- GOOGLE FONT -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+    </head>
+    <body>
+    <header id="header">
+        <div id="logo-group" class="col-md-2">
+            <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
         </div>
-    </div>
-    <div class="pull-right">
-        <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
-        <?php
-        if($_SESSION['imagen']!=""){
-            ?>
-            <img width="50" src="<?= $_SESSION['imagen']?>">
-        <?php } ?>
-    </div>
-</header>
-<div>
+        <div class="col-md-8">
+            <div class="btn-group">
+                <a href="display.php" title="Creador"><i class="btn btn-primary">Creador</i></a>
+                <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
+                <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
+                <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
+            </div>
+        </div>
+        <div class="pull-right">
+            <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
+            <?php
+            if($_SESSION['imagen']!=""){
+                ?>
+                <img width="50" src="<?= $_SESSION['imagen']?>">
+            <?php } ?>
+        </div>
+    </header>
+    <div>
     <!-- NEW WIDGET START -->
     <article class="col-md-4">
 
@@ -196,34 +196,47 @@ if (isset($_SESSION['alias']))
                     $resultado=mysqli_query($con,$consulta);
 
                     if(mysqli_num_rows($resultado)>0){
-                        ?>
-                            <div id="content" class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="well no-padding">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>Vista</th>
-                                                    <th>Nombre</th>
-                                                    <th>Ciudad</th>
-                                                    <th>tiempo</th>
-                                                    <th>Vehiculo</th>
-                                                    <th>Puntuación</th>
-                                                    <th>Fecha de publicación</th>
-                                                    <th></th>
-                                                </tr>
-                                                </thead>
-                                                <?php
-                                                while($row=mysqli_fetch_array($resultado)){
+                    ?>
+                    <div id="content" class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="well no-padding">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Vista</th>
+                                            <th>Usuario</th>
+                                            <th>Nombre</th>
+                                            <th>Ciudad</th>
+                                            <th>tiempo</th>
+                                            <th>Vehiculo</th>
+                                            <th>Puntuación</th>
+                                            <th>Fecha de publicación</th>
+                                        </tr>
+                                        </thead>
+                                        <?php
+                                        while($row=mysqli_fetch_array($resultado)){
+                                            if($row['solo_amigos']==1){
+                                                $yo=mysqli_real_escape_string($con,$_SESSION['usuario_id']);
+                                                $amigo=$row['usuario_id'];
+                                                $es_amigo=mysqli_query($con,"SELECT * FROM Grupos WHERE usuario_id='$yo' and amigo_id='$amigo'");
+                                                if(mysqli_num_rows($es_amigo)>0){
                                                     ?>
                                                     <tr>
                                                         <form id="miruta" method="post" action="vistaPublica.php">
                                                             <td>
                                                                 <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                             </td>
-                                                            <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                                            <button class="btn btn-success"><i class="icon-append fa fa-desktop"></i></button>
                                                         </form>
+                                                        <td>
+                                                            <?
+                                                            $ami_id=$row['usuario_id'];
+                                                            $con_ami=mysqli_query($con,"SELECT * FROM Usuarios WHERE id='$ami_id'");
+                                                            $ami_nom=mysqli_fetch_array($con_ami)['alias'];
+                                                            echo $ami_nom;
+                                                            ?>
+                                                        </td>
                                                         <td>
                                                             <?= $row['nombre']; ?>
                                                         </td>
@@ -244,45 +257,87 @@ if (isset($_SESSION['alias']))
                                                         <td>
                                                             <?= $row['fecha_publicacion']; ?>
                                                         </td>
-                                                        </tr>
-                                                <?php } ?>
-                                            </table>
-                                        </div>
-                                    </div>
+                                                    </tr>
+                                                <?php }
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                <tr>
+                                                    <form id="miruta" method="post" action="vistaPublica.php">
+                                                        <td>
+                                                            <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                        </td>
+                                                        <button class="btn btn-success"><i class="icon-append fa fa-desktop"></i></button>
+                                                    </form>
+                                                    <td>
+                                                        <?
+                                                        $ami_id=$row['usuario_id'];
+                                                        $con_ami=mysqli_query($con,"SELECT * FROM Usuarios WHERE id='$ami_id'");
+                                                        $ami_nom=mysqli_fetch_array($con_ami)['alias'];
+                                                        echo $ami_nom;
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $row['nombre']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $row['ciudad']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $row['tiempo']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $row['vehiculo']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?for($i=0;$i<$row['puntuacion_media'];$i++){?>
+                                                            <i class="icon-append fa fa-star"></i>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $row['fecha_publicacion']; ?>
+                                                    </td>
+                                                </tr>
+                                            <?php }
+                                        }?>
+                                    </table>
                                 </div>
                             </div>
-
                         </div>
-
-                    <?php
-                    }
-                    else{?>
-                        <div class="col-md-12">
-                                      <h1 class="txt-color-red login-header-big">No se ha encontrado ninguna ruta con estas caracteristicas</h1>
-                                </div>
-                        <?php
-                    }
-                    }
-                    else
-                    {
-                        ?>
-                                <div class="col-md-12">
-                                      <h2>Encuentra tu </h2><h1 class="txt-color-red">camino...</h1>
-                                </div>
-                    <?php
-                    }?>
+                    </div>
 
                 </div>
-                <!-- end widget content -->
+
+                <?php
+                }
+                else{?>
+                    <div class="col-md-12">
+                        <h1 class="txt-color-red login-header-big">No se ha encontrado ninguna ruta con estas caracteristicas</h1>
+                    </div>
+                <?php
+                }
+                }
+                else
+                {
+                    ?>
+                    <div class="col-md-12">
+                        <h2>Encuentra tu </h2><h1 class="txt-color-red">camino...</h1>
+                    </div>
+                <?php
+                }?>
 
             </div>
-            <!-- end widget div -->
+            <!-- end widget content -->
+
+        </div>
+        <!-- end widget div -->
 
     </article>
-</div>
+    </div>
 
-</body>
-</html>
+    </body>
+    </html>
 <?php
 }
 else

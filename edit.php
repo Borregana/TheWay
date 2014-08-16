@@ -9,15 +9,13 @@ if(mysqli_connect_errno()){
 //primero guardamos la imagen
 if(isset($_POST))
 {
-    if(isset($_POST['imagen'])){
+    $Destination = 'img/img_users/';
 
-        $Destination = 'img/img_markers/';
-
-        if(!isset($_FILES['imagen']) || !is_uploaded_file($_FILES['imagen']['tmp_name']))
-        {
-            die('Algo ha ido mal con la imagen!');
-        }
-
+    if(!isset($_FILES['imagen']) || !is_uploaded_file($_FILES['imagen']['tmp_name']))
+    {
+        $img=$_SESSION['imagen'];
+    }
+    else{
         $RandomNum   = rand(0, 9999999999);
 
         $ImageName      = str_replace(' ','-',strtolower($_FILES['imagen']['name']));
@@ -34,9 +32,6 @@ if(isset($_POST))
         move_uploaded_file($_FILES['imagen']['tmp_name'], "$Destination/$NewImageName");
 
         $img=$Destination.'/'.$NewImageName;
-    }
-    else{
-        $img=$_SESSION['imagen'];
     }
 
     $nombre= mysqli_real_escape_string($con,$_POST['nombre']);

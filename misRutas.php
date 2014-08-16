@@ -113,6 +113,7 @@ if(isset($_SESSION['usuario_id']))
                                         <th></th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <?php
@@ -150,14 +151,14 @@ if(isset($_SESSION['usuario_id']))
                                                     echo 'SI';
                                                 }?>
                                             </td>
-                                            <form id="miruta" method="post" action="vistaPublica.php">
+                                            <form id="miruta_vista" method="post" action="vistaPublica.php">
                                                 <td>
                                                     <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                 </td>
-                                                <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                                <button class="btn btn-success"><i class="icon-append fa fa-desktop"></i></button>
                                             </form>
                                             <?php if($row['publica']==0){ ?>
-                                            <form id="miruta" method="post" action="publicar.php">
+                                            <form id="miruta_publicar" method="post" action="publicar.php">
                                                 <td>
                                                     <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                 </td>
@@ -165,20 +166,36 @@ if(isset($_SESSION['usuario_id']))
                                             </form>
                                             <?php }
                                             else { ?>
-                                                <form id="miruta" method="post" action="despublicar.php">
+                                                <form id="miruta_despublicar" method="post" action="despublicar.php">
                                                     <td>
                                                         <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                     </td>
                                                     <button class="btn btn-danger"><i class="icon-append glyphicon glyphicon-eye-close"></i></button>
                                                 </form>
                                                 <?php } ?>
-                                            <form id="miruta" method="post" action="display.php">
+                                            <?php if($row['solo_amigos']==0){ ?>
+                                                <form id="miruta_amigos" method="post" action="soloAmigos.php">
+                                                    <td>
+                                                        <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                    </td>
+                                                    <button class="btn btn-info"><i class="icon-append fa fa-group"></i></button>
+                                                </form>
+                                            <?php }
+                                            else { ?>
+                                                <form id="miruta_todos" method="post" action="paraTodos.php">
+                                                    <td>
+                                                        <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
+                                                    </td>
+                                                    <button class="btn btn-success"><i class="icon-append glyphicon glyphicon-globe"></i></button>
+                                                </form>
+                                            <?php } ?>
+                                            <form id="miruta_editar" method="post" action="display.php">
                                                 <td>
                                                     <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                 </td>
                                                 <button class="btn btn-link" ><i class="icon-append glyphicon glyphicon-pencil"></i></button>
                                             </form>
-                                            <form id="miruta" method="post" action="deleteRoute.php">
+                                            <form id="miruta_eliminar" method="post" action="deleteRoute.php">
                                                 <td>
                                                     <input type="hidden" id="idruta" name="idruta" value="<?= $row['id']; ?>"
                                                 </td>
