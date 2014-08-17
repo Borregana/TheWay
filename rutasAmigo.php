@@ -15,7 +15,7 @@ if(mysqli_connect_errno()){
 
 $amigo= mysqli_real_escape_string($con,$_POST['iduser']);
 
-$consulta=mysqli_query($con,"SELECT * FROM Rutas WHERE usuario_id='$amigo' ORDER BY fecha_publicacion DESC ");
+$consulta=mysqli_query($con,"SELECT * FROM Rutas WHERE publica='1' and usuario_id='$amigo' ORDER BY fecha_publicacion DESC ");
 
 if(mysqli_num_rows($consulta)>0){
     echo'<table class="table table-hover">';

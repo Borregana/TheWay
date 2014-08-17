@@ -405,6 +405,7 @@ if (isset($_SESSION['alias']))
         }
         var mapOptions = {
             center: centro,
+            disableDoubleClickZoom:false,
             zoom: 16
         };
 
@@ -423,6 +424,7 @@ if (isset($_SESSION['alias']))
         google.maps.event.addListenerOnce(map, 'idle', function() {
 
             var polyline= new google.maps.Polyline(polylineOptions);
+            routeArray.push(polyline);
             google.maps.event.addDomListener(polyline, "rightclick", function() {
                 removePolyline(polyline);
             });
@@ -482,6 +484,7 @@ if (isset($_SESSION['alias']))
 
                 result= contentString+posicion;
                 posicion++;
+                arrayMarkerId[posicion] = "<?=$marcadores[$i]['idpunto']?>";
                 return result;
             }
 
@@ -494,13 +497,15 @@ if (isset($_SESSION['alias']))
                 position: point,
                 content: contentwindow()
             });
+
             google.maps.event.addListener(marker, 'click', function() {
                 infoWindow.setContent(this.content);
                 infoWindow.open(map, this);
             });
             google.maps.event.addDomListener(marker, "rightclick", function() {
-                removeMarker(marker);
+                removeMarker(this);
             });
+
             marker.setMap(map);
             <?php
                  }
