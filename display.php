@@ -18,6 +18,7 @@ if (isset($_SESSION['alias']))
         var marcador="";
         var posicion=0;
         var arrayMarkerId=[];
+        var idpuntoglobal;
     </script>
     <!DOCTYPE html>
     <html>
@@ -60,7 +61,10 @@ if (isset($_SESSION['alias']))
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
     </head>
-    <?php
+    <?php if($_SESSION['img_ruta']!=""){
+        $_POST['idruta']=$_SESSION['img_ruta'];
+        $_SESSION['img_ruta']="";
+    }
     if(isset($_POST['idruta'])){?>
         <script> idRuta = <?= $_POST['idruta'] ?>;</script>
     <?php
@@ -147,6 +151,10 @@ if (isset($_SESSION['alias']))
         </div>
         <div class="col-md-8">
             <div class="btn-group">
+                <?php
+                if($idruta!=""){?>
+                    <a href="display.php" title="Private"><i class="btn btn-primary">Creador</i></a>
+                <?php } ?>
                 <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
                 <a href="Buscador.php" title="Publica"><i class="btn btn-info">Buscador</i></a>
                 <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
@@ -259,9 +267,6 @@ if (isset($_SESSION['alias']))
     route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
     <?php }
 ?>
-
-
-
     function loadKml(url){
         if(idRuta==""){
             alert('Debes crear la ruta primero')
@@ -333,7 +338,7 @@ if (isset($_SESSION['alias']))
         });
     }
 
-    function submitPoint(nombre_punto,texto,posicion)
+    function submitPoint(nombre_punto,texto,posicion,idpunto)
     {
         if(idRuta==""){
             alert("Debes crear la ruta primero");
@@ -344,6 +349,7 @@ if (isset($_SESSION['alias']))
                 "nombre": nombre_punto,
                 "texto": texto,
                 "posicion": posicion,
+                "idpunto": idpunto,
                 "punto": marcador,
                 "ruta_id": idRuta
             };
@@ -355,13 +361,19 @@ if (isset($_SESSION['alias']))
                     $('#resultado').html(resp);
                 }
             });
+            document.getElementById('img_btn').style.display = 'block';
         }
     }
 
     function removeMarker(marker){
         var longitud=marker.content.length-1;
         var bien="";
-
+        var numpos=marker.content[longitud];
+        var i=1;
+        while(marker.content[longitud-i]!='>'){
+            numpos=numpos+marker.content[longitud-i];
+            i++;
+        }
         if(arrayMarkerId[marker.content[longitud]]!=""){
             $.ajax({
                 url: "deletePoint.php",
@@ -435,31 +447,32 @@ if (isset($_SESSION['alias']))
             ?>
             point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
 
-            function contentwindow() {
+            function contentwindow(nombre,texto,idpunto,imagen) {
                 var contentString = '<div>'+
                     '<div class="col-md-7">'+
                     '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
                     '<header class="txt-color-blueDark">'+
-                    'Punto de Interes'+
+                    'Punto de Interés'+
                     '</header>'+
                     '<div id="resultado"></div>'+
                     '<fieldset>'+
                     '<section>'+
                     '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                    '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" value="<?= $marcadores[$i]['nombre'];?>" required="required">'+
+                    '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
                     '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
                     '</section>'+
                     '<section>' +
                     '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                    '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos..."><?= $marcadores[$i]['texto'];?></textarea> '+
+                    '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
                     '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
                     '</section>'+
                     '<section>' +
                     '<input id="posicion" type="hidden" value='+posicion+'>'+
+                    '<input type="hidden" id="idpunto" name="idpunto" value='+idpunto+'>'+
                     '</section>'+
                     '</fieldset>'+
                     '<footer>'+
-                    '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value);>'+
+                    '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("idpunto").value);>'+
                     'Guardar'+
                     '</form>'+
                     '</div>'+
@@ -467,35 +480,37 @@ if (isset($_SESSION['alias']))
                     '<header class="txt-color-orangeDark">'+
                     'Imagen'+
                     '</header>'+
-                    '<fieldset>'+
-                    '<form id="img_punto" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
-                    '<input type="hidden" value="<?= $marcadores[$i]['idpunto'];?>" '+
+                    '<div id="imagen" >'+
+                    '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                    '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
+                    '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
+                    '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
                     '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                    ' <i class="icon-append fa fa-picture-o"></i></label>'+
+                    '<img width="100" src='+imagen+'>'+
+                    '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
                     '<footer>'+
-                    '<button class="btn btn-success">'+
+                    '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
                     'Subir Imagen'+
                     '</button>'+
                     '</footer>'+
                     '</form>'+
-                    '</fieldset>'+
+                    '</div>'+
                     '</div>'+
                     '</div>';
 
                 result= contentString+posicion;
                 posicion++;
-                arrayMarkerId[posicion] = "<?=$marcadores[$i]['idpunto']?>";
                 return result;
             }
 
             var infoWindow = new google.maps.InfoWindow({
                 maxwidth: "60px",
-                content: contentwindow()
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>')
             });
 
             var marker= new google.maps.Marker({
                 position: point,
-                content: contentwindow()
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>')
             });
 
             google.maps.event.addListener(marker, 'click', function() {
@@ -505,8 +520,8 @@ if (isset($_SESSION['alias']))
             google.maps.event.addDomListener(marker, "rightclick", function() {
                 removeMarker(this);
             });
-
             marker.setMap(map);
+            arrayMarkerId[posicion] = "<?=$marcadores[$i]['idpunto']?>";
             <?php
                  }
                 ?>

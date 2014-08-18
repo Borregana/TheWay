@@ -15,17 +15,16 @@ if(mysqli_connect_errno()){
 }
 
 //primero guardamos la imagen
-if(isset($_POST))
+if(isset($_POST['idpuntoimg']))
 {
-    if(isset($_POST['img_punto'])){
 
-        $Destination = 'img/img_markers/';
+    $Destination = 'img/img_markers/';
 
-        if(!isset($_FILES['img_punto']) || !is_uploaded_file($_FILES['img_punto']['tmp_name']))
-        {
-            die('Algo ha ido mal con la imagen!');
-        }
-
+    if(!isset($_FILES['img_punto']) || !is_uploaded_file($_FILES['img_punto']['tmp_name']))
+    {
+        $img=mysqli_real_escape_string($con,$_POST['imgold']);
+    }
+    else{
         $RandomNum   = rand(0, 9999999999);
 
         $ImageName      = str_replace(' ','-',strtolower($_FILES['img_punto']['name']));
@@ -42,17 +41,22 @@ if(isset($_POST))
         move_uploaded_file($_FILES['img_punto']['tmp_name'], "$Destination/$NewImageName");
 
         $img=$Destination.'/'.$NewImageName;
-
-        $id=mysqli_real_escape_string($con,$_POST['idpunto']);
-        $imagen=mysqli_real_escape_string($con,$img);
-
-        $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE id='$id'");
-
-        if($result)
-        {
-            echo '<script>location.href = "display.php";</script>';
-        }
     }
+    $id=mysqli_real_escape_string($con,$_POST['idpuntoimg']);
+    $idruta=mysqli_real_escape_string($con,$_POST['idrut']);
+    $imagen=mysqli_real_escape_string($con,$img);
+
+    $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE id='$id'");
+
+    if($result)
+    {
+        $_SESSION['img_ruta']=$idruta;
+        echo '<script>location.href = "display.php";</script>';
+    }
+    else{
+        die('No ha podio ser');
+    }
+
 }
 mysqli_close($con);
 
