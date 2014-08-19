@@ -15,7 +15,7 @@ if(mysqli_connect_errno()){
 }
 
 //primero guardamos la imagen
-if(isset($_POST['idpuntoimg']))
+if(isset($_POST['idpuntoimg']) or isset($_POST['puntoimg']))
 {
 
     $Destination = 'img/img_markers/';
@@ -42,19 +42,37 @@ if(isset($_POST['idpuntoimg']))
 
         $img=$Destination.'/'.$NewImageName;
     }
-    $id=mysqli_real_escape_string($con,$_POST['idpuntoimg']);
-    $idruta=mysqli_real_escape_string($con,$_POST['idrut']);
-    $imagen=mysqli_real_escape_string($con,$img);
+    if(isset($_POST['idpuntoimg'])){
+        $id=mysqli_real_escape_string($con,$_POST['idpuntoimg']);
+        $idruta=mysqli_real_escape_string($con,$_POST['idrut']);
+        $imagen=mysqli_real_escape_string($con,$img);
 
-    $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE id='$id'");
+        $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE id='$id'");
 
-    if($result)
-    {
-        $_SESSION['img_ruta']=$idruta;
-        echo '<script>location.href = "display.php";</script>';
+        if($result)
+        {
+            $_SESSION['img_ruta']=$idruta;
+            echo '<script>location.href = "display.php";</script>';
+        }
+        else{
+            die('No ha podio ser');
+        }
     }
-    else{
-        die('No ha podio ser');
+    elseif(isset($_POST['puntoimg'])){
+        $punto=mysqli_real_escape_string($con,$_POST['puntoimg']);
+        $idruta=mysqli_real_escape_string($con,$_POST['idrut']);
+        $imagen=mysqli_real_escape_string($con,$img);
+
+        $result= mysqli_query($con, "UPDATE Puntos SET imagen='$imagen' WHERE punto_exacto='$punto'");
+
+        if($result)
+        {
+            $_SESSION['img_ruta']=$idruta;
+            echo '<script>location.href = "display.php";</script>';
+        }
+        else{
+            die('No ha podio ser');
+        }
     }
 
 }

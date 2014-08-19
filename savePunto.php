@@ -38,11 +38,14 @@ if(mysqli_num_rows($res_comp)==0){
 
         if(mysqli_num_rows($result)>0){
             $sol=mysqli_fetch_array($result)['id'];
+
             ?>
             <script> arrayMarkerId[<?= $pos ?>] = <?= $sol ?>;</script>
         <?php
         }
+        $_SESSION['img_ruta']=$ruta_id;
         echo'<span class="txt-color-green login-header-big">El punto ha sido guardado con exito</span>';
+        echo '<script>location.href = "display.php";</script>';
     }
     else
     {

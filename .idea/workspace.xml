@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editUser.php" afterPath="$PROJECT_DIR$/editUser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveImgPoint.php" afterPath="$PROJECT_DIR$/saveImgPoint.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/savePunto.php" afterPath="$PROJECT_DIR$/savePunto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -31,15 +32,13 @@
       <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="450" column="16" selection-start="15715" selection-end="15715" vertical-scroll-proportion="-3.2" vertical-offset="7040" max-vertical-offset="9616">
+            <state line="20" column="40" selection-start="385" selection-end="385" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="10592">
               <folding>
-                <marker date="1408388645000" expanded="true" signature="2270:2308" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408388645000" expanded="true" signature="2481:2519" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408388645000" expanded="true" signature="2972:3017" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408388645000" expanded="true" signature="3249:3294" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408388645000" expanded="true" signature="3830:3874" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408388645000" expanded="true" signature="3953:3997" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408388645000" expanded="true" signature="18586:18599" placeholder="..." />
+                <element signature="e#6#89#0" expanded="true" />
+                <marker date="1408456607000" expanded="true" signature="2503:2541" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408456607000" expanded="true" signature="3271:3316" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408456607000" expanded="true" signature="3975:4019" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408456607000" expanded="true" signature="18801:18814" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -48,12 +47,12 @@
       <file leaf-file-name="savePunto.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/savePunto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="1" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.8761261" vertical-offset="331" max-vertical-offset="1008">
+            <state line="45" column="39" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5878378" vertical-offset="379" max-vertical-offset="1056">
               <folding>
-                <marker date="1408388645000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408388645000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
-                <marker date="1408388645000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408388645000" expanded="true" signature="1720:1826" placeholder="UPDATE Punto..." />
+                <marker date="1408456607000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408456607000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
+                <marker date="1408456607000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408456607000" expanded="true" signature="1825:1931" placeholder="UPDATE Punto..." />
               </folding>
             </state>
           </provider>
@@ -62,9 +61,10 @@
       <file leaf-file-name="saveImgPoint.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="-24.52" vertical-offset="235" max-vertical-offset="1024">
+            <state line="67" column="19" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-14.28" vertical-offset="635" max-vertical-offset="1312">
               <folding>
-                <marker date="1408385495000" expanded="true" signature="1449:1498" placeholder="UPDATE Punto..." />
+                <marker date="1408449734000" expanded="true" signature="1531:1580" placeholder="UPDATE Punto..." />
+                <marker date="1408449734000" expanded="true" signature="2065:2127" placeholder="UPDATE Punto..." />
               </folding>
             </state>
           </provider>
@@ -127,10 +127,10 @@
         <option value="$PROJECT_DIR$/vistaPublica.php" />
         <option value="$PROJECT_DIR$/misRutas.php" />
         <option value="$PROJECT_DIR$/datosAmigo.php" />
-        <option value="$PROJECT_DIR$/editUser.php" />
         <option value="$PROJECT_DIR$/rutasAmigo.php" />
         <option value="$PROJECT_DIR$/js/readkmlFile.js" />
         <option value="$PROJECT_DIR$/js/kmlFile.js" />
+        <option value="$PROJECT_DIR$/editUser.php" />
         <option value="$PROJECT_DIR$/saveImgPoint.php" />
         <option value="$PROJECT_DIR$/display.php" />
         <option value="$PROJECT_DIR$/savePunto.php" />
@@ -412,7 +412,11 @@
       <created>1408296452148</created>
       <updated>1408296452148</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar">
+      <created>1408388908966</created>
+      <updated>1408388908966</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,7 +477,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="los infowindow se guardan enteros y correctamente" />
     <MESSAGE value="los puntos de interes se crean y borran correctamente" />
     <MESSAGE value="los punto y las rutas se modifican y se guardan bien, excepto que si borras varios puntos el ultimo no se borra." />
     <MESSAGE value="logos" />
@@ -498,7 +501,8 @@
     <MESSAGE value="corregido el tamaño de la imagen de cabecera&#10;" />
     <MESSAGE value="los usuarios pueden ver las rutas de sus amigos" />
     <MESSAGE value="solucionado un error con el edit (al guardar la ruta la polyline se perdia)" />
-    <option name="LAST_COMMIT_MESSAGE" value="solucionado un error con el edit (al guardar la ruta la polyline se perdia)" />
+    <MESSAGE value="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar" />
+    <option name="LAST_COMMIT_MESSAGE" value="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -568,9 +572,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="127" column="40" selection-start="6158" selection-end="6158" vertical-scroll-proportion="0.0" vertical-offset="2032" max-vertical-offset="2640">
           <folding>
-            <element signature="e#7554#7590#0" expanded="true" />
-            <marker date="1408212612000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
-            <marker date="1408212612000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Grupos..." />
+            <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
+            <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Grupos..." />
           </folding>
         </state>
       </provider>
@@ -852,17 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="42" selection-start="9036" selection-end="9036" vertical-scroll-proportion="0.61445785" vertical-offset="2392" max-vertical-offset="4128">
-          <folding>
-            <element signature="e#7554#7590#0" expanded="true" />
-            <marker date="1408212612000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
-            <marker date="1408212612000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Grupos..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/kmlFile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="368">
@@ -888,38 +880,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/editUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="71" selection-start="9369" selection-end="9369" vertical-scroll-proportion="0.61445785" vertical-offset="2456" max-vertical-offset="4128">
+          <folding>
+            <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
+            <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Grupos..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="450" column="16" selection-start="15715" selection-end="15715" vertical-scroll-proportion="-3.2" vertical-offset="7040" max-vertical-offset="9616">
+        <state line="20" column="40" selection-start="385" selection-end="385" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="10592">
           <folding>
-            <marker date="1408388645000" expanded="true" signature="2270:2308" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408388645000" expanded="true" signature="2481:2519" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408388645000" expanded="true" signature="2972:3017" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408388645000" expanded="true" signature="3249:3294" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408388645000" expanded="true" signature="3830:3874" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408388645000" expanded="true" signature="3953:3997" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408388645000" expanded="true" signature="18586:18599" placeholder="..." />
+            <element signature="e#6#89#0" expanded="true" />
+            <marker date="1408456607000" expanded="true" signature="2503:2541" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408456607000" expanded="true" signature="3271:3316" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408456607000" expanded="true" signature="3975:4019" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408456607000" expanded="true" signature="18801:18814" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="-24.52" vertical-offset="235" max-vertical-offset="1024">
+        <state line="67" column="19" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-14.28" vertical-offset="635" max-vertical-offset="1312">
           <folding>
-            <marker date="1408385495000" expanded="true" signature="1449:1498" placeholder="UPDATE Punto..." />
+            <marker date="1408449734000" expanded="true" signature="1531:1580" placeholder="UPDATE Punto..." />
+            <marker date="1408449734000" expanded="true" signature="2065:2127" placeholder="UPDATE Punto..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/savePunto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="1" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.8761261" vertical-offset="331" max-vertical-offset="1008">
+        <state line="45" column="39" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5878378" vertical-offset="379" max-vertical-offset="1056">
           <folding>
-            <marker date="1408388645000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408388645000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
-            <marker date="1408388645000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408388645000" expanded="true" signature="1720:1826" placeholder="UPDATE Punto..." />
+            <marker date="1408456607000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408456607000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
+            <marker date="1408456607000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408456607000" expanded="true" signature="1825:1931" placeholder="UPDATE Punto..." />
           </folding>
         </state>
       </provider>

@@ -172,12 +172,12 @@ if(isset($_SESSION['alias'])){
                                                     <?= $list_amigos[$i]['nombre'];?>
                                                 </button>
                                                 <div class="pull-right">
-                                                    <button class="btn-danger" onclick="eliminar(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                    <button class="btn btn-danger" onclick="eliminar(document.getElementById('<?='iduser'.$i ?>').value);">
                                                         <i class="icon-append glyphicon glyphicon-trash"></i>
                                                     </button>
                                                 </div>
                                                 <div class="pull-right">
-                                                    <button class="btn-info" onclick="susRutas(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                    <button class="btn btn-info" onclick="susRutas(document.getElementById('<?='iduser'.$i ?>').value);">
                                                         <i class="icon-append glyphicon glyphicon-road"></i>
                                                     </button>
                                                 </div>

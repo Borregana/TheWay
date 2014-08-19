@@ -18,7 +18,7 @@ if (isset($_SESSION['alias']))
         var marcador="";
         var posicion=0;
         var arrayMarkerId=[];
-        var idpuntoglobal;
+        alert(<?=  $_SESSION['img_ruta']?>);
     </script>
     <!DOCTYPE html>
     <html>
@@ -61,7 +61,8 @@ if (isset($_SESSION['alias']))
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
     </head>
-    <?php if($_SESSION['img_ruta']!=""){
+    <?php
+    if($_SESSION['img_ruta']!=""){
         $_POST['idruta']=$_SESSION['img_ruta'];
         $_SESSION['img_ruta']="";
     }
@@ -365,6 +366,10 @@ if (isset($_SESSION['alias']))
         }
     }
 
+    function mostrarBoton(btn){
+        document.getElementById(btn).style.display = 'block';
+
+    }
     function removeMarker(marker){
         var longitud=marker.content.length-1;
         var bien="";
@@ -448,56 +453,107 @@ if (isset($_SESSION['alias']))
             point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
 
             function contentwindow(nombre,texto,idpunto,imagen) {
-                var contentString = '<div>'+
-                    '<div class="col-md-7">'+
-                    '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
-                    '<header class="txt-color-blueDark">'+
-                    'Punto de Interés'+
-                    '</header>'+
-                    '<div id="resultado"></div>'+
-                    '<fieldset>'+
-                    '<section>'+
-                    '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                    '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
-                    '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
-                    '</section>'+
-                    '<section>' +
-                    '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                    '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
-                    '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
-                    '</section>'+
-                    '<section>' +
-                    '<input id="posicion" type="hidden" value='+posicion+'>'+
-                    '<input type="hidden" id="idpunto" name="idpunto" value='+idpunto+'>'+
-                    '</section>'+
-                    '</fieldset>'+
-                    '<footer>'+
-                    '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("idpunto").value);>'+
-                    'Guardar'+
-                    '</form>'+
-                    '</div>'+
-                    '<div class="col-md-5">'+
-                    '<header class="txt-color-orangeDark">'+
-                    'Imagen'+
-                    '</header>'+
-                    '<div id="imagen" >'+
-                    '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
-                    '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
-                    '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
-                    '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
-                    '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                    '<img width="100" src='+imagen+'>'+
-                    '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
-                    '<footer>'+
-                    '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
-                    'Subir Imagen'+
-                    '</button>'+
-                    '</footer>'+
-                    '</form>'+
-                    '</div>'+
-                    '</div>'+
-                    '</div>';
-
+                var contentString="";
+                if ( idpunto == undefined){
+                    contentString = '<div>'+
+                        '<div class="col-md-7">'+
+                        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+                        '<header class="txt-color-blueDark">'+
+                        'Punto de Interés'+
+                        '</header>'+
+                        '<div id="resultado"></div>'+
+                        '<fieldset>'+
+                        '<section>'+
+                        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+                        '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
+                        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+                        '</section>'+
+                        '<section>' +
+                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+                        '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
+                        '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+                        '</section>'+
+                        '<section>' +
+                        '<input id="posicion" type="hidden" value='+posicion+'>'+
+                        '<input type="hidden" id="punto" name="punto" value='+idpunto+'>'+
+                        '</section>'+
+                        '</fieldset>'+
+                        '<footer>'+
+                        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("punto").value);>'+
+                        'Guardar'+
+                        '</form>'+
+                        '</div>'+
+                        '<div class="col-md-5">'+
+                        '<header class="txt-color-orangeDark">'+
+                        'Imagen'+
+                        '</header>'+
+                        '<div id="imagen" class="image">'+
+                        '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                        '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
+                        '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                        '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
+                        '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
+                        '<footer>'+
+                        '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
+                        'Subir Imagen'+
+                        '</button>'+
+                        '</footer>'+
+                        '</form>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                }
+                else{
+                    contentString = '<div>'+
+                        '<div class="col-md-7">'+
+                        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+                        '<header class="txt-color-blueDark">'+
+                        'Punto de Interés'+
+                        '</header>'+
+                        '<div id="resultado"></div>'+
+                        '<fieldset>'+
+                        '<section>'+
+                        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+                        '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
+                        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+                        '</section>'+
+                        '<section>' +
+                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+                        '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
+                        '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+                        '</section>'+
+                        '<section>' +
+                        '<input id="posicion" type="hidden" value='+posicion+'>'+
+                        '<input type="hidden" id="idpunto" name="idpunto" value='+idpunto+'>'+
+                        '</section>'+
+                        '</fieldset>'+
+                        '<footer>'+
+                        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("idpunto").value);>'+
+                        'Guardar'+
+                        '</form>'+
+                        '</div>'+
+                        '<div class="col-md-5">'+
+                        '<header class="txt-color-orangeDark">'+
+                        'Imagen'+
+                        '</header>'+
+                        '<div id="imagen" class="image">'+
+                        '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                        '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
+                        '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
+                        '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                        '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
+                        '<img width="100" src='+imagen+'>'+
+                        '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
+                        '<footer>'+
+                        '<button id="img_btn" name="img_btn" class="btn btn-success"">'+
+                        'Subir Imagen'+
+                        '</button>'+
+                        '</footer>'+
+                        '</form>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                }
                 result= contentString+posicion;
                 posicion++;
                 return result;
