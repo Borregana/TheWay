@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/editUser.php" afterPath="$PROJECT_DIR$/editUser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveImgPoint.php" afterPath="$PROJECT_DIR$/saveImgPoint.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/savePunto.php" afterPath="$PROJECT_DIR$/savePunto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheWay.iws" />
@@ -29,42 +27,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="display.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="40" selection-start="385" selection-end="385" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="10592">
+            <state line="201" column="74" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.46403712" vertical-offset="3016" max-vertical-offset="10816">
               <folding>
                 <element signature="e#6#89#0" expanded="true" />
-                <marker date="1408456607000" expanded="true" signature="2503:2541" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408456607000" expanded="true" signature="3271:3316" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408456607000" expanded="true" signature="3975:4019" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408456607000" expanded="true" signature="18801:18814" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="savePunto.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/savePunto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="39" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5878378" vertical-offset="379" max-vertical-offset="1056">
-              <folding>
-                <marker date="1408456607000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408456607000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
-                <marker date="1408456607000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408456607000" expanded="true" signature="1825:1931" placeholder="UPDATE Punto..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saveImgPoint.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="19" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-14.28" vertical-offset="635" max-vertical-offset="1312">
-              <folding>
-                <marker date="1408449734000" expanded="true" signature="1531:1580" placeholder="UPDATE Punto..." />
-                <marker date="1408449734000" expanded="true" signature="2065:2127" placeholder="UPDATE Punto..." />
+                <marker date="1408460577000" expanded="true" signature="2456:2494" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408460577000" expanded="true" signature="3224:3269" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408460577000" expanded="true" signature="3928:3972" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408460577000" expanded="true" signature="19595:19608" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -131,9 +103,9 @@
         <option value="$PROJECT_DIR$/js/readkmlFile.js" />
         <option value="$PROJECT_DIR$/js/kmlFile.js" />
         <option value="$PROJECT_DIR$/editUser.php" />
+        <option value="$PROJECT_DIR$/savePunto.php" />
         <option value="$PROJECT_DIR$/saveImgPoint.php" />
         <option value="$PROJECT_DIR$/display.php" />
-        <option value="$PROJECT_DIR$/savePunto.php" />
       </list>
     </option>
   </component>
@@ -416,7 +388,11 @@
       <created>1408388908966</created>
       <updated>1408388908966</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="los puntos ahora refrescan la pagina al ser guardados, pero esto soluciona el guardar las imagenes i que se puedan ver los datos del punto al cerrar la infowindow">
+      <created>1408457105544</created>
+      <updated>1408457105544</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -477,7 +453,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="los puntos de interes se crean y borran correctamente" />
     <MESSAGE value="los punto y las rutas se modifican y se guardan bien, excepto que si borras varios puntos el ultimo no se borra." />
     <MESSAGE value="logos" />
     <MESSAGE value="ya se muestra la ruta y los marcadores en la vista publica de las rutas" />
@@ -502,7 +477,8 @@
     <MESSAGE value="los usuarios pueden ver las rutas de sus amigos" />
     <MESSAGE value="solucionado un error con el edit (al guardar la ruta la polyline se perdia)" />
     <MESSAGE value="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar" />
-    <option name="LAST_COMMIT_MESSAGE" value="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar" />
+    <MESSAGE value="los puntos ahora refrescan la pagina al ser guardados, pero esto soluciona el guardar las imagenes i que se puedan ver los datos del punto al cerrar la infowindow" />
+    <option name="LAST_COMMIT_MESSAGE" value="los puntos ahora refrescan la pagina al ser guardados, pero esto soluciona el guardar las imagenes i que se puedan ver los datos del punto al cerrar la infowindow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -890,37 +866,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="40" selection-start="385" selection-end="385" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="10592">
-          <folding>
-            <element signature="e#6#89#0" expanded="true" />
-            <marker date="1408456607000" expanded="true" signature="2503:2541" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408456607000" expanded="true" signature="3271:3316" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408456607000" expanded="true" signature="3975:4019" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408456607000" expanded="true" signature="18801:18814" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="19" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-14.28" vertical-offset="635" max-vertical-offset="1312">
+        <state line="58" column="0" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.71639585" vertical-offset="363" max-vertical-offset="1040">
           <folding>
-            <marker date="1408449734000" expanded="true" signature="1531:1580" placeholder="UPDATE Punto..." />
-            <marker date="1408449734000" expanded="true" signature="2065:2127" placeholder="UPDATE Punto..." />
+            <marker date="1408457200000" expanded="true" signature="-1:-1" placeholder="UPDATE Punto..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/savePunto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="39" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.5878378" vertical-offset="379" max-vertical-offset="1056">
+        <state line="45" column="39" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.38552436" vertical-offset="379" max-vertical-offset="1056">
           <folding>
-            <marker date="1408456607000" expanded="true" signature="773:813" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408456607000" expanded="true" signature="927:1089" placeholder="INSERT INTO ..." />
-            <marker date="1408456607000" expanded="true" signature="1136:1176" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408456607000" expanded="true" signature="1825:1931" placeholder="UPDATE Punto..." />
+            <marker date="1408456607000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408456607000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1408456607000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408456607000" expanded="true" signature="-1:-1" placeholder="UPDATE Punto..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="74" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.46403712" vertical-offset="3016" max-vertical-offset="10816">
+          <folding>
+            <element signature="e#6#89#0" expanded="true" />
+            <marker date="1408460577000" expanded="true" signature="2456:2494" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408460577000" expanded="true" signature="3224:3269" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408460577000" expanded="true" signature="3928:3972" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408460577000" expanded="true" signature="19595:19608" placeholder="..." />
           </folding>
         </state>
       </provider>

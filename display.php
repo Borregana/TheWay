@@ -18,13 +18,10 @@ if (isset($_SESSION['alias']))
         var marcador="";
         var posicion=0;
         var arrayMarkerId=[];
-        alert(<?=  $_SESSION['img_ruta']?>);
     </script>
     <!DOCTYPE html>
     <html>
-
     <head>
-
         <title>The Way is coming...</title>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
@@ -201,6 +198,10 @@ if (isset($_SESSION['alias']))
                                 <label class="input"> <i class="icon-append fa fa-home"></i>
                                     <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" value="<?= $infor['ciudad'];?>">
                                     <b class="tooltip tooltip-bottom-right">Ciudad recorrida</b> </label>
+                                <footer>
+                                    <font size="3" class="txt-color-orange">Coloca el mapa donde prefieras</font>
+                                    <button class="btn btn-info" onclick="codeAddress()">Redireccionar</button>
+                                    </footer>
                             </section>
 
                             <section>
@@ -366,10 +367,6 @@ if (isset($_SESSION['alias']))
         }
     }
 
-    function mostrarBoton(btn){
-        document.getElementById(btn).style.display = 'block';
-
-    }
     function removeMarker(marker){
         var longitud=marker.content.length-1;
         var bien="";
@@ -404,7 +401,25 @@ if (isset($_SESSION['alias']))
         polyline.setMap(null);
         routeArray=[];
     }
+    var geocoder;
+    var map;
+    function codeAddress() {
+        var address = document.getElementById("ciudad").value;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
     function initialize() {
+         geocoder = new google.maps.Geocoder();
+
         var centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
 
         if(idRuta != ""){
@@ -422,11 +437,10 @@ if (isset($_SESSION['alias']))
         }
         var mapOptions = {
             center: centro,
-            disableDoubleClickZoom:false,
             zoom: 16
         };
 
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
+         map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
         var ctaLayer= new google.maps.KmlLayer({
