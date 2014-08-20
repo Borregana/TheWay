@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveImgPoint.php" afterPath="$PROJECT_DIR$/saveImgPoint.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheWay.iws" />
@@ -30,13 +29,39 @@
       <file leaf-file-name="display.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="74" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.46403712" vertical-offset="3016" max-vertical-offset="10816">
+            <state line="425" column="12" selection-start="19163" selection-end="19163" vertical-scroll-proportion="0.5522042" vertical-offset="6562" max-vertical-offset="11712">
               <folding>
                 <element signature="e#6#89#0" expanded="true" />
-                <marker date="1408460577000" expanded="true" signature="2456:2494" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408460577000" expanded="true" signature="3224:3269" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408460577000" expanded="true" signature="3928:3972" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408460577000" expanded="true" signature="19595:19608" placeholder="..." />
+                <marker date="1408532813000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408532813000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408532813000" expanded="true" signature="4465:4509" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408532813000" expanded="true" signature="15727:15740" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vistaPublica.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="368" column="76" selection-start="17510" selection-end="17559" vertical-scroll-proportion="-7.04" vertical-offset="5712" max-vertical-offset="7408">
+              <folding>
+                <marker date="1408209407000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408209407000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408209407000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408209407000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
+                <marker date="1408209407000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deletePoint.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deletePoint.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="49" selection-start="368" selection-end="368" vertical-scroll-proportion="-7.68" vertical-offset="0" max-vertical-offset="432">
+              <folding>
+                <marker date="1406739572000" expanded="true" signature="379:412" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -79,7 +104,6 @@
         <option value="$PROJECT_DIR$/display2.php" />
         <option value="$PROJECT_DIR$/publicar.php" />
         <option value="$PROJECT_DIR$/despublicar.php" />
-        <option value="$PROJECT_DIR$/deleteRoute.php" />
         <option value="$PROJECT_DIR$/deleteComment.php" />
         <option value="$PROJECT_DIR$/saveComentario.php" />
         <option value="$PROJECT_DIR$/.php" />
@@ -105,6 +129,7 @@
         <option value="$PROJECT_DIR$/editUser.php" />
         <option value="$PROJECT_DIR$/savePunto.php" />
         <option value="$PROJECT_DIR$/saveImgPoint.php" />
+        <option value="$PROJECT_DIR$/deleteRoute.php" />
         <option value="$PROJECT_DIR$/display.php" />
       </list>
     </option>
@@ -392,7 +417,11 @@
       <created>1408457105544</created>
       <updated>1408457105544</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="añadido boton que redirecciona el mapa a la ciudad deseada">
+      <created>1408460662127</created>
+      <updated>1408460662127</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -404,7 +433,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23667206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -453,7 +482,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="los punto y las rutas se modifican y se guardan bien, excepto que si borras varios puntos el ultimo no se borra." />
     <MESSAGE value="logos" />
     <MESSAGE value="ya se muestra la ruta y los marcadores en la vista publica de las rutas" />
     <MESSAGE value="la vista publica funciona con comentarios y misRutas ya tiene operativo el boton de vista publica" />
@@ -478,7 +506,8 @@
     <MESSAGE value="solucionado un error con el edit (al guardar la ruta la polyline se perdia)" />
     <MESSAGE value="ya se pueden cargar imagenes en los puntos de interes, pero solo al editar" />
     <MESSAGE value="los puntos ahora refrescan la pagina al ser guardados, pero esto soluciona el guardar las imagenes i que se puedan ver los datos del punto al cerrar la infowindow" />
-    <option name="LAST_COMMIT_MESSAGE" value="los puntos ahora refrescan la pagina al ser guardados, pero esto soluciona el guardar las imagenes i que se puedan ver los datos del punto al cerrar la infowindow" />
+    <MESSAGE value="añadido boton que redirecciona el mapa a la ciudad deseada" />
+    <option name="LAST_COMMIT_MESSAGE" value="añadido boton que redirecciona el mapa a la ciudad deseada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -510,7 +539,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="77" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="3040" />
+        <state line="92" column="77" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="3040">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vistaPublica.php">
@@ -561,7 +592,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="10" selection-start="5882" selection-end="5882" vertical-scroll-proportion="0.0" vertical-offset="1968" max-vertical-offset="2768" />
+        <state line="143" column="10" selection-start="5882" selection-end="5882" vertical-scroll-proportion="0.0" vertical-offset="1968" max-vertical-offset="2768">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saveRoute.php">
@@ -573,7 +606,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="48" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3168" />
+        <state line="56" column="48" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3168">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/savePunto.php">
@@ -624,11 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deletePoint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="460" selection-end="460" vertical-scroll-proportion="0.5435746" vertical-offset="0" max-vertical-offset="677" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/validar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="33" selection-start="799" selection-end="799" vertical-scroll-proportion="0.5419735" vertical-offset="0" max-vertical-offset="704" />
@@ -637,13 +667,6 @@
     <entry file="file://$PROJECT_DIR$/despublicar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.35450518" vertical-offset="0" max-vertical-offset="677" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deleteRoute.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="862" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saveKml.php">
@@ -671,7 +694,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/drawing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="7" selection-start="8048" selection-end="8048" vertical-scroll-proportion="4.088534" vertical-offset="303" max-vertical-offset="3616" />
+        <state line="195" column="7" selection-start="8048" selection-end="8048" vertical-scroll-proportion="4.088534" vertical-offset="303" max-vertical-offset="3616">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deleteKml.php">
@@ -767,19 +792,6 @@
             <marker date="1408209189000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
             <marker date="1408209189000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
             <marker date="1408209189000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="46" selection-start="6616" selection-end="6616" vertical-scroll-proportion="0.55421686" vertical-offset="2416" max-vertical-offset="7408">
-          <folding>
-            <marker date="1408209407000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408209407000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408209407000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408209407000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1408209407000" expanded="true" signature="-1:-1" placeholder="SELECT alias..Usuarios..." />
           </folding>
         </state>
       </provider>
@@ -887,15 +899,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/deleteRoute.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="609" selection-end="609" vertical-scroll-proportion="0.47267357" vertical-offset="0" max-vertical-offset="677">
+          <folding>
+            <marker date="1408461706000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1408461706000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1408461706000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deletePoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="49" selection-start="368" selection-end="368" vertical-scroll-proportion="-7.68" vertical-offset="0" max-vertical-offset="432">
+          <folding>
+            <marker date="1406739572000" expanded="true" signature="379:412" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="368" column="76" selection-start="17510" selection-end="17559" vertical-scroll-proportion="-7.04" vertical-offset="5712" max-vertical-offset="7408">
+          <folding>
+            <marker date="1408209407000" expanded="true" signature="640:678" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408209407000" expanded="true" signature="1484:1529" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408209407000" expanded="true" signature="2230:2274" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408209407000" expanded="true" signature="3111:3160" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1408209407000" expanded="true" signature="3673:3721" placeholder="SELECT alias..Usuarios..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="74" selection-start="7474" selection-end="7474" vertical-scroll-proportion="0.46403712" vertical-offset="3016" max-vertical-offset="10816">
+        <state line="425" column="12" selection-start="19163" selection-end="19163" vertical-scroll-proportion="0.5522042" vertical-offset="6562" max-vertical-offset="11712">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <marker date="1408460577000" expanded="true" signature="2456:2494" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408460577000" expanded="true" signature="3224:3269" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408460577000" expanded="true" signature="3928:3972" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408460577000" expanded="true" signature="19595:19608" placeholder="..." />
+            <marker date="1408532813000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408532813000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408532813000" expanded="true" signature="4465:4509" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408532813000" expanded="true" signature="15727:15740" placeholder="..." />
           </folding>
         </state>
       </provider>

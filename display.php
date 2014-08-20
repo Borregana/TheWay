@@ -11,6 +11,7 @@ if (isset($_SESSION['alias']))
 {
     ?>
     <script>
+        var map;
         var route=[];
         var markersArray = [];
         var routeArray = [];
@@ -58,6 +59,10 @@ if (isset($_SESSION['alias']))
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
     </head>
+    <script>
+        var centro = new google.maps.LatLng(39.8867882,-0.0867385,15);
+        var geocoder= new google.maps.Geocoder();
+    </script>
     <?php
     if($_SESSION['img_ruta']!=""){
         $_POST['idruta']=$_SESSION['img_ruta'];
@@ -65,79 +70,100 @@ if (isset($_SESSION['alias']))
     }
     if(isset($_POST['idruta'])){?>
         <script> idRuta = <?= $_POST['idruta'] ?>;</script>
-    <?php
-    $con=mysqli_connect('localhost','root','root','Rutas');
-    if(isset($_POST['idruta'])){
-        $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
-    }
-    $idruta=$_SESSION['idruta'];
+        <?php
+        $con=mysqli_connect('localhost','root','root','Rutas');
+        if(isset($_POST['idruta'])){
+            $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
+        }
+        $idruta=$_SESSION['idruta'];
 
-    $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
-    $resultado=mysqli_query($con,$consulta);
+        $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
+        $resultado=mysqli_query($con,$consulta);
 
-    if($resultado){
+        if($resultado){
 
-    //Regcogemos la informacion de la ruta
-    $infor=array(
-        'nombre'=>"",
-        'ciudad'=>"",
-        'tiempo'=>"",
-        'vehiculo'=>"",
-        'puntuacion'=>"",
-        'usuario'=>"",
-        'fecha'=>"",
-        'recorrido'=>"",
-        'url_kml'=>""
-    );
-    while($col=mysqli_fetch_array($resultado)){
-        $infor['nombre']=$col['nombre'];
-        $infor['ciudad']=$col['ciudad'];
-        $infor['tiempo']=$col['tiempo'];
-        $infor['vehiculo']=$col['vehiculo'];
-        $infor['puntuacion']=$col['puntuacion_media'];
-        $userid=$col['usuario_id'];
-        //Buscamos el alias del usuario creador de la ruta
-        $username="SELECT alias FROM Usuarios WHERE id='$userid'";
-        $resulname=mysqli_query($con,$username);
-        $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
-        $infor['fecha']=$col['fecha_publicacion'];
-        $infor['recorrido']=$col['recorrido'];
-        $infor['url_kml']=$col['url_kml'];
-    };
-    //Recogemos los datos del recorrido
-    $line=explode("),",$infor['recorrido']);
-    $tam=count($line);
-    for($i=0;$i<$tam-1;$i++){
-        $line[$i]=$line[$i].')';
-    }
+            //Regcogemos la informacion de la ruta
+            $infor=array(
+                'nombre'=>"",
+                'ciudad'=>"",
+                'tiempo'=>"",
+                'vehiculo'=>"",
+                'puntuacion'=>"",
+                'usuario'=>"",
+                'fecha'=>"",
+                'recorrido'=>"",
+                'url_kml'=>""
+            );
+            while($col=mysqli_fetch_array($resultado)){
+                $infor['nombre']=$col['nombre'];
+                $infor['ciudad']=$col['ciudad'];
+                $infor['tiempo']=$col['tiempo'];
+                $infor['vehiculo']=$col['vehiculo'];
+                $infor['puntuacion']=$col['puntuacion_media'];
+                $userid=$col['usuario_id'];
+                //Buscamos el alias del usuario creador de la ruta
+                $username="SELECT alias FROM Usuarios WHERE id='$userid'";
+                $resulname=mysqli_query($con,$username);
+                $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
+                $infor['fecha']=$col['fecha_publicacion'];
+                $infor['recorrido']=$col['recorrido'];
+                $infor['url_kml']=$col['url_kml'];
+            };
+            //Recogemos los datos del recorrido
+            $line=explode("),",$infor['recorrido']);
+            $tam=count($line);
+            for($i=0;$i<$tam-1;$i++){
+                $line[$i]=$line[$i].')';
+            }
 
-    //Recogemos los datos de los marcadores
-    $marcadores=array(array(
-        'nombre'=>"",
-        'texto'=>"",
-        'punto_exacto'=>"",
-        'idpunto'=>"",
-        'imagen'=>""
-    ));
-    $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
-    $res_puntos=mysqli_query($con,$cons_puntos);
-    ?>
-        <script>var punto = ""</script>
-    <?php
-    if($res_puntos){
-    $i=0;
-    while($row=mysqli_fetch_array($res_puntos)){
-        $marcadores[$i]['nombre']=$row['nombre'];
-        $marcadores[$i]['texto']=$row['texto'];
-        $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
-        $marcadores[$i]['idpunto']=$row['id'];
-        $marcadores[$i]['imagen']=$row['imagen'];
-        $i++;
-    }?>
-        <script>punto = "<?= $marcadores[0]['punto_exacto']?>"</script>
-    <?php
-    }
-    }
+            //Recogemos los datos de los marcadores
+            $marcadores=array(array(
+                'nombre'=>"",
+                'texto'=>"",
+                'punto_exacto'=>"",
+                'idpunto'=>"",
+                'imagen'=>""
+            ));
+            $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
+            $res_puntos=mysqli_query($con,$cons_puntos);
+
+            if($res_puntos){
+                $i=0;
+                while($row=mysqli_fetch_array($res_puntos)){
+                    $marcadores[$i]['nombre']=$row['nombre'];
+                    $marcadores[$i]['texto']=$row['texto'];
+                    $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
+                    $marcadores[$i]['idpunto']=$row['id'];
+                    $marcadores[$i]['imagen']=$row['imagen'];
+                    $i++;
+                }
+            }
+        }
+        if($marcadores[0]['punto_exacto']!=""){
+            $centro=$marcadores[0]['punto_exacto'];
+            ?>
+            <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
+            <?php
+        }
+        elseif($infor['recorrido']!=""){
+            $centro=$line[0].$line[1];
+            ?>
+            <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
+            <?php
+            }
+        elseif($infor['ciudad']!=""){
+            $centro=$infor['ciudad'];
+            ?>
+            <script>
+                centro = "<?= $centro ?>";
+                geocoder.geocode( { 'address': centro}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        centro=results[0].geometry.location;
+                    }
+                });
+            </script>
+            <?php
+        }
     }
     ?>
     <body>
@@ -196,12 +222,12 @@ if (isset($_SESSION['alias']))
 
                             <section>
                                 <label class="input"> <i class="icon-append fa fa-home"></i>
-                                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" value="<?= $infor['ciudad'];?>">
+                                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad, dirección..." value="<?= $infor['ciudad'];?>">
                                     <b class="tooltip tooltip-bottom-right">Ciudad recorrida</b> </label>
                                 <footer>
-                                    <font size="3" class="txt-color-orange">Coloca el mapa donde prefieras</font>
+                                    <font size="2" class="txt-color-orange">Coloca el mapa donde prefieras</font>
                                     <button class="btn btn-info" onclick="codeAddress()">Redireccionar</button>
-                                    </footer>
+                                </footer>
                             </section>
 
                             <section>
@@ -232,6 +258,22 @@ if (isset($_SESSION['alias']))
                 <!-- end widget content -->
             </div>
             <!-- end widget div -->
+        </div>
+        <div class="jarviswidget">
+            <header>
+                <h2><strong class="txt-color-blue login-header-big">Marcar dirección </strong></h2>
+            </header>
+            <div class="widget-body">
+                <div class="pull-left">
+                    <strong class="txt-color-blue">Añade un marcador escribiendo aquí la dirección</strong>
+                </div>
+                <form class="form-actions" id="markerform" name="markerform" action="return false" onsubmit="return false">
+                    <input type="text" class="pull-left" id="marker_dir" placeholder="Direccion">
+                    <button class="btn btn-warning" onclick="markerAddress();">
+                        Marcar
+                    </button>
+                </form>
+            </div>
         </div>
         <!-- end widget -->
         <div class="jarviswidget">
@@ -269,6 +311,116 @@ if (isset($_SESSION['alias']))
     route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
     <?php }
 ?>
+    function contentwindow(nombre,texto,idpunto,imagen) {
+        var contentString="";
+        if ( idpunto == undefined){
+            contentString = '<div>'+
+                '<div class="col-md-7">'+
+                '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+                '<header class="txt-color-blueDark">'+
+                'Punto de Interés'+
+                '</header>'+
+                '<div id="resultado"></div>'+
+                '<fieldset>'+
+                '<section>'+
+                '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+                '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
+                '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+                '</section>'+
+                '<section>' +
+                '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+                '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
+                '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+                '</section>'+
+                '<section>' +
+                '<input id="posicion" type="hidden" value='+posicion+'>'+
+                '<input type="hidden" id="punto" name="punto" value='+idpunto+'>'+
+                '</section>'+
+                '</fieldset>'+
+                '<footer>'+
+                '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("punto").value);>'+
+                'Guardar'+
+                '</form>'+
+                '</div>'+
+                '<div class="col-md-5">'+
+                '<header class="txt-color-orangeDark">'+
+                'Imagen'+
+                '</header>'+
+                '<div id="imagen" class="image">'+
+                '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
+                '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
+                '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
+                '<footer>'+
+                '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
+                'Subir Imagen'+
+                '</button>'+
+                '</footer>'+
+                '</form>'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+        }
+        else{
+            contentString = '<div>'+
+                '<div class="col-md-7">'+
+                '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
+                '<header class="txt-color-blueDark">'+
+                'Punto de Interés'+
+                '</header>'+
+                '<div id="resultado"></div>'+
+                '<fieldset>'+
+                '<section>'+
+                '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
+                '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
+                '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
+                '</section>'+
+                '<section>' +
+                '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
+                '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
+                '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
+                '</section>'+
+                '<section>' +
+                '<input id="posicion" type="hidden" value='+posicion+'>'+
+                '<input type="hidden" id="idpunto" name="idpunto" value='+idpunto+'>'+
+                '</section>'+
+                '</fieldset>'+
+                '<footer>'+
+                '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("idpunto").value);>'+
+                'Guardar'+
+                '</form>'+
+                '</div>'+
+                '<div class="col-md-5">'+
+                '<header class="txt-color-orangeDark">'+
+                'Imagen'+
+                '</header>'+
+                '<div id="imagen" class="image">'+
+                '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
+                '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
+                '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
+                '<img width="100" src='+imagen+'>'+
+                '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
+                '<footer>'+
+                '<button id="img_btn" name="img_btn" class="btn btn-success"">'+
+                'Subir Imagen'+
+                '</button>'+
+                '</footer>'+
+                '</form>'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+        }
+        result= contentString+posicion;
+        posicion++;
+        return result;
+    }
+    var infoWindow = new google.maps.InfoWindow({
+        maxwidth: "60px",
+        content: contentwindow()
+    });
     function loadKml(url){
         if(idRuta==""){
             alert('Debes crear la ruta primero')
@@ -312,7 +464,7 @@ if (isset($_SESSION['alias']))
 
     function submitRoute(nombre,ciudad,tiempo,vehiculo,publica) {
         var p = "";
-        for (var i=0; i<routeArray.length; i++) {
+        for (var i=1; i<routeArray.length; i++) {
             p += routeArray[i].getPath().getArray().toString() + "\n";
         }
         var s = "";
@@ -376,11 +528,12 @@ if (isset($_SESSION['alias']))
             numpos=numpos+marker.content[longitud-i];
             i++;
         }
+        numpos++;
         if(arrayMarkerId[marker.content[longitud]]!=""){
             $.ajax({
                 url: "deletePoint.php",
                 type: "POST",
-                data: "id="+arrayMarkerId[marker.content[longitud]],
+                data: "id="+arrayMarkerId[numpos],
                 success: function(responce){
                     bien=responce;
                 }
@@ -401,46 +554,55 @@ if (isset($_SESSION['alias']))
         polyline.setMap(null);
         routeArray=[];
     }
-    var geocoder;
-    var map;
+
     function codeAddress() {
         var address = document.getElementById("ciudad").value;
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
+
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
             }
         });
     }
+
+    function markerAddress() {
+        var address = document.getElementById("marker_dir").value;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    content: contentwindow()
+                });
+                marker.content = contentwindow();
+                google.maps.event.addListener(marker, 'click', function() {
+                    marcador=marker.getPosition().toUrlValue();
+                    infoWindow.setContent(this.content);
+                    infoWindow.open(map, this);
+                });
+                google.maps.event.addDomListener(marker, "rightclick", function() {
+                    removeMarker(marker);
+                });
+                markersArray.push(marker);
+            }
+            else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
     function initialize() {
-         geocoder = new google.maps.Geocoder();
+        geocoder = new google.maps.Geocoder();
 
-        var centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
-
-        if(idRuta != ""){
-            if(  punto != ""){
-                centro= new google.maps.LatLng(<?= $marcadores[0]['punto_exacto']?>);
-            }
-            else{
-                if(route[0] != ""){
-                    centro= route[0];
-                }
-                else{
-                    centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
-                }
-            }
-        }
+        //var centro_mapa=new google.maps.LatLng(centro);
         var mapOptions = {
             center: centro,
             zoom: 16
         };
 
-         map = new google.maps.Map(document.getElementById('map-canvas'),
+        map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
         var ctaLayer= new google.maps.KmlLayer({
@@ -466,114 +628,7 @@ if (isset($_SESSION['alias']))
             ?>
             point= new google.maps.LatLng(<?= $marcadores[$i]['punto_exacto'] ?>);
 
-            function contentwindow(nombre,texto,idpunto,imagen) {
-                var contentString="";
-                if ( idpunto == undefined){
-                    contentString = '<div>'+
-                        '<div class="col-md-7">'+
-                        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
-                        '<header class="txt-color-blueDark">'+
-                        'Punto de Interés'+
-                        '</header>'+
-                        '<div id="resultado"></div>'+
-                        '<fieldset>'+
-                        '<section>'+
-                        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                        '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
-                        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                        '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
-                        '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<input id="posicion" type="hidden" value='+posicion+'>'+
-                        '<input type="hidden" id="punto" name="punto" value='+idpunto+'>'+
-                        '</section>'+
-                        '</fieldset>'+
-                        '<footer>'+
-                        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("punto").value);>'+
-                        'Guardar'+
-                        '</form>'+
-                        '</div>'+
-                        '<div class="col-md-5">'+
-                        '<header class="txt-color-orangeDark">'+
-                        'Imagen'+
-                        '</header>'+
-                        '<div id="imagen" class="image">'+
-                        '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
-                        '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
-                        '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
-                        '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                        '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
-                        '<footer>'+
-                        '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
-                        'Subir Imagen'+
-                        '</button>'+
-                        '</footer>'+
-                        '</form>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
-                }
-                else{
-                    contentString = '<div>'+
-                        '<div class="col-md-7">'+
-                        '<form  id="punto" action="return false" onsubmit="return false" class="smart-form client-form" method="post">'+
-                        '<header class="txt-color-blueDark">'+
-                        'Punto de Interés'+
-                        '</header>'+
-                        '<div id="resultado"></div>'+
-                        '<fieldset>'+
-                        '<section>'+
-                        '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                        '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
-                        '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<label class="textarea"><i class="icon-append fa fa-comment-o"></i>'+
-                        '<textarea id="texto" name="texto" rows="2" placeholder="Cuentanos...">'+texto+'</textarea> '+
-                        '<b class="tooltip tooltip-bottom-right">Algo que decir?</b> </label>'+
-                        '</section>'+
-                        '<section>' +
-                        '<input id="posicion" type="hidden" value='+posicion+'>'+
-                        '<input type="hidden" id="idpunto" name="idpunto" value='+idpunto+'>'+
-                        '</section>'+
-                        '</fieldset>'+
-                        '<footer>'+
-                        '<button class="btn btn-primary" onclick=submitPoint(document.getElementById("nombre_punto").value,document.getElementById("texto").value,document.getElementById("posicion").value,document.getElementById("idpunto").value);>'+
-                        'Guardar'+
-                        '</form>'+
-                        '</div>'+
-                        '<div class="col-md-5">'+
-                        '<header class="txt-color-orangeDark">'+
-                        'Imagen'+
-                        '</header>'+
-                        '<div id="imagen" class="image">'+
-                        '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
-                        '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
-                        '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
-                        '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
-                        '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                        '<img width="100" src='+imagen+'>'+
-                        '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
-                        '<footer>'+
-                        '<button id="img_btn" name="img_btn" class="btn btn-success"">'+
-                        'Subir Imagen'+
-                        '</button>'+
-                        '</footer>'+
-                        '</form>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
-                }
-                result= contentString+posicion;
-                posicion++;
-                return result;
-            }
-
-            var infoWindow = new google.maps.InfoWindow({
+            infoWindow = new google.maps.InfoWindow({
                 maxwidth: "60px",
                 content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>')
             });
@@ -595,6 +650,7 @@ if (isset($_SESSION['alias']))
             <?php
                  }
                 ?>
+
             var drawingManager = new google.maps.drawing.DrawingManager({
                 drawingControl: true,
                 drawingControlOptions: {
