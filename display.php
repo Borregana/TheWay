@@ -60,7 +60,7 @@ if (isset($_SESSION['alias']))
 
     </head>
     <script>
-        var centro = new google.maps.LatLng(39.8867882,-0.0867385,15);
+        var centro = new google.maps.LatLng(39.8889285,-0.0847215,15);
         var geocoder= new google.maps.Geocoder();
     </script>
     <?php
