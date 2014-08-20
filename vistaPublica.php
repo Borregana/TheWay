@@ -15,7 +15,10 @@ if(isset($_SESSION['alias']))
     </script>
 
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-
+    <script>
+        var centro = new google.maps.LatLng(39.8867882,-0.0867385,15);
+        var geocoder= new google.maps.Geocoder();
+    </script>
     <?php
 
     $con=mysqli_connect('localhost','root','root','Rutas');
@@ -73,9 +76,7 @@ if(isset($_SESSION['alias']))
         ));
         $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
         $res_puntos=mysqli_query($con,$cons_puntos);
-        ?>
-        <script> var punto = ""</script>
-        <?php
+
         if($res_puntos){
             $i=0;
             while($row=mysqli_fetch_array($res_puntos)){
@@ -84,11 +85,9 @@ if(isset($_SESSION['alias']))
                 $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
                 $marcadores[$i]['imagen']=$row['imagen'];
                 $i++;
-            }?>
-            <script>punto = "<?= $marcadores[0]['punto_exacto']?>"</script>
-        <?php
+            }
         }
-//Recogemos los comentarios
+        //Recogemos los comentarios
         $comentarios=array(array(
             'comentario'=>"",
             'puntuacion'=>"",
@@ -114,6 +113,32 @@ if(isset($_SESSION['alias']))
         }
         else{
             $nocomment=true;
+        }
+        //centramos el mapa
+        if($marcadores[0]['punto_exacto']!=""){
+            $centro=$marcadores[0]['punto_exacto'];
+            ?>
+            <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
+        <?php
+        }
+        elseif($infor['recorrido']!=""){
+            $centro=$line[0];
+            ?>
+            <script> centro = new google.maps.LatLng<?= $centro ?>;</script>
+        <?php
+        }
+        elseif($infor['ciudad']!=""){
+            $centro=$infor['ciudad'];
+            ?>
+            <script>
+                centro = "<?= $centro ?>";
+                geocoder.geocode( { 'address': centro}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        centro=results[0].geometry.location;
+                    }
+                });
+            </script>
+        <?php
         }
         ?>
 
@@ -366,19 +391,6 @@ if(isset($_SESSION['alias']))
             <?php }
         ?>
             function initialize() {
-                var centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
-
-                    if(  punto != ""){
-                        centro= new google.maps.LatLng(<?= $marcadores[0]['punto_exacto']?>);
-                    }
-                    else{
-                        if(route[0] != ""){
-                            centro= route[0];
-                        }
-                        else{
-                            centro=new google.maps.LatLng(39.8867882,-0.0867385,15);
-                        }
-                    }
 
                 var mapOptions = {
                     center: centro,
@@ -387,6 +399,8 @@ if(isset($_SESSION['alias']))
 
                 var map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
+
+                map.setCenter(centro);
 
                 var ctaLayer= new google.maps.KmlLayer({
                     url:"<?= $infor['url_kml']?>"

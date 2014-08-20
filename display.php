@@ -596,7 +596,6 @@ if (isset($_SESSION['alias']))
     function initialize() {
         geocoder = new google.maps.Geocoder();
 
-        //var centro_mapa=new google.maps.LatLng(centro);
         var mapOptions = {
             center: centro,
             zoom: 16
