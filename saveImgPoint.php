@@ -18,7 +18,7 @@ if(mysqli_connect_errno()){
 if(isset($_POST['idpuntoimg']))
 {
 
-    $Destination = 'img/img_markers/';
+    $Destination = 'img/img_markers';
 
     if(!isset($_FILES['img_punto']) || !is_uploaded_file($_FILES['img_punto']['tmp_name']))
     {

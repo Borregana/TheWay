@@ -72,7 +72,8 @@ if(isset($_SESSION['alias']))
             'nombre'=>"",
             'texto'=>"",
             'punto_exacto'=>"",
-            'imagen'=>""
+            'imagen'=>"",
+            'video'=>""
         ));
         $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
         $res_puntos=mysqli_query($con,$cons_puntos);
@@ -84,6 +85,7 @@ if(isset($_SESSION['alias']))
                 $marcadores[$i]['texto']=$row['texto'];
                 $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
                 $marcadores[$i]['imagen']=$row['imagen'];
+                $marcadores[$i]['video']=$row['video'];
                 $i++;
             }
         }
@@ -294,16 +296,16 @@ if(isset($_SESSION['alias']))
                                                             <i class="fa fa-star"></i>
                                                         <? }
                                                         if($comentarios[$com]['usuario']==$_SESSION['alias']){
-                                                        ?>
-                                                        <section class="pull-right">
-                                                            <form id="delete_comment" action="deleteComment.php" method="post">
-                                                                <input type="hidden" id="idcom" name="idcom" value="<?= $comentarios[$com]['id'];?>">
-                                                                <button class="btn btn-link">Borrar</button>
-                                                            </form>
-                                                        </section>
-                                                            <?php
-                                                        }
                                                             ?>
+                                                            <section class="pull-right">
+                                                                <form id="delete_comment" action="deleteComment.php" method="post">
+                                                                    <input type="hidden" id="idcom" name="idcom" value="<?= $comentarios[$com]['id'];?>">
+                                                                    <button class="btn btn-link">Borrar</button>
+                                                                </form>
+                                                            </section>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </section>
                                             </fieldset>
@@ -429,14 +431,25 @@ if(isset($_SESSION['alias']))
                             '<section>' +
                             '<div><?= $marcadores[$i]['texto']?></div>'+
                             '</section>'+
-                            '<section>' +
-                            '<label class="label"></label>'+
-                            '<label class="textarea"><i class="icon-append fa fa-picture"></i>'+
                             <?php
                             if($marcadores[$i]['imagen']!=""){?>
-                            '<img width="200" src="<?= $marcadores[$i]['imagen']?>"></div>'+
-                            <?php } ?>
+                            '<div>'+
+                            '<section class="col-md-6">' +
+                            '<img width="200" src="<?= $marcadores[$i]['imagen']?>">'+
                             '</section>'+
+                            <?php } ?>
+                            <?php
+                            if($marcadores[$i]['video']!=""){?>
+                            '<section class="col-md-6">'+
+                            '<video width="320" height="240" preload controls>'+
+                            '<source src="<?= $marcadores[$i]['video'];?>" type="video/mp4">'+
+                            '<source src="<?= $marcadores[$i]['video'];?>" type="video/webm">'+
+                            '<source src="<?= $marcadores[$i]['video'];?>" type="video/ogg">'+
+                            'Your browser does not support the video tag.'+
+                            '</video>'+
+                            '</section>'+
+                            <?php } ?>
+                            '</div>'+
                             '</fieldset>'+
                             '</div>';
 

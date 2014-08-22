@@ -51,6 +51,7 @@ if(isset($_POST)){
                     if($consulta)
                     {
                         $ruta_id=mysqli_fetch_array($consulta)['id'];
+                        $_SESSION['img_ruta']=$ruta_id;
                         ?>
 
                         <script> idRuta = <?= $ruta_id ?>;</script>
@@ -69,6 +70,7 @@ if(isset($_POST)){
                     die('Error'. mysqli_error($con));
                 }
                 else{
+                    $_SESSION['img_ruta']=$ruta_id;
                     echo '<span class="txt-color-green login-header-big">La Ruta ha sido modificada con exito</span>';
                 }
             }

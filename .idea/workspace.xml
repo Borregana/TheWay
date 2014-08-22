@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saveVideoPoint.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveImgPoint.php" afterPath="$PROJECT_DIR$/saveImgPoint.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saveRoute.php" afterPath="$PROJECT_DIR$/saveRoute.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vistaPublica.php" afterPath="$PROJECT_DIR$/vistaPublica.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -27,42 +30,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="display.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="70" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.6682135" vertical-offset="704" max-vertical-offset="11696">
+            <state line="140" column="52" selection-start="5180" selection-end="5180" vertical-scroll-proportion="-16.0" vertical-offset="1840" max-vertical-offset="12368">
               <folding>
                 <element signature="e#6#89#0" expanded="true" />
-                <marker date="1408534437000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408534437000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408534437000" expanded="true" signature="4465:4509" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408534437000" expanded="true" signature="15727:15740" placeholder="..." />
+                <marker date="1408701476000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408701476000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408701476000" expanded="true" signature="4494:4538" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408701476000" expanded="true" signature="15890:15903" placeholder="..." />
+                <marker date="1408701476000" expanded="true" signature="16721:16734" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vistaPublica.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="saveVideoPoint.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saveVideoPoint.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="68" selection-start="980" selection-end="980" vertical-scroll-proportion="-11.44" vertical-offset="258" max-vertical-offset="1200">
+              <folding>
+                <element signature="e#6#89#0" expanded="true" />
+                <marker date="1408703384000" expanded="true" signature="1584:1629" placeholder="UPDATE Punto..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vistaPublica.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vistaPublica.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="70" selection-start="485" selection-end="485" vertical-scroll-proportion="-11.52" vertical-offset="0" max-vertical-offset="7632">
+            <state line="443" column="69" selection-start="20455" selection-end="20455" vertical-scroll-proportion="0.42691416" vertical-offset="6904" max-vertical-offset="7840">
               <folding>
-                <marker date="1408534423000" expanded="true" signature="787:825" placeholder="SELECT * FRO..Rutas..." />
-                <marker date="1408534423000" expanded="true" signature="1631:1676" placeholder="SELECT alias..Usuarios..." />
-                <marker date="1408534423000" expanded="true" signature="2377:2421" placeholder="SELECT * FRO..Puntos..." />
-                <marker date="1408534423000" expanded="true" signature="3109:3158" placeholder="SELECT * FRO..Comentarios..." />
-                <marker date="1408534423000" expanded="true" signature="3671:3719" placeholder="SELECT alias..Usuarios..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deletePoint.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deletePoint.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="49" selection-start="368" selection-end="368" vertical-scroll-proportion="-7.68" vertical-offset="0" max-vertical-offset="432">
-              <folding>
-                <marker date="1406739572000" expanded="true" signature="379:412" placeholder="DELETE FROM ..." />
+                <marker date="1408709330000" expanded="true" signature="787:825" placeholder="SELECT * FRO..Rutas..." />
+                <marker date="1408709330000" expanded="true" signature="1631:1676" placeholder="SELECT alias..Usuarios..." />
+                <marker date="1408709330000" expanded="true" signature="2402:2446" placeholder="SELECT * FRO..Puntos..." />
+                <marker date="1408709330000" expanded="true" signature="3190:3239" placeholder="SELECT * FRO..Comentarios..." />
+                <marker date="1408709330000" expanded="true" signature="3752:3800" placeholder="SELECT alias..Usuarios..." />
               </folding>
             </state>
           </provider>
@@ -81,8 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/register.html" />
-        <option value="$PROJECT_DIR$/publicRuta.html" />
         <option value="$PROJECT_DIR$/Publica.php" />
         <option value="$PROJECT_DIR$/js/rutaPublica.js" />
         <option value="$PROJECT_DIR$/ajax.js" />
@@ -109,7 +112,6 @@
         <option value="$PROJECT_DIR$/saveComentario.php" />
         <option value="$PROJECT_DIR$/.php" />
         <option value="$PROJECT_DIR$/kml.php" />
-        <option value="$PROJECT_DIR$/saveRoute.php" />
         <option value="$PROJECT_DIR$/saveKml.php" />
         <option value="$PROJECT_DIR$/deleteKml.php" />
         <option value="$PROJECT_DIR$/js/drawing.js" />
@@ -128,10 +130,13 @@
         <option value="$PROJECT_DIR$/js/kmlFile.js" />
         <option value="$PROJECT_DIR$/editUser.php" />
         <option value="$PROJECT_DIR$/savePunto.php" />
-        <option value="$PROJECT_DIR$/saveImgPoint.php" />
         <option value="$PROJECT_DIR$/deleteRoute.php" />
-        <option value="$PROJECT_DIR$/vistaPublica.php" />
+        <option value="$PROJECT_DIR$/saveRoute.php" />
+        <option value="$PROJECT_DIR$/saveImgPoint.php" />
         <option value="$PROJECT_DIR$/display.php" />
+        <option value="$PROJECT_DIR$/saveVideoPoint.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/vistaPublica.php" />
       </list>
     </option>
   </component>
@@ -182,20 +187,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TheWay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheWay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheWay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,7 +421,11 @@
       <created>1408534156741</created>
       <updated>1408534156741</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="redefinda la direccion por defecto">
+      <created>1408534559811</created>
+      <updated>1408534559811</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -491,7 +486,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="la vista publica funciona con comentarios y misRutas ya tiene operativo el boton de vista publica" />
     <MESSAGE value="corregido error de colision del idruta entre el ajax del comentario y el post de misrutas" />
     <MESSAGE value="el buscador funciona correctamente&#10;" />
     <MESSAGE value="al crear un comentario se actualiza la nota media" />
@@ -516,29 +510,13 @@
     <MESSAGE value="añadido boton que redirecciona el mapa a la ciudad deseada" />
     <MESSAGE value="display centra el mapa correctamente dependiendo del contenido del mapa" />
     <MESSAGE value="en vistapublica el mapa se redirecciona correctamente dependiendo de los datos en la ruta" />
-    <option name="LAST_COMMIT_MESSAGE" value="en vistapublica el mapa se redirecciona correctamente dependiendo de los datos en la ruta" />
+    <MESSAGE value="redefinda la direccion por defecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="redefinda la direccion por defecto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saveComentario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="608" max-vertical-offset="784">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/misRutas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="80" selection-start="5065" selection-end="5065" vertical-scroll-proportion="0.0" vertical-offset="2096" max-vertical-offset="3168">
-          <folding>
-            <element signature="e#6#89#0" expanded="false" />
-            <marker date="1408211136000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistaPublica.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="178" column="48" selection-start="7116" selection-end="7314" vertical-scroll-proportion="0.0" vertical-offset="2592" max-vertical-offset="6112">
@@ -861,13 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saveRoute.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="44" selection-start="2270" selection-end="2338" vertical-scroll-proportion="0.28915662" vertical-offset="688" max-vertical-offset="1376">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="33" selection-start="270" selection-end="270" vertical-scroll-proportion="0.1491876" vertical-offset="75" max-vertical-offset="1024">
@@ -883,15 +854,6 @@
           <folding>
             <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Usuarios..." />
             <marker date="1408445416000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Grupos..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="1730" selection-end="1730" vertical-scroll-proportion="0.71639585" vertical-offset="363" max-vertical-offset="1040">
-          <folding>
-            <marker date="1408457200000" expanded="true" signature="-1:-1" placeholder="UPDATE Punto..." />
           </folding>
         </state>
       </provider>
@@ -923,33 +885,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="49" selection-start="368" selection-end="368" vertical-scroll-proportion="-7.68" vertical-offset="0" max-vertical-offset="432">
           <folding>
-            <marker date="1406739572000" expanded="true" signature="379:412" placeholder="DELETE FROM ..." />
+            <marker date="1406739572000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+    <entry file="file://$PROJECT_DIR$/saveRoute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="70" selection-start="485" selection-end="485" vertical-scroll-proportion="-11.52" vertical-offset="0" max-vertical-offset="7632">
+        <state line="73" column="0" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.70030123" vertical-offset="703" max-vertical-offset="1408">
           <folding>
-            <marker date="1408534423000" expanded="true" signature="787:825" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408534423000" expanded="true" signature="1631:1676" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408534423000" expanded="true" signature="2377:2421" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408534423000" expanded="true" signature="3109:3158" placeholder="SELECT * FRO..Comentarios..." />
-            <marker date="1408534423000" expanded="true" signature="3671:3719" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408549251000" expanded="true" signature="-1:-1" placeholder="SELECT nombr..Usuarios..." />
+            <marker date="1408549251000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1408549251000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408549251000" expanded="true" signature="-1:-1" placeholder="UPDATE Rutas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saveImgPoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="35" selection-start="373" selection-end="373" vertical-scroll-proportion="0.35450518" vertical-offset="0" max-vertical-offset="1040">
+          <folding>
+            <marker date="1408700952000" expanded="true" signature="-1:-1" placeholder="UPDATE Punto..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="70" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.6682135" vertical-offset="704" max-vertical-offset="11696">
+        <state line="140" column="52" selection-start="5180" selection-end="5180" vertical-scroll-proportion="-16.0" vertical-offset="1840" max-vertical-offset="12368">
           <folding>
             <element signature="e#6#89#0" expanded="true" />
-            <marker date="1408534437000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
-            <marker date="1408534437000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
-            <marker date="1408534437000" expanded="true" signature="4465:4509" placeholder="SELECT * FRO..Puntos..." />
-            <marker date="1408534437000" expanded="true" signature="15727:15740" placeholder="..." />
+            <marker date="1408701476000" expanded="true" signature="2649:2687" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408701476000" expanded="true" signature="3593:3638" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408701476000" expanded="true" signature="4494:4538" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408701476000" expanded="true" signature="15890:15903" placeholder="..." />
+            <marker date="1408701476000" expanded="true" signature="16721:16734" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saveVideoPoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="68" selection-start="980" selection-end="980" vertical-scroll-proportion="-11.44" vertical-offset="258" max-vertical-offset="1200">
+          <folding>
+            <element signature="e#6#89#0" expanded="true" />
+            <marker date="1408703384000" expanded="true" signature="1584:1629" placeholder="UPDATE Punto..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistaPublica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="443" column="69" selection-start="20455" selection-end="20455" vertical-scroll-proportion="0.42691416" vertical-offset="6904" max-vertical-offset="7840">
+          <folding>
+            <marker date="1408709330000" expanded="true" signature="787:825" placeholder="SELECT * FRO..Rutas..." />
+            <marker date="1408709330000" expanded="true" signature="1631:1676" placeholder="SELECT alias..Usuarios..." />
+            <marker date="1408709330000" expanded="true" signature="2402:2446" placeholder="SELECT * FRO..Puntos..." />
+            <marker date="1408709330000" expanded="true" signature="3190:3239" placeholder="SELECT * FRO..Comentarios..." />
+            <marker date="1408709330000" expanded="true" signature="3752:3800" placeholder="SELECT alias..Usuarios..." />
           </folding>
         </state>
       </provider>

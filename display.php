@@ -122,7 +122,8 @@ if (isset($_SESSION['alias']))
                 'texto'=>"",
                 'punto_exacto'=>"",
                 'idpunto'=>"",
-                'imagen'=>""
+                'imagen'=>"",
+                'video'=>""
             ));
             $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
             $res_puntos=mysqli_query($con,$cons_puntos);
@@ -134,7 +135,10 @@ if (isset($_SESSION['alias']))
                     $marcadores[$i]['texto']=$row['texto'];
                     $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
                     $marcadores[$i]['idpunto']=$row['id'];
-                    $marcadores[$i]['imagen']=$row['imagen'];
+                    $img=explode('/',$row['imagen']);
+                    $marcadores[$i]['imagen']=$img[2];
+                    $vid=explode('/',$row['video']);
+                    $marcadores[$i]['video']=$vid[2];
                     $i++;
                 }
             }
@@ -311,8 +315,14 @@ if (isset($_SESSION['alias']))
     route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
     <?php }
 ?>
-    function contentwindow(nombre,texto,idpunto,imagen) {
+    function contentwindow(nombre,texto,idpunto,imagen,video) {
         var contentString="";
+        if(nombre== undefined){
+            nombre="";
+        }
+        if(texto== undefined){
+            texto="";
+        }
         if ( idpunto == undefined){
             contentString = '<div>'+
                 '<div class="col-md-7">'+
@@ -324,7 +334,7 @@ if (isset($_SESSION['alias']))
                 '<fieldset>'+
                 '<section>'+
                 '<label class="input"> <i class="icon-append fa fa-picture-o"></i>'+
-                '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+' required="required">'+
+                '<input type="text" id="nombre_punto" name="nombre_punto" placeholder="Nombre" maxlength="100" value='+nombre+'>'+
                 '<b class="tooltip tooltip-bottom-right">Nombre del punto</b> </label>'+
                 '</section>'+
                 '<section>' +
@@ -343,15 +353,14 @@ if (isset($_SESSION['alias']))
                 '</form>'+
                 '</div>'+
                 '<div class="col-md-5">'+
+                '<div id="imagen" class="image">'+
                 '<header class="txt-color-orangeDark">'+
                 'Imagen'+
                 '</header>'+
-                '<div id="imagen" class="image">'+
                 '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
                 '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
                 '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
                 '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
                 '<footer>'+
                 '<button id="img_btn" name="img_btn" class="btn btn-success" style="display:none;">'+
                 'Subir Imagen'+
@@ -359,6 +368,22 @@ if (isset($_SESSION['alias']))
                 '</footer>'+
                 '</form>'+
                 '</div>'+
+                '<div id="video" class="video">'+
+                '<header class="txt-color-orangeDark">'+
+                'Video'+
+                '</header>'+
+                '<form id="vidp" action="saveVideoPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                '<input type="hidden" id="vidold" name="vidold" value='+video+'>'+
+                '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                '<label class="input"><input type="file" id="vid_punto" name="vid_punto" >'+
+                '<footer>'+
+                '<button id="vid_btn" name="vid_btn" class="btn btn-success" style="display:none;">'+
+                'Subir Video'+
+                '</button>'+
+                '</footer>'+
+                '</form>'+
+                '</div>'+
+                '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir algun archivo</span></div>'+
                 '</div>'+
                 '</div>';
         }
@@ -392,17 +417,16 @@ if (isset($_SESSION['alias']))
                 '</form>'+
                 '</div>'+
                 '<div class="col-md-5">'+
+                '<div id="imagen" class="image">'+
                 '<header class="txt-color-orangeDark">'+
                 'Imagen'+
                 '</header>'+
-                '<div id="imagen" class="image">'+
                 '<form id="imgp" action="saveImgPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
                 '<input type="hidden" id="idpuntoimg" name="idpuntoimg" value='+idpunto+'>'+
                 '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
                 '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
-                '<label class="input"><input type="file" id="img_punto" name="img_punto" >'+
-                '<img width="100" src='+imagen+'>'+
-                '<div><span class="txt-color-blue">Debes guardar primero el punto y luego si lo deseas subir la imagen</span></div>'+
+                '<label class="input"><input type="file" accept="image" id="img_punto" name="img_punto" >'+
+                '<input type=text readonly="readonly" value='+imagen+'>'+
                 '<footer>'+
                 '<button id="img_btn" name="img_btn" class="btn btn-success"">'+
                 'Subir Imagen'+
@@ -410,6 +434,24 @@ if (isset($_SESSION['alias']))
                 '</footer>'+
                 '</form>'+
                 '</div>'+
+                '<div id="video" class="video">'+
+                '<header class="txt-color-orangeDark">'+
+                'Video'+
+                '</header>'+
+                '<form id="vidp" action="saveVideoPoint.php" method="post" class="smart-form client-form" enctype="multipart/form-data">'+
+                '<input type="hidden" id="idpuntovid" name="idpuntovid" value='+idpunto+'>'+
+                '<input type="hidden" id="vidold"  name="vidold" value='+video+'>'+
+                '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
+                '<label class="input"><input type="file" id="video_punto" name="video_punto" >'+
+                '<input type=text readonly="readonly" value='+video+'>'+
+                '<footer>'+
+                '<button id="vid_btn" name="vid_btn" class="btn btn-success"">'+
+                'Subir Video'+
+                '</button>'+
+                '</footer>'+
+                '</form>'+
+                '</div>'+
+                '<div><span class="txt-color-red">Debes guardar primero el punto y luego si lo deseas subir algun archivo</span></div>'+
                 '</div>'+
                 '</div>';
         }
@@ -629,12 +671,12 @@ if (isset($_SESSION['alias']))
 
             infoWindow = new google.maps.InfoWindow({
                 maxwidth: "60px",
-                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>')
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>')
             });
 
             var marker= new google.maps.Marker({
                 position: point,
-                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>')
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>')
             });
 
             google.maps.event.addListener(marker, 'click', function() {
