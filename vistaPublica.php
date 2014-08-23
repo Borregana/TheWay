@@ -86,6 +86,7 @@ if(isset($_SESSION['alias']))
                 $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
                 $marcadores[$i]['imagen']=$row['imagen'];
                 $marcadores[$i]['video']=$row['video'];
+                $marcadores[$i]['youtube']=$row['youtube'];
                 $i++;
             }
         }
@@ -433,23 +434,30 @@ if(isset($_SESSION['alias']))
                             '</section>'+
                             <?php
                             if($marcadores[$i]['imagen']!=""){?>
-                            '<div>'+
                             '<section class="col-md-6">' +
-                            '<img width="200" src="<?= $marcadores[$i]['imagen']?>">'+
+                            '<img width="300" src="<?= $marcadores[$i]['imagen']?>">'+
                             '</section>'+
                             <?php } ?>
+                            '<section class="col-md-6">'+
                             <?php
                             if($marcadores[$i]['video']!=""){?>
-                            '<section class="col-md-6">'+
-                            '<video width="320" height="240" preload controls>'+
+                            '<div>'+
+                            '<video width="640" height="390" preload controls>'+
                             '<source src="<?= $marcadores[$i]['video'];?>" type="video/mp4">'+
                             '<source src="<?= $marcadores[$i]['video'];?>" type="video/webm">'+
                             '<source src="<?= $marcadores[$i]['video'];?>" type="video/ogg">'+
                             'Your browser does not support the video tag.'+
                             '</video>'+
-                            '</section>'+
-                            <?php } ?>
+                            '<div>'+
+                            <?php }
+                            if($marcadores[$i]['youtube']!=""){ ?>
+                            '<div>'+
+                            '<iframe id="ytplayer"  width="640" height="390"'+
+                            'src="http://www.youtube.com/embed/<?= $marcadores[$i]['youtube'];?>"'+
+                            'frameborder="0"/>'+
                             '</div>'+
+                            <?php } ?>
+                            '</section>'+
                             '</fieldset>'+
                             '</div>';
 

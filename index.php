@@ -53,10 +53,10 @@ else
             </div>
         </header>
 
-        <div id="content" class="container">
+        <div id="content">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+                <div class="col-md-3">
                     <div class="well no-padding">
                         <form id="login-form" action="return false" onsubmit="return false" class="smart-form" novalidate="novalidate" method="post">
                             <header>
@@ -103,9 +103,8 @@ else
                         </script>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-                    <h1 class="txt-color-red login-header-big">El Camino...</h1>
-                    <img src="img/logo-TheWay.png" alt="TheWay" width="900px">
+                <div class="col-md-9">
+                    <img src="img/img-bienvenida-01.png" alt="TheWay" width="1300px">
                 </div>
             </div>
         </div>

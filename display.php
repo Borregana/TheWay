@@ -39,6 +39,9 @@ if (isset($_SESSION['alias']))
         </script>
 
         <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+        <script src="js/smartwidgets/jarvis.widget.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -190,13 +193,69 @@ if (isset($_SESSION['alias']))
             </div>
         </div>
         <div class="pull-right">
-            <span class="txt-color-teal login-header-big"><b><?= $_SESSION['alias'] ?></b></span>
+            <span class="txt-color-teal login-header-big"><font size="4"><b><?= $_SESSION['alias'] ?></b></font></span>
             <?php
             if($_SESSION['imagen']!=""){
                 ?>
                 <img width="50" height="50" src="<?= $_SESSION['imagen']?>">
             <?php } ?>
         </div>
+        <!-- projects dropdown -->
+        <div id="instrucciones-context" class="pull-right">
+
+            <span class="label"></span>
+            <span id="intrucciones" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown"><font size="3">Instrucciones de uso </font> <i class="fa fa-angle-down"></i></span>
+
+            <!-- Suggestion: populate this list with fetch and push technique -->
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="txt-color-red" ><font size="2"> Herramientas de dibujo en el mapa</font></a>
+                </li>
+                <li>
+                    <a>Mano: permite mover el mapa y dejar de dibujar.</a>
+                </li>
+                <li>
+                    <a>Marcador: puedes colocar marcadores en el mapa.</a>
+                </li>
+                <li>
+                    <a>Linea: puedes dibujar lineas rectas haciendo click en el mapa.</a>
+                </li>
+                <li>
+                    <a>Eliminar: para eliminar un marcador o una linea haz dobleclick sobre ello.</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="txt-color-red" ><font size="2"> Herramientas de dibujo fuera del mapa</font></a>
+                </li>
+                <li>
+                    <a>Redireccionar: Coloca el mapa sobre la ciudad o dirección escrita en el campo superior.</a>
+                </li>
+                <li>
+                    <a>Añadir marcador: Puedes colocar un marcador directamente escribiendo la dirección que desees.</a>
+                </li>
+                <li>
+                    <a>Cargar ruta kml: Escribiendo la url donde se encuentra el archivo kml o kmz lo carga sobre el mapa.</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="txt-color-red" ><font size="2"> Crear una ruta </font></a>
+                </li>
+                <li>
+                    <a>- En primer lugar debes guardar la ruta, el unico campo obligatorio es el nombre.<br>
+                        Se guarda la información y la ruta, pero no los marcadores.</a>
+                </li>
+                <li>
+                   <a>- Para guardar un marcador haz click sobre el y guardalo, posteriormente puedes subir fotos y videos.</a>
+                </li>
+                <li>
+                    <a>- Recuerda guardar la ruta despues de realizar cambios.</a>
+                </li>
+            </ul>
+            <!-- end dropdown-menu-->
+
+        </div>
+        <!-- end projects dropdown -->
+
     </header>
 
     <div class="col-md-9" id="map-canvas"></div>
