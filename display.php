@@ -142,6 +142,7 @@ if (isset($_SESSION['alias']))
                     $marcadores[$i]['imagen']=$img[2];
                     $vid=explode('/',$row['video']);
                     $marcadores[$i]['video']=$vid[2];
+                    $marcadores[$i]['youtube']=$row['youtube'];
                     $i++;
                 }
             }
@@ -241,11 +242,14 @@ if (isset($_SESSION['alias']))
                     <a class="txt-color-red" ><font size="2"> Crear una ruta </font></a>
                 </li>
                 <li>
-                    <a>- En primer lugar debes guardar la ruta, el unico campo obligatorio es el nombre.<br>
-                        Se guarda la información y la ruta, pero no los marcadores.</a>
+                    <a>- En primer lugar debes guardar la ruta, el unico campo obligatorio es el nombre.
+                         Se guarda la información y la ruta, pero no los marcadores.</a>
                 </li>
                 <li>
                    <a>- Para guardar un marcador haz click sobre el y guardalo, posteriormente puedes subir fotos y videos.</a>
+                </li>
+                <li>
+                    <a>- Si deseas subir un video de youtube necesitaras el ID, lo puedes encontrar al final de la url del video en la web de youtube</a>
                 </li>
                 <li>
                     <a>- Recuerda guardar la ruta despues de realizar cambios.</a>
@@ -374,7 +378,7 @@ if (isset($_SESSION['alias']))
     route[<?=$j;?>]=new google.maps.LatLng<?= $line[$j] ?>;
     <?php }
 ?>
-    function contentwindow(nombre,texto,idpunto,imagen,video) {
+    function contentwindow(nombre,texto,idpunto,imagen,video,youtube) {
         var contentString="";
         if(nombre== undefined){
             nombre="";
@@ -485,7 +489,7 @@ if (isset($_SESSION['alias']))
                 '<input type="hidden" id="imgold" name="imgold" value='+imagen+'>'+
                 '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
                 '<label class="input"><input type="file" accept="image" id="img_punto" name="img_punto" >'+
-                '<input type=text readonly="readonly" value='+imagen+'>'+
+                '<input type=text readonly="readonly" placeholder="No hay imagen" value='+imagen+'>'+
                 '<footer>'+
                 '<button id="img_btn" name="img_btn" class="btn btn-success"">'+
                 'Subir Imagen'+
@@ -501,8 +505,10 @@ if (isset($_SESSION['alias']))
                 '<input type="hidden" id="idpuntovid" name="idpuntovid" value='+idpunto+'>'+
                 '<input type="hidden" id="vidold"  name="vidold" value='+video+'>'+
                 '<input type="hidden" id="idrut" name="idrut" value='+idRuta+'>'+
-                '<label class="input"><input type="file" id="video_punto" name="video_punto" >'+
-                '<input type=text readonly="readonly" value='+video+'>'+
+                '<input type="file" id="video_punto" name="video_punto" >'+
+                '<input type=text readonly="readonly" placeholder="No hay video." value='+video+'>'+
+                '<br><span class="txt-color-green">Si deseas colocar un video de youtube, introduce aquí su ID.</span><br>'+
+                '<input type="text" id="youtube" name="youtube" placeholder="No hay ID." value="'+youtube+'">'+
                 '<footer>'+
                 '<button id="vid_btn" name="vid_btn" class="btn btn-success"">'+
                 'Subir Video'+
@@ -510,7 +516,6 @@ if (isset($_SESSION['alias']))
                 '</footer>'+
                 '</form>'+
                 '</div>'+
-                '<div><span class="txt-color-red">Debes guardar primero el punto y luego si lo deseas subir algun archivo</span></div>'+
                 '</div>'+
                 '</div>';
         }
@@ -730,12 +735,12 @@ if (isset($_SESSION['alias']))
 
             infoWindow = new google.maps.InfoWindow({
                 maxwidth: "60px",
-                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>')
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>','<?=$marcadores[$i]['youtube']?>')
             });
 
             var marker= new google.maps.Marker({
                 position: point,
-                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>')
+                content: contentwindow('<?=$marcadores[$i]['nombre']?>','<?=$marcadores[$i]['texto']?>','<?=$marcadores[$i]['idpunto']?>','<?=$marcadores[$i]['imagen']?>','<?=$marcadores[$i]['video']?>','<?=$marcadores[$i]['youtube']?>')
             });
 
             google.maps.event.addListener(marker, 'click', function() {
