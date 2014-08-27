@@ -7,7 +7,7 @@
  */
 
 if(isset($_POST)){
-    $con=mysqli_connect("localhost","root","root","Rutas");
+    include 'connect.php';
 
     $id=mysqli_real_escape_string($con,$_POST['idruta']);
 

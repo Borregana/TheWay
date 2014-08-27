@@ -8,12 +8,8 @@
 
 error_reporting(0);
 session_start();
-$con = new mysqli("localhost", "root", "root", "Rutas");
-if ($con->connect_errno)
-{
-    echo "Fallo al conectar a MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-    exit();
-}
+include 'connect.php';
+
 
 $id=mysqli_real_escape_string($con,$_POST['id']);
 

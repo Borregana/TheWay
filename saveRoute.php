@@ -3,11 +3,8 @@ session_start();
 if(isset($_POST)){
     if($_POST['nombre']!=""){
 
-        $con=mysqli_connect("localhost","root","root","Rutas");
+        include 'connect.php';
 
-        if(mysqli_connect_errno()){
-            echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-        }
 
         //Comprobamos que el nombre no este en uso
         $name= mysqli_real_escape_string($con,$_POST['nombre']);

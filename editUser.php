@@ -8,11 +8,8 @@
 session_start();
 if(isset($_SESSION['alias'])){
 
-    $con=mysqli_connect("localhost","root","root","Rutas");
+    include 'connect.php';
 
-    if(mysqli_connect_errno()){
-        echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-    }
 
     $usuario=mysqli_real_escape_string($con,$_SESSION['usuario_id']);
     $result= mysqli_query($con, "SELECT * FROM Usuarios WHERE id='$usuario'");
@@ -139,6 +136,23 @@ if(isset($_SESSION['alias'])){
                                 </button>
                             </footer>
                         </form>
+                        <div id="resp"></div>
+                        <form class="smart-form" action="return false" onsubmit="return false" method="post">
+                            <header>
+                                Darse de baja.
+                            </header>
+                            <fieldset>
+                                <section>
+                                    <input type="hidden" id="iduser" name="iduser" value="<?= $_SESSION['usuario_id']?>">
+                                    <label class="input"> <i class="icon-append fa fa-lock"></i>
+                                        <input type="password" id="pass" name="pass" placeholder="Password">
+                                        <b class="tooltip tooltip-bottom-right">Tu password</b> </label>
+                                </section>
+                            </fieldset>
+                            <footer>
+                                <button class="btn btn-danger" onclick="borrarCuenta(document.getElementById('iduser').value,document.getElementById('pass').value);">Borrar cuenta</button>
+                            </footer>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -172,7 +186,7 @@ if(isset($_SESSION['alias'])){
                                                     <?= $list_amigos[$i]['nombre'];?>
                                                 </button>
                                                 <div class="pull-right">
-                                                    <button class="btn btn-danger" onclick="eliminar(document.getElementById('<?='iduser'.$i ?>').value);">
+                                                    <button class="btn btn-danger" onclick="eliminarAmigo(document.getElementById('<?='iduser'.$i ?>').value);">
                                                         <i class="icon-append glyphicon glyphicon-trash"></i>
                                                     </button>
                                                 </div>
@@ -232,7 +246,7 @@ if(isset($_SESSION['alias'])){
                 }
             });
         }
-        function eliminar(iduser)
+        function eliminarAmigo(iduser)
         {
             $.ajax({
                 url: "deleteAmigo.php",
@@ -240,6 +254,21 @@ if(isset($_SESSION['alias'])){
                 data: "iduser="+iduser,
                 success: function(resp){
                     $('#datos').html(resp);
+                }
+            });
+        }
+        function borrarCuenta(iduser, pass)
+        {
+            var parametros={
+                "iduser": iduser,
+                "pass": pass
+            };
+            $.ajax({
+                url: "deleteUser.php",
+                type: "POST",
+                data: parametros,
+                success: function(resp){
+                    $('#resp').html(resp);
                 }
             });
         }

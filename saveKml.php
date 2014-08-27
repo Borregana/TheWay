@@ -8,11 +8,8 @@
 
 session_start();
 if(isset($_POST)){
-   $con=mysqli_connect("localhost","root","root","Rutas");
+    include 'connect.php';
 
-        if(mysqli_connect_errno()){
-            echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-        }
 
     $url=mysqli_real_escape_string($con,$_POST['url']);
     $idruta=mysqli_real_escape_string($con,$_POST['idruta']);

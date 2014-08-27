@@ -8,12 +8,8 @@
 
 error_reporting(0);
 session_start();
-$con = new mysqli("localhost", "root", "root", "Rutas");
-if ($con->connect_errno)
-{
-    echo "Fallo al conectar a MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-    exit();
-}
+include 'connect.php';
+
 @mysqli_query($con, "SET NAMES 'utf8'");
 if ($_POST['user'] == null || $_POST['pass'] == null)
 {

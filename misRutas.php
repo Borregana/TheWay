@@ -76,12 +76,7 @@ if (isset($_SESSION['alias']))
     <?php
     if(isset($_SESSION['usuario_id']))
     {
-        $con=mysqli_connect("localhost","root","root","Rutas");
-
-        if(mysqli_connect_errno()){
-            echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-        }
-
+        include 'connect.php';
 
         $usuario=mysqli_real_escape_string($con, $_SESSION['usuario_id']);
 

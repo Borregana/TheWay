@@ -7,11 +7,8 @@
  */
 session_start();
 
-$con=mysqli_connect("localhost","root","root","Rutas");
+include 'connect.php';
 
-if(mysqli_connect_errno()){
-    echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-}
 
 $usuario= mysqli_real_escape_string($con,$_SESSION['usuario_id']);
 $amigo_id= mysqli_real_escape_string($con,$_POST['iduser']);

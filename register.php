@@ -6,11 +6,8 @@
  * Time: 17.40
  */
 
-$con=mysqli_connect("localhost","root","root","Rutas");
+include 'connect.php';
 
-if(mysqli_connect_errno()){
-    echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-}
 
 //validar variables
 $alias= mysqli_real_escape_string($con,$_POST['alias']);

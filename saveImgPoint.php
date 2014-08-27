@@ -8,11 +8,8 @@
 
 
 session_start();
-$con=mysqli_connect("localhost","root","root","Rutas");
+include 'connect.php';
 
-if(mysqli_connect_errno()){
-    echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-}
 
 //primero guardamos la imagen
 if(isset($_POST['idpuntoimg']))

@@ -74,7 +74,7 @@ if (isset($_SESSION['alias']))
     if(isset($_POST['idruta'])){?>
         <script> idRuta = <?= $_POST['idruta'] ?>;</script>
         <?php
-        $con=mysqli_connect('localhost','root','root','Rutas');
+        include 'connect.php';
         if(isset($_POST['idruta'])){
             $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
         }

@@ -8,12 +8,7 @@
 
 session_start();
 if(isset($_SESSION['alias'])){
-    $con=mysqli_connect("localhost","root","root","Rutas");
-
-    if(mysqli_connect_errno()){
-        echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-    }
-
+    include 'connect.php';
     $idruta=mysqli_real_escape_string($con,$_POST['idruta']);
 
     $consulta="SELECT * FROM Rutas WHERE id='$idruta'";

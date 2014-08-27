@@ -163,11 +163,7 @@ if (isset($_SESSION['alias']))
                     <?php
                     if(isset($_POST['nombre'])){
 
-                    $con=mysqli_connect("localhost","root","root","Rutas");
-
-                    if(mysqli_connect_errno()){
-                        echo "No se pudo conectar con la base de datos".mysqli_connect_error();
-                    }
+                    include 'connect.php';
 
                     $usuario= mysqli_real_escape_string($con,$_POST['usuario']);
                     $name= mysqli_real_escape_string($con,$_POST['nombre']);
