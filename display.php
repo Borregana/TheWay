@@ -73,105 +73,105 @@ if (isset($_SESSION['alias']))
     }
     if(isset($_POST['idruta'])){?>
         <script> idRuta = <?= $_POST['idruta'] ?>;</script>
-        <?php
-        include 'connect.php';
-        if(isset($_POST['idruta'])){
-            $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
+    <?php
+    include 'connect.php';
+    if(isset($_POST['idruta'])){
+        $_SESSION['idruta']=mysqli_real_escape_string($con,$_POST['idruta']);
+    }
+    $idruta=$_SESSION['idruta'];
+
+    $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
+    $resultado=mysqli_query($con,$consulta);
+
+    if($resultado){
+
+        //Regcogemos la informacion de la ruta
+        $infor=array(
+            'nombre'=>"",
+            'ciudad'=>"",
+            'tiempo'=>"",
+            'vehiculo'=>"",
+            'puntuacion'=>"",
+            'usuario'=>"",
+            'fecha'=>"",
+            'recorrido'=>"",
+            'url_kml'=>""
+        );
+        while($col=mysqli_fetch_array($resultado)){
+            $infor['nombre']=$col['nombre'];
+            $infor['ciudad']=$col['ciudad'];
+            $infor['tiempo']=$col['tiempo'];
+            $infor['vehiculo']=$col['vehiculo'];
+            $infor['puntuacion']=$col['puntuacion_media'];
+            $userid=$col['usuario_id'];
+            //Buscamos el alias del usuario creador de la ruta
+            $username="SELECT alias FROM Usuarios WHERE id='$userid'";
+            $resulname=mysqli_query($con,$username);
+            $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
+            $infor['fecha']=$col['fecha_publicacion'];
+            $infor['recorrido']=$col['recorrido'];
+            $infor['url_kml']=$col['url_kml'];
+        };
+        //Recogemos los datos del recorrido
+        $line=explode("),",$infor['recorrido']);
+        $tam=count($line);
+        for($i=0;$i<$tam-1;$i++){
+            $line[$i]=$line[$i].')';
         }
-        $idruta=$_SESSION['idruta'];
 
-        $consulta="SELECT * FROM Rutas WHERE id='$idruta'";
-        $resultado=mysqli_query($con,$consulta);
+        //Recogemos los datos de los marcadores
+        $marcadores=array(array(
+            'nombre'=>"",
+            'texto'=>"",
+            'punto_exacto'=>"",
+            'idpunto'=>"",
+            'imagen'=>"",
+            'video'=>""
+        ));
+        $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
+        $res_puntos=mysqli_query($con,$cons_puntos);
 
-        if($resultado){
-
-            //Regcogemos la informacion de la ruta
-            $infor=array(
-                'nombre'=>"",
-                'ciudad'=>"",
-                'tiempo'=>"",
-                'vehiculo'=>"",
-                'puntuacion'=>"",
-                'usuario'=>"",
-                'fecha'=>"",
-                'recorrido'=>"",
-                'url_kml'=>""
-            );
-            while($col=mysqli_fetch_array($resultado)){
-                $infor['nombre']=$col['nombre'];
-                $infor['ciudad']=$col['ciudad'];
-                $infor['tiempo']=$col['tiempo'];
-                $infor['vehiculo']=$col['vehiculo'];
-                $infor['puntuacion']=$col['puntuacion_media'];
-                $userid=$col['usuario_id'];
-                //Buscamos el alias del usuario creador de la ruta
-                $username="SELECT alias FROM Usuarios WHERE id='$userid'";
-                $resulname=mysqli_query($con,$username);
-                $infor['usuario']=mysqli_fetch_array($resulname)['alias'];
-                $infor['fecha']=$col['fecha_publicacion'];
-                $infor['recorrido']=$col['recorrido'];
-                $infor['url_kml']=$col['url_kml'];
-            };
-            //Recogemos los datos del recorrido
-            $line=explode("),",$infor['recorrido']);
-            $tam=count($line);
-            for($i=0;$i<$tam-1;$i++){
-                $line[$i]=$line[$i].')';
+        if($res_puntos){
+            $i=0;
+            while($row=mysqli_fetch_array($res_puntos)){
+                $marcadores[$i]['nombre']=$row['nombre'];
+                $marcadores[$i]['texto']=$row['texto'];
+                $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
+                $marcadores[$i]['idpunto']=$row['id'];
+                $img=explode('/',$row['imagen']);
+                $marcadores[$i]['imagen']=$img[2];
+                $vid=explode('/',$row['video']);
+                $marcadores[$i]['video']=$vid[2];
+                $marcadores[$i]['youtube']=$row['youtube'];
+                $i++;
             }
-
-            //Recogemos los datos de los marcadores
-            $marcadores=array(array(
-                'nombre'=>"",
-                'texto'=>"",
-                'punto_exacto'=>"",
-                'idpunto'=>"",
-                'imagen'=>"",
-                'video'=>""
-            ));
-            $cons_puntos="SELECT * FROM Puntos WHERE ruta_id='$idruta'";
-            $res_puntos=mysqli_query($con,$cons_puntos);
-
-            if($res_puntos){
-                $i=0;
-                while($row=mysqli_fetch_array($res_puntos)){
-                    $marcadores[$i]['nombre']=$row['nombre'];
-                    $marcadores[$i]['texto']=$row['texto'];
-                    $marcadores[$i]['punto_exacto']=$row['punto_exacto'];
-                    $marcadores[$i]['idpunto']=$row['id'];
-                    $img=explode('/',$row['imagen']);
-                    $marcadores[$i]['imagen']=$img[2];
-                    $vid=explode('/',$row['video']);
-                    $marcadores[$i]['video']=$vid[2];
-                    $marcadores[$i]['youtube']=$row['youtube'];
-                    $i++;
+        }
+    }
+    if($marcadores[0]['punto_exacto']!=""){
+    $centro=$marcadores[0]['punto_exacto'];
+    ?>
+        <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
+    <?php
+    }
+    elseif($infor['recorrido']!=""){
+    $centro=$line[0].$line[1];
+    ?>
+        <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
+    <?php
+    }
+    elseif($infor['ciudad']!=""){
+    $centro=$infor['ciudad'];
+    ?>
+        <script>
+            centro = "<?= $centro ?>";
+            geocoder.geocode( { 'address': centro}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    centro=results[0].geometry.location;
                 }
-            }
-        }
-        if($marcadores[0]['punto_exacto']!=""){
-            $centro=$marcadores[0]['punto_exacto'];
-            ?>
-            <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
-            <?php
-        }
-        elseif($infor['recorrido']!=""){
-            $centro=$line[0].$line[1];
-            ?>
-            <script> centro = new google.maps.LatLng(<?= $centro ?>);</script>
-            <?php
-            }
-        elseif($infor['ciudad']!=""){
-            $centro=$infor['ciudad'];
-            ?>
-            <script>
-                centro = "<?= $centro ?>";
-                geocoder.geocode( { 'address': centro}, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        centro=results[0].geometry.location;
-                    }
-                });
-            </script>
-            <?php
-        }
+            });
+        </script>
+    <?php
+    }
     }
     ?>
     <body>
@@ -243,10 +243,10 @@ if (isset($_SESSION['alias']))
                 </li>
                 <li>
                     <a>- En primer lugar debes guardar la ruta, el unico campo obligatorio es el nombre.
-                         Se guarda la información y la ruta, pero no los marcadores.</a>
+                        Se guarda la información y la ruta, pero no los marcadores.</a>
                 </li>
                 <li>
-                   <a>- Para guardar un marcador haz click sobre el y guardalo, posteriormente puedes subir fotos y videos.</a>
+                    <a>- Para guardar un marcador haz click sobre el y guardalo, posteriormente puedes subir fotos y videos.</a>
                 </li>
                 <li>
                     <a>- Si deseas subir un video de youtube necesitaras el ID, lo puedes encontrar al final de la url del video en la web de youtube</a>
@@ -571,7 +571,7 @@ if (isset($_SESSION['alias']))
     function submitRoute(nombre,ciudad,tiempo,vehiculo,publica) {
         var p = "";
         for (var i=1; i<routeArray.length; i++) {
-            p += routeArray[i].getPath().getArray().toString() + "\n";
+            p += routeArray[i];
         }
         var s = "";
         for (var j=0; j<markersArray.length; j++) {
@@ -579,7 +579,7 @@ if (isset($_SESSION['alias']))
         }
         var parametros = {
             "ruta_id":idRuta,
-            "lines" : p,
+            "lines" : routeArray[1],
             "puntos": s,
             "nombre": nombre,
             "ciudad": ciudad,
@@ -722,7 +722,8 @@ if (isset($_SESSION['alias']))
         google.maps.event.addListenerOnce(map, 'idle', function() {
 
             var polyline= new google.maps.Polyline(polylineOptions);
-            routeArray.push(polyline);
+            routeArray.push("");
+            routeArray.push(polyline.getPath().getArray().toString());
             google.maps.event.addDomListener(polyline, "rightclick", function() {
                 removePolyline(polyline);
             });
@@ -799,7 +800,7 @@ if (isset($_SESSION['alias']))
                         google.maps.event.addDomListener(polyline, "rightclick", function() {
                             removePolyline(polyline);
                         });
-                        routeArray.push(polyline);
+                        routeArray.push(polyline.getPath().getArray().toString());
                     });
                 }
                 else if(event.type == google.maps.drawing.OverlayType.MARKER) {
