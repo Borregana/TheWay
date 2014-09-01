@@ -13,25 +13,40 @@ include 'connect.php';
 $alias= mysqli_real_escape_string($con,$_POST['alias']);
 $mail= mysqli_real_escape_string($con,$_POST['mail']);
 $password= md5(mysqli_real_escape_string($con,$_POST['password']));
-//nos guardamos la fecha actual
-$fecha_actual=date('c');
-$fecha=explode('T',$fecha_actual);
-$date=$fecha[0];
+$confirmar= md5(mysqli_real_escape_string($con,$_POST['confirmar']));
 
-$consulta=mysqli_query($con,"SELECT * FROM Usuarios WHERE alias='$alias'");
+if($alias=="" or $mail=="" or $password=="" or $confirmar=="" ){
+    echo '<span class="txt-color-redLight login-header-big">Todos los campos son obligatorios</span>';
 
-if(mysqli_num_rows($consulta)>0){
-    echo '<span class="txt-color-redLight login-header-big">El alias ya esta en uso</span>';
 }
 else{
-    $sql="INSERT INTO Usuarios (alias, mail, password,fecha_alta) VALUES ('$alias','$mail','$password','$date')";
+    if($_POST['password'] == $_POST['confirmar']){
+//nos guardamos la fecha actual
+        $fecha_actual=date('c');
+        $fecha=explode('T',$fecha_actual);
+        $date=$fecha[0];
 
-    if(!mysqli_query($con, $sql)){
-        die('Error'. mysqli_error($con));
+        $consulta=mysqli_query($con,"SELECT * FROM Usuarios WHERE alias='$alias'");
+
+        if(mysqli_num_rows($consulta)>0){
+            echo '<span class="txt-color-redLight login-header-big">El alias ya esta en uso</span>';
+        }
+        else{
+            $sql="INSERT INTO Usuarios (alias, mail, password,fecha_alta) VALUES ('$alias','$mail','$password','$date')";
+
+            if(!mysqli_query($con, $sql)){
+                die('Error'. mysqli_error($con));
+            }
+            else{
+                echo '<span class="txt-color-green login-header-big">Usuario registrado con exito</span>';
+                echo '<script>location.href = "index.php";</script>';
+            }
+        }
     }
     else{
-        echo '<span class="txt-color-green login-header-big">Usuario registrado con exito</span>';
-        echo '<script>location.href = "index.php";</script>';
+        print_r($_POST);
+        echo '<span class="txt-color-redLight login-header-big">Los passwords no coinciden.</span>';
+
     }
 }
 mysqli_close($con);

@@ -6,7 +6,7 @@
  * Time: 17.31
  */
 session_start();
-    $con=mysqli_connect("localhost","root","root","Rutas");
+    $con=mysqli_connect("localhost","al132173","pablo1987","al132173");
     if(mysqli_connect_errno()){
         echo "No se pudo conectar con la base de datos".mysqli_connect_error();
     }

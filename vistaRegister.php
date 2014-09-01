@@ -58,25 +58,25 @@
                         <fieldset>
                             <section>
                                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                                    <input type="text" id="alias" name="alias" placeholder="Alias">
+                                    <input type="text" id="alias" name="alias" placeholder="Alias" required="required">
                                     <b class="tooltip tooltip-bottom-right">Tu nombre de usuario para acceder</b> </label>
                             </section>
 
                             <section>
                                 <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                                    <input type="email" id="mail" name="mail" placeholder="Direccion de Email">
+                                    <input type="email" id="mail" name="mail" placeholder="Direccion de Email" required="required">
                                     <b class="tooltip tooltip-bottom-right">Lo necesitamos para estar en contacto</b> </label>
                             </section>
 
                             <section>
                                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                                    <input type="password" id="password" name="password" placeholder="Password" >
+                                    <input type="password" id="password" name="password" placeholder="Password"  required="required">
                                     <b class="tooltip tooltip-bottom-right">Tu password para acceder</b> </label>
                             </section>
 
                             <section>
                                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                                    <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar password">
+                                    <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar password" required="required">
                                     <b class="tooltip tooltip-bottom-right">No olvides tu password</b> </label>
                             </section>
                         </fieldset>
@@ -105,7 +105,8 @@
                                 var parametros={
                                     "alias": alias,
                                     "mail": mail,
-                                    "password":password
+                                    "password":password,
+                                    "confirmar": confirmar
                                 };
                                 $.ajax({
                                     data: parametros,
