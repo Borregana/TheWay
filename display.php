@@ -570,16 +570,17 @@ if (isset($_SESSION['alias']))
 
     function submitRoute(nombre,ciudad,tiempo,vehiculo,publica) {
         var p = "";
-        for (var i=1; i<routeArray.length; i++) {
-            p += routeArray[i];
-        }
+        for (var i=2; i<routeArray.length; i++) {
+            p += routeArray[i].getPath().getArray().toString() + "\n";
+            }
+        alert(p);
         var s = "";
         for (var j=0; j<markersArray.length; j++) {
             s += markersArray[j].getPosition().toString();
         }
         var parametros = {
             "ruta_id":idRuta,
-            "lines" : routeArray[1],
+            "lines" : p,
             "puntos": s,
             "nombre": nombre,
             "ciudad": ciudad,
@@ -723,7 +724,8 @@ if (isset($_SESSION['alias']))
 
             var polyline= new google.maps.Polyline(polylineOptions);
             routeArray.push("");
-            routeArray.push(polyline.getPath().getArray().toString());
+            routeArray.push("");
+            routeArray.push(polyline);
             google.maps.event.addDomListener(polyline, "rightclick", function() {
                 removePolyline(polyline);
             });
@@ -800,7 +802,7 @@ if (isset($_SESSION['alias']))
                         google.maps.event.addDomListener(polyline, "rightclick", function() {
                             removePolyline(polyline);
                         });
-                        routeArray.push(polyline.getPath().getArray().toString());
+                        routeArray.push(polyline);
                     });
                 }
                 else if(event.type == google.maps.drawing.OverlayType.MARKER) {
