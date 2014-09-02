@@ -573,7 +573,6 @@ if (isset($_SESSION['alias']))
         for (var i=2; i<routeArray.length; i++) {
             p += routeArray[i].getPath().getArray().toString() + "\n";
             }
-        alert(p);
         var s = "";
         for (var j=0; j<markersArray.length; j++) {
             s += markersArray[j].getPosition().toString();
