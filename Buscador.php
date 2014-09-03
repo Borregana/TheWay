@@ -14,7 +14,7 @@ if (isset($_SESSION['alias']))
     <html>
     <head>
 
-        <title>Drawing tools</title>
+        <title>The way is here...</title>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
 

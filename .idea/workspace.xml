@@ -1,189 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="corregido un error de lineas en display&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/demowidget.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/email-compose.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/email-opened.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/email-reply.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/email-template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/email/email-list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/inbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/notify/mail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/notify/notifications.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/notify/tasks.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/website-template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/Sorting icons.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/ajax-loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/copyright.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/female.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/male.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/sunny-big.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/avatars/sunny.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/64x64.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/basic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/copyright.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/demo-smartbig-alert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/demo-smartmedium-alert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/demo-smartsmall-alert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/hero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/image-placeholder-64x64.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/iphoneview.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/m1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/m2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/m3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/newsletter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/responseimg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/sample.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/sidebar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/sidebarhero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/site-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/site-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/demo/widget-colorpicker.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/dropzone/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/dropzone/spritemap.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/dropzone/spritemap@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fcr-default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flags/de.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flags/es.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flags/flags.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flags/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/flags/us.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/goma.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/gradient/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/gradient/login.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/hue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/americanexpress.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/license.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/mastercard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/paypal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/invoice/visa.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_flat_0_999999_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_glass_75_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-bg_inset-soft_95_fef1ec_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_428bca_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_555555_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_999999_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_f0ad4e_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_f6cf3b_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/jqueryui/ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/logo-blacknwhite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/logo-blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/logo-o.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/logo-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mybg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/divider.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/graphy-xs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/graphy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/license-info.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/lightpaperfibers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/movable.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/nistri-xs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/nistri.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/overlay-pattern.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/paper-xs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/paper.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/pattern.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/sneaker_mesh_fabric-xs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/sneaker_mesh_fabric.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/tileable_wood_texture-xs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/pattern/tileable_wood_texture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/ribbon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/saturation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/save.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/select2-spinner.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/select2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/sort_asc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/sort_asc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/sort_both.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/sort_desc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/sort_desc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-full-9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/superbox/superbox-thumb-9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/demo-comment.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/demo-contacts.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/demo-register.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/bigbox.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/bigbox.ogg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/messagebox.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/messagebox.ogg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/smallbox.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sound/smallbox.ogg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/display.php" afterPath="$PROJECT_DIR$/display.php" />
+    <list default="true" id="e69258a6-410c-4337-befc-ded04f760a25" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Buscador.php" afterPath="$PROJECT_DIR$/Buscador.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheWay.iws" />
@@ -221,16 +40,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="display.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="575" column="0" selection-start="25223" selection-end="25223" vertical-scroll-proportion="0.5208845" vertical-offset="8908" max-vertical-offset="13344">
+            <state line="575" column="0" selection-start="25223" selection-end="25223" vertical-scroll-proportion="-4.1568627" vertical-offset="8908" max-vertical-offset="13344">
               <folding>
                 <marker date="1409674008000" expanded="true" signature="2720:2758" placeholder="SELECT * FRO..Rutas..." />
                 <marker date="1409674008000" expanded="true" signature="3572:3617" placeholder="SELECT alias..Usuarios..." />
                 <marker date="1409674008000" expanded="true" signature="4385:4429" placeholder="SELECT * FRO..Puntos..." />
                 <marker date="1409674008000" expanded="false" signature="18485:18498" placeholder="..." />
                 <marker date="1409674008000" expanded="false" signature="19316:19329" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editUser.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/editUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="166" selection-end="166" vertical-scroll-proportion="16.64" vertical-offset="592" max-vertical-offset="4592">
+              <folding>
+                <marker date="1409153883000" expanded="true" signature="271:313" placeholder="SELECT * FRO..Usuarios..." />
+                <marker date="1409153883000" expanded="true" signature="470:518" placeholder="SELECT * FRO..Grupos..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Buscador.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Buscador.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="33" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.1847575" vertical-offset="336" max-vertical-offset="5568">
+              <folding>
+                <marker date="1409703279000" expanded="true" signature="8179:8225" placeholder="SELECT id FR..Usuarios..." />
+                <marker date="1409703279000" expanded="true" signature="10608:10673" placeholder="SELECT * FRO..Grupos..." />
+                <marker date="1409703279000" expanded="true" signature="11762:11803" placeholder="SELECT * FRO..Usuarios..." />
+                <marker date="1409703279000" expanded="true" signature="14773:14814" placeholder="SELECT * FRO..Usuarios..." />
               </folding>
             </state>
           </provider>
@@ -270,7 +115,6 @@
         <option value="$PROJECT_DIR$/js/kmlFile.js" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/Buscador.php" />
         <option value="$PROJECT_DIR$/copiaRoute.php" />
         <option value="$PROJECT_DIR$/datosAmigo.php" />
         <option value="$PROJECT_DIR$/deleteAmigo.php" />
@@ -300,6 +144,7 @@
         <option value="$PROJECT_DIR$/vistaRegister.php" />
         <option value="$PROJECT_DIR$/saveRoute.php" />
         <option value="$PROJECT_DIR$/display.php" />
+        <option value="$PROJECT_DIR$/Buscador.php" />
       </list>
     </option>
   </component>
@@ -616,7 +461,11 @@
       <created>1409659520426</created>
       <updated>1409659520426</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="corregido un error de lineas en display&#10;">
+      <created>1409699402472</created>
+      <updated>1409699402472</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -677,7 +526,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="ahora el display tambien puede editar rutas, pero falta solucionar el poder subir imagenes y borrar marcadores&#10;he anyadido un scrollbar en mis rutas" />
     <MESSAGE value="detalle en los infowindows por si no existe la imagen" />
     <MESSAGE value="funcions de publicar i despublicar, detalls de misrutas" />
     <MESSAGE value="borrar rutes ok&#10;" />
@@ -702,7 +550,8 @@
     <MESSAGE value="creat arxiu connect y modificar el register per que siga mes segur" />
     <MESSAGE value="corregit el error que no guardaba la linea al editar" />
     <MESSAGE value="corregido un error de lineas en display" />
-    <option name="LAST_COMMIT_MESSAGE" value="corregido un error de lineas en display" />
+    <MESSAGE value="corregido un error de lineas en display&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="corregido un error de lineas en display&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -793,11 +642,6 @@
         <state line="7" column="4" selection-start="94" selection-end="169" vertical-scroll-proportion="-4.48" vertical-offset="0" max-vertical-offset="272" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buscador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="35" selection-start="7397" selection-end="7440" vertical-scroll-proportion="0.36144578" vertical-offset="2400" max-vertical-offset="5568" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/copiaRoute.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="166" selection-end="166" vertical-scroll-proportion="0.14457831" vertical-offset="0" max-vertical-offset="1360" />
@@ -866,11 +710,6 @@
     <entry file="file://$PROJECT_DIR$/publicar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.11816839" vertical-offset="0" max-vertical-offset="677" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="166" selection-end="166" vertical-scroll-proportion="0.26506025" vertical-offset="0" max-vertical-offset="4592" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saveAmigo.php">
@@ -954,13 +793,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/display.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="575" column="0" selection-start="25223" selection-end="25223" vertical-scroll-proportion="0.5208845" vertical-offset="8908" max-vertical-offset="13344">
+        <state line="575" column="0" selection-start="25223" selection-end="25223" vertical-scroll-proportion="-4.1568627" vertical-offset="8908" max-vertical-offset="13344">
           <folding>
             <marker date="1409674008000" expanded="true" signature="2720:2758" placeholder="SELECT * FRO..Rutas..." />
             <marker date="1409674008000" expanded="true" signature="3572:3617" placeholder="SELECT alias..Usuarios..." />
             <marker date="1409674008000" expanded="true" signature="4385:4429" placeholder="SELECT * FRO..Puntos..." />
             <marker date="1409674008000" expanded="false" signature="18485:18498" placeholder="..." />
             <marker date="1409674008000" expanded="false" signature="19316:19329" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="166" selection-end="166" vertical-scroll-proportion="16.64" vertical-offset="592" max-vertical-offset="4592">
+          <folding>
+            <marker date="1409153883000" expanded="true" signature="271:313" placeholder="SELECT * FRO..Usuarios..." />
+            <marker date="1409153883000" expanded="true" signature="470:518" placeholder="SELECT * FRO..Grupos..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buscador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="33" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.1847575" vertical-offset="336" max-vertical-offset="5568">
+          <folding>
+            <marker date="1409703279000" expanded="true" signature="8179:8225" placeholder="SELECT id FR..Usuarios..." />
+            <marker date="1409703279000" expanded="true" signature="10608:10673" placeholder="SELECT * FRO..Grupos..." />
+            <marker date="1409703279000" expanded="true" signature="11762:11803" placeholder="SELECT * FRO..Usuarios..." />
+            <marker date="1409703279000" expanded="true" signature="14773:14814" placeholder="SELECT * FRO..Usuarios..." />
           </folding>
         </state>
       </provider>
