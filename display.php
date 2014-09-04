@@ -181,31 +181,11 @@ if (isset($_SESSION['alias']))
         <div id="logo-group" class="col-md-2">
             <span id="logo"> <img src="img/logo-TheWay.png" alt="TheWay"> </span>
         </div>
-        <div class="col-md-8">
-            <div class="btn-group">
-                <?php
-                if($idruta!=""){?>
-                    <a href="display.php" title="Private"><i class="btn btn-primary">Creador</i></a>
-                <?php } ?>
-                <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
-                <a href="Buscador.php" title="Publica"><i class="btn btn-info">Buscador</i></a>
-                <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
-                <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
-            </div>
-        </div>
-        <div class="pull-right">
-            <span class="txt-color-teal login-header-big"><font size="4"><b><?= $_SESSION['alias'] ?></b></font></span>
-            <?php
-            if($_SESSION['imagen']!=""){
-                ?>
-                <img width="50" height="50" src="<?= $_SESSION['imagen']?>">
-            <?php } ?>
-        </div>
         <!-- projects dropdown -->
-        <div id="instrucciones-context" class="pull-right">
+        <div id="instrucciones-context">
 
             <span class="label"></span>
-            <span id="intrucciones" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown"><font size="3">Instrucciones de uso </font> <i class="fa fa-angle-down"></i></span>
+            <span id="intrucciones" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown"><font size="3">Ayuda</font> <i class="fa fa-info-circle"></i></span>
 
             <!-- Suggestion: populate this list with fetch and push technique -->
             <ul class="dropdown-menu">
@@ -222,7 +202,7 @@ if (isset($_SESSION['alias']))
                     <a>Linea: puedes dibujar lineas rectas haciendo click en el mapa.</a>
                 </li>
                 <li>
-                    <a>Eliminar: para eliminar un marcador o una linea haz dobleclick sobre ello.</a>
+                    <a>Eliminar: para eliminar un marcador o una linea haz click con el botón secundario sobre ello.</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -259,6 +239,28 @@ if (isset($_SESSION['alias']))
 
         </div>
         <!-- end projects dropdown -->
+        <div class="col-md-8">
+            <div class="btn-group">
+                <?php
+                if($idruta!=""){?>
+                    <a href="display.php" title="Private"><i class="btn btn-primary">Creador</i></a>
+                <?php } ?>
+                <a href="misRutas.php" title="Private"><i class="btn btn-success">Mis Rutas</i></a>
+                <a href="Buscador.php" title="Publica"><i class="btn btn-info">Buscador</i></a>
+                <a href="editUser.php" title="Perfil"><i class="btn btn-warning">Perfil</i></a>
+                <a href="logout.php" title="logout"><i class="btn btn-danger">Desconectar</i></a>
+            </div>
+        </div>
+
+        <div class="pull-right">
+            <span class="txt-color-teal login-header-big"><font size="4"><b><?= $_SESSION['alias'] ?></b></font></span>
+            <?php
+            if($_SESSION['imagen']!=""){
+                ?>
+                <img width="50" height="50" src="<?= $_SESSION['imagen']?>">
+            <?php } ?>
+        </div>
+
 
     </header>
 
