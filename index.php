@@ -104,7 +104,7 @@ else
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <img src="img/img-bienvenida-01.png" alt="TheWay" width="1300px">
+                    <img src="img/img-bienvenida-01.png" alt="TheWay" width="1000px">
                 </div>
             </div>
         </div>

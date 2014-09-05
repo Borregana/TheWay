@@ -52,7 +52,7 @@
 
                     <form  id="smart-form-register" action="return false" onsubmit="return false" class="smart-form client-form" method="post">
                         <header>
-                            Registro rapido!!
+                            Registro rápido!!
                         </header>
                         <div id="resultado"></div>
                         <fieldset>

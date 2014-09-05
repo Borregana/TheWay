@@ -725,7 +725,6 @@ if (isset($_SESSION['alias']))
 
             var polyline= new google.maps.Polyline(polylineOptions);
             routeArray.push("");
-            routeArray.push("");
             routeArray.push(polyline);
             google.maps.event.addDomListener(polyline, "rightclick", function() {
                 removePolyline(polyline);
